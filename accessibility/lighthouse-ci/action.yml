@@ -14,7 +14,7 @@ runs:
     - name: Audit URLs using Lighthouse
       uses: treosh/lighthouse-ci-action@v12
       with:
-        configPath: "./accessibility/lighthouse-ci/.lighthouserc.js"
+        urls: 'http://localhost:4200/home'
         uploadArtifacts: true
         temporaryPublicStorage: true
       env:

@@ -10,13 +10,18 @@ inputs:
 runs:
   using: 'composite'
   steps:
+    - name: Setup Python
+      uses: actions/setup-python@v5
+      with:
+        python-version: '3.13'
+
     - name: Install dependencies and run Ecoindex
       id: ecoindex
       shell: bash
       run: |
         pip install --no-cache-dir -r ./accessibility/ecoindex-ci/requirements.txt
         playwright install
-        python3 ./accessibility/ecoindex-ci/main.py http://localhost:4200/home
+        python3 ./accessibility/ecoindex-ci/main.py http://localhost:4200/feelings
         ECOINDEX_JSON=$(cat ecoindex-result.json)
         echo "result=$ECOINDEX_JSON" >> $GITHUB_OUTPUT
 

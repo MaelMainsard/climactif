@@ -21,11 +21,6 @@ jobs:
         with:
           node-version: 22
 
-      - name: Setup Python
-        uses: actions/setup-python@v5
-        with:
-          python-version: '3.13'
-
       - name: Build App
         shell: bash
         run: |
@@ -48,17 +43,8 @@ jobs:
 #          github-token: ${{ secrets.GITHUB_TOKEN }}
 
 
-#      - name: Run Ecoindex Audit
-#        uses: ./accessibility/ecoindex-ci
-#        with:
-#            github-token: ${{ secrets.GITHUB_TOKEN }}
-#  lighthouseci:
-#    runs-on: ubuntu-latest
-#    steps:
-#      - name: Checkout Code
-#        uses: actions/checkout@v4
-#
-#
-#
-#
-#
+      - name: Run Ecoindex Audit
+        uses: ./accessibility/ecoindex-ci
+        with:
+            github-token: ${{ secrets.GITHUB_TOKEN }}
+

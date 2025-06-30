@@ -2,7 +2,7 @@ module.exports = {
   ci: {
     collect: {
       staticDistDir: './dist/climactif/browser',
-      url: ['http://localhost:3000/home'],
+      url: ['http://localhost:4200/home'],
     },
     assets: {
       assertions: {

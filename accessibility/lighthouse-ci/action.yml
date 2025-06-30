@@ -10,22 +10,12 @@ inputs:
 runs:
   using: 'composite'
   steps:
-    - name: Checkout repository
-      uses: actions/checkout@v4
-
-    - name: Setup Node.js
-      uses: actions/setup-node@v4
+    - uses: actions/checkout@v4
+    - name: Audit URLs using Lighthouse
+      uses: treosh/lighthouse-ci-action@v12
       with:
-        node-version: 22
-
-    - name: Install dependencies
-      shell: bash
-      run: npm ci
-
-    - name: Build project
-      shell: bash
-      run: npm run build
-
-    - name: Run Lighthouse CI
-      shell: bash
-      run: npx lhci autorun --config=./accessibility/lighthouse-ci/.lighthouserc.js
+        configPath: "./accessibility/lighthouse-ci/.lighthouserc.js"
+        uploadArtifacts: true
+        temporaryPublicStorage: true
+      env:
+        LHCI_GITHUB_APP_TOKEN: ${{ inputs.github-token }}

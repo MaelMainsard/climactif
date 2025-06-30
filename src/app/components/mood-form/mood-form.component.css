@@ -14,3 +14,11 @@
 :host ::ng-deep .color-slider.p-slider .p-slider-range {
   background: transparent;
 }
+
+.mood-textarea:focus {
+  outline: none;
+}
+.mood-textarea:focus-visible {
+  outline: 1px solid #000000;
+  outline-offset: 2px;
+}

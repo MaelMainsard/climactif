@@ -27,6 +27,7 @@ export class MoodFormComponent implements OnInit {
 
   moodForm!: FormGroup;
   keywords: Keyword[] = [];
+  value!: string;
 
   constructor(private fb: FormBuilder) {}
 

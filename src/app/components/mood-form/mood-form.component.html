@@ -16,8 +16,9 @@
           pTextarea
           id="description"
           formControlName="description"
+          [(ngModel)]="value"
           rows="4"
-          class="w-full p-3 placeholder:text-gray-400"
+          class="mood-textarea w-full p-3 placeholder:text-gray-700 bg-gray-700/30 border-0 rounded-lg text-black"
           placeholder="Quel est votre mood du moment ?"
         ></textarea>
       </div>

@@ -32,12 +32,10 @@ jobs:
           npm install
           npm run build
 
-      - name: Serve app
-        shell: bash
+      - name: Start Angular app
         run: |
-          npm run serve > server.log 2>&1 &
-          sleep 10
-          echo "Server started on port 4200"
+          npm start &
+          npx wait-on http://localhost:4200
 
 #      - name: Run Pa11y Audit
 #        uses: ./accessibility/pa11y-ci

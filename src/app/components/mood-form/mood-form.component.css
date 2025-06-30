@@ -48,3 +48,29 @@ button.selected {
   color: #fff !important;
   border-color: #6366f1 !important;
 }
+
+.mood-chip {
+  background-color: #f3f4f6; /* Tailwind gray-100 */
+  color: #374151; /* Tailwind gray-700 */
+  border-color: #d1d5db; /* Tailwind gray-300 */
+}
+
+.mood-chip.selected {
+  background-color: #6366f1 !important; /* Tailwind indigo-500 */
+  color: #fff !important;
+  border-color: #6366f1 !important;
+}
+
+.mood-chip:hover:not(.selected) {
+  background-color: #e0e7ff; /* Tailwind indigo-100 */
+  color: #3730a3; /* Tailwind indigo-700 */
+  border-color: #a5b4fc; /* Tailwind indigo-300 */
+}
+
+.mood-chip:active {
+  background-color: #a5b4fc; /* Tailwind indigo-300 */
+}
+
+.mood-chip:focus {
+  outline: none;
+}

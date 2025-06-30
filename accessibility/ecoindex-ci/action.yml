@@ -1,0 +1,59 @@
+name: 'Ecoindex Audit'
+description: 'Run Ecoindex environmental impact audit and create PR check'
+author: 'maelmainsard'
+
+inputs:
+  github-token:
+    description: 'GitHub token for creating checks'
+    required: true
+
+runs:
+  using: 'composite'
+  steps:
+    - name: Install dependencies and run Ecoindex
+      id: ecoindex
+      shell: bash
+      run: |
+        pip install --no-cache-dir -r ./accessibility/ecoindex-ci/requirements.txt
+        playwright install
+        python3 ./accessibility/ecoindex-ci/main.py http://localhost:3000
+        ECOINDEX_JSON=$(cat ecoindex-result.json)
+        echo "result=$ECOINDEX_JSON" >> $GITHUB_OUTPUT
+
+    - name: Create PR Check
+      uses: actions/github-script@v7
+      env:
+        ECOINDEX_RESULT: ${{ steps.ecoindex.outputs.result }}
+      with:
+          github-token: ${{ inputs.github-token }}
+          script: |
+            const ecoindexData = JSON.parse(process.env.ECOINDEX_RESULT);
+
+            github.rest.checks.create({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              name: 'Ecoindex report',
+              head_sha: context.payload.pull_request.head.sha,
+              status: 'completed',
+              conclusion: ecoindexData.score >= 70 ? 'success' : 'error',
+              output: {
+                title: `🌱 Ecoindex Report - URL tested : ${ecoindexData.url}`,
+                summary: 'Environmental impact analysis completed',
+                text: `## 🌱 Ecoindex Environmental Impact Report
+
+              | Metric | Value |
+              |--------|-------|
+              | **URL** | ${ecoindexData.url} |
+              | **Grade** | ${ecoindexData.grade} |
+              | **Score** | ${ecoindexData.score}/100 |
+              | **GES** | ${ecoindexData.ges} gCO2e |
+              | **Water** | ${ecoindexData.water} cl |
+
+            ### ${ecoindexData.score >= 70 ? '✅ Excellent Performance!' : '⚠️ Performance Could Be Improved'}
+
+              ${ecoindexData.score >= 70 ?
+            'Your website has a good environmental footprint.' :
+              'Consider optimizing your website to reduce its environmental impact.'
+            }`
+              }
+            });

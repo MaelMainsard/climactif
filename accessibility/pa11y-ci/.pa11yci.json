@@ -1,0 +1,20 @@
+{
+  "defaults": {
+    "timeout": 30000,
+    "standard": "WCAG2AA",
+    "chromeLaunchConfig": {
+      "args": [
+        "--no-sandbox",
+        "--disable-setuid-sandbox",
+        "--disable-dev-shm-usage"
+      ]
+    },
+    "reporters": [
+      "cli",
+      ["json", { "fileName": "./paa1y-results.json" }]
+    ]
+  },
+  "urls": [
+    "http://localhost:3000"
+  ]
+}

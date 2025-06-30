@@ -18,5 +18,5 @@ runs:
         uploadArtifacts: true
         temporaryPublicStorage: true
       env:
-        LHCI_GITHUB_APP_TOKEN: ${{ secrets.LHCI_GITHUB_APP_TOKEN }}
+        LHCI_GITHUB_APP_TOKEN: ${{ inputs.github-token }}
 

@@ -1,0 +1,44 @@
+name: 'Automatic linter'
+description: 'Do linter and create PR comment'
+author: 'maelmainsard'
+
+inputs:
+  github-token:
+    description: 'GitHub token for creating checks'
+    required: true
+
+runs:
+  using: 'composite'
+  steps:
+    - name: Run Linter
+      id: eslint
+      shell: bash
+      run: |
+        npm run lint > lint_output.txt 2>&1 || true
+        LINT_RESULT=$(cat lint_output.txt | jq -Rs .)
+        echo "result=$LINT_RESULT" >> $GITHUB_OUTPUT
+        rm -f lint_output.txt
+
+    - name: Create PR Check
+      uses: actions/github-script@v7
+      env:
+        LINT_RESULT: ${{ steps.eslint.outputs.result }}
+      with:
+        github-token: ${{ inputs.github-token }}
+        script: |
+          const linter_result = JSON.parse(process.env.LINT_RESULT);
+          const hasErrors = linter_result.includes("ERROR") || linter_result.includes("error");
+
+          await github.rest.checks.create({
+            owner: context.repo.owner,
+            repo: context.repo.repo,
+            name: 'ESLint Check',
+            head_sha: context.payload.pull_request?.head?.sha || context.sha,
+            status: 'completed',
+            conclusion: hasErrors ? 'failure' : 'success',
+            output: {
+              title: hasErrors ? 'Linter found issues' : 'Linter passed',
+              summary: hasErrors ? 'ESLint found errors in your code' : 'ESLint validation successful',
+              text: linter_result
+            }
+          });

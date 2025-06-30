@@ -1,20 +1,25 @@
 import { Component } from '@angular/core';
-import { ModalComponent } from '../../components/modal/modal.component';
+import { DialogService, DynamicDialogRef } from 'primeng/dynamicdialog';
+import { MoodFormComponent } from '../../components/mood-form/mood-form.component';
 
 @Component({
   selector: 'app-home',
   standalone: true,
-  imports: [ModalComponent],
+  imports: [],
   templateUrl: './home.component.html',
+  providers: [DialogService],
 })
 export class HomeComponent {
-  isModalOpen = false;
+  ref: DynamicDialogRef | undefined;
+
+  constructor(public dialogService: DialogService) {}
 
   openModal() {
-    this.isModalOpen = true;
-  }
-
-  closeModal() {
-    this.isModalOpen = false;
+    this.ref = this.dialogService.open(MoodFormComponent, {
+      header: 'Select a Mood',
+      width: '70%',
+      contentStyle: { 'max-height': '500px', overflow: 'auto' },
+      baseZIndex: 10000,
+    });
   }
 }

@@ -2,7 +2,7 @@ name: CI/CD for pull request
 on:
   pull_request:
     branches:
-     - prod
+     - dev
 
 permissions:
   contents: read

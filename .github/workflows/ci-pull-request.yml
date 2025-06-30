@@ -49,10 +49,12 @@ jobs:
         uses: ./accessibility/ecoindex-ci
         with:
             github-token: ${{ secrets.GITHUB_TOKEN }}
-
   lighthouseci:
     runs-on: ubuntu-latest
     steps:
+      - name: Checkout Code
+        uses: actions/checkout@v4
+
       - name: Run Lighthouseci Audit
         uses: ./accessibility/lighthouse-ci
         with:

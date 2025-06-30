@@ -6,7 +6,11 @@ import { RefreshTitleComponent } from '../../components/refresh-title/refresh-ti
 @Component({
   selector: 'app-feelings',
   standalone: true,
-  imports: [NavbarComponent, TabsComponent, RefreshTitleComponent],
+  imports: [
+    // NavbarComponent,
+    TabsComponent,
+    // RefreshTitleComponent,
+  ],
   templateUrl: './feelings.component.html',
 })
 export class FeelingsComponent {}

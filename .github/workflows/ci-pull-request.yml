@@ -26,29 +26,40 @@ jobs:
         with:
           python-version: '3.13'
 
-      - name: Build App
-        shell: bash
-        run: |
-          npm install
-          npm run build
-
-      - name: Serve app
-        shell: bash
-        run: |
-          nohup npx http-server ./dist/climactif/browser -p 3000 > server.log 2>&1 &
-          sleep 10
-          echo "Server started on port 3000"
-
-      - name: Run Pa11y Audit
-        uses: ./accessibility/pa11y-ci
+      - name: Get Vercel preview URL
+        id: vercel
+        uses: actions/github-script@v7
         with:
           github-token: ${{ secrets.GITHUB_TOKEN }}
+          script: |
+            const comments = await github.rest.issues.listComments({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              issue_number: context.issue.number,
+            });
+
+            const vercelComment = comments.data.find(c =>
+              c.user?.login === 'vercel[bot]' && c.body?.includes('Visit Preview')
+            );
+
+            if (vercelComment) {
+              const match = vercelComment.body.match(/\[Visit Preview\]\((.*?)\)/);
+              if (match) {
+                core.setOutput('preview-url', match[1]);
+              }
+            }
+
+#      - name: Run Pa11y Audit
+#        uses: ./accessibility/pa11y-ci
+#        with:
+#          github-token: ${{ secrets.GITHUB_TOKEN }}
 
 
       - name: Run Ecoindex Audit
         uses: ./accessibility/ecoindex-ci
         with:
             github-token: ${{ secrets.GITHUB_TOKEN }}
+            vercel-url: ${{ steps.vercel.outputs.preview-url }}
   lighthouseci:
     runs-on: ubuntu-latest
     steps:

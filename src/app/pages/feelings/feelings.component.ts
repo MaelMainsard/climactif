@@ -2,9 +2,9 @@ import { Component } from '@angular/core';
 import { NavbarComponent } from '../../components/navbar/navbar.component';
 
 @Component({
-  selector: 'app-home',
-  imports: [NavbarComponent],
+  selector: 'app-feelings',
   standalone: true,
-  templateUrl: './home.component.html',
+  imports: [NavbarComponent],
+  templateUrl: './feelings.component.html',
 })
-export class HomeComponent {}
+export class FeelingsComponent {}

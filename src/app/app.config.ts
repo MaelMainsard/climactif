@@ -3,6 +3,7 @@ import { provideRouter } from '@angular/router';
 import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
 import { providePrimeNG } from 'primeng/config';
 import Aura from '@primeng/themes/aura';
+import { DialogService } from 'primeng/dynamicdialog';
 
 import { routes } from './app.routes';
 
@@ -22,5 +23,6 @@ export const appConfig: ApplicationConfig = {
         },
       },
     }),
+    DialogService,
   ],
 };

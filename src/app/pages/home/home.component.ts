@@ -1,13 +1,13 @@
 import { Component } from '@angular/core';
 import { DialogService, DynamicDialogRef } from 'primeng/dynamicdialog';
 import { MoodFormComponent } from '../../components/mood-form/mood-form.component';
+import { Button, ButtonModule } from 'primeng/button';
 
 @Component({
   selector: 'app-home',
   standalone: true,
-  imports: [],
+  imports: [ButtonModule],
   templateUrl: './home.component.html',
-  providers: [DialogService],
 })
 export class HomeComponent {
   ref: DynamicDialogRef | undefined;

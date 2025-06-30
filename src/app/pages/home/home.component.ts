@@ -1,59 +1,23 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { Dialog } from 'primeng/dialog';
 import { ButtonModule } from 'primeng/button';
-import { InputTextarea } from 'primeng/inputtextarea';
-import { SelectButtonModule } from 'primeng/selectbutton';
-import { SliderModule } from 'primeng/slider';
-import { FormBuilder, FormGroup, ReactiveFormsModule } from '@angular/forms';
-
-interface Keyword {
-  name: string;
-  code: string;
-}
+import { MoodFormComponent } from '../../components/mood-form/mood-form.component';
 
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
-  styleUrl: './home.component.css',
   standalone: true,
-  imports: [
-    Dialog,
-    ButtonModule,
-    InputTextarea,
-    SelectButtonModule,
-    SliderModule,
-    ReactiveFormsModule,
-  ],
+  imports: [Dialog, ButtonModule, MoodFormComponent],
 })
-export class HomeComponent implements OnInit {
+export class HomeComponent {
   visible: boolean = false;
-  moodForm!: FormGroup;
-  keywords: Keyword[] = [];
-
-  constructor(private fb: FormBuilder) {}
-
-  ngOnInit() {
-    this.moodForm = this.fb.group({
-      description: [''],
-      keywords: [[]],
-      color: [50],
-    });
-
-    this.keywords = [
-      { name: 'Happy', code: 'HP' },
-      { name: 'Sad', code: 'S' },
-      { name: 'Angry', code: 'A' },
-      { name: 'Excited', code: 'E' },
-      { name: 'Calm', code: 'C' },
-    ];
-  }
 
   showDialog() {
     this.visible = true;
   }
 
-  saveMood() {
-    console.log(this.moodForm.value);
+  saveMood(moodData: any) {
+    console.log('Mood data saved:', moodData);
     this.visible = false;
   }
 }

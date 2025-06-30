@@ -1,1 +1,39 @@
-<p>mood-form works!</p>
+<div [formGroup]="moodForm">
+  <div class="flex flex-col gap-8">
+    <div class="flex flex-col gap-2">
+      <label for="description" class="font-semibold">Description</label>
+      <textarea
+        pTextarea
+        id="description"
+        formControlName="description"
+        rows="4"
+        class="w-full"
+      ></textarea>
+    </div>
+
+    <div class="flex flex-col gap-2">
+      <label for="keywords" class="font-semibold">Keywords</label>
+      <p-selectButton
+        id="keywords"
+        [options]="keywords"
+        formControlName="keywords"
+        optionLabel="name"
+        [multiple]="true"
+      ></p-selectButton>
+    </div>
+
+    <div class="flex flex-col gap-2">
+      <label for="color" class="font-semibold">Color</label>
+      <p-slider
+        id="color"
+        formControlName="color"
+        styleClass="color-slider"
+      ></p-slider>
+    </div>
+  </div>
+
+  <div class="flex justify-end gap-2 mt-8">
+    <p-button label="Cancel" severity="secondary" (click)="onCancel()" />
+    <p-button label="Save" (click)="onSave()" />
+  </div>
+</div>

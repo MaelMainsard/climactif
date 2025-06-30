@@ -32,6 +32,11 @@ jobs:
           npm start &
           npx wait-on http://localhost:4200
 
+      - name: Run Linter
+        uses: ./accessibility/lint
+        with:
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+
       - name: Run Lighthouseci Audit
         uses: ./accessibility/lighthouse-ci
         with:

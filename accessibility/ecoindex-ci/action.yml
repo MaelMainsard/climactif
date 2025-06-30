@@ -20,40 +20,35 @@ runs:
         ECOINDEX_JSON=$(cat ecoindex-result.json)
         echo "result=$ECOINDEX_JSON" >> $GITHUB_OUTPUT
 
-    - name: Create PR Check
+    - name: Create PR Comment
       uses: actions/github-script@v7
       env:
         ECOINDEX_RESULT: ${{ steps.ecoindex.outputs.result }}
       with:
-          github-token: ${{ inputs.github-token }}
-          script: |
-            const ecoindexData = JSON.parse(process.env.ECOINDEX_RESULT);
+        github-token: ${{ inputs.github-token }}
+        script: |
+          const ecoindexData = JSON.parse(process.env.ECOINDEX_RESULT);
 
-            github.rest.checks.create({
-              owner: context.repo.owner,
-              repo: context.repo.repo,
-              name: 'Ecoindex report',
-              head_sha: context.payload.pull_request.head.sha,
-              status: 'completed',
-              conclusion: ecoindexData.score >= 70 ? 'success' : 'error',
-              output: {
-                title: `🌱 Ecoindex Report - URL tested : ${ecoindexData.url}`,
-                summary: 'Environmental impact analysis completed',
-                text: `## 🌱 Ecoindex Environmental Impact Report
+          const commentBody = `## 🌱 Ecoindex Environmental Impact Report
 
-              | Metric | Value |
-              |--------|-------|
-              | **URL** | ${ecoindexData.url} |
-              | **Grade** | ${ecoindexData.grade} |
-              | **Score** | ${ecoindexData.score}/100 |
-              | **GES** | ${ecoindexData.ges} gCO2e |
-              | **Water** | ${ecoindexData.water} cl |
+          | Metric | Value |
+          |--------|-------|
+          | **URL** | ${ecoindexData.url} |
+          | **Grade** | ${ecoindexData.grade} |
+          | **Score** | ${ecoindexData.score}/100 |
+          | **GES** | ${ecoindexData.ges} gCO2e |
+          | **Water** | ${ecoindexData.water} cl |
 
-            ### ${ecoindexData.score >= 70 ? '✅ Excellent Performance!' : '⚠️ Performance Could Be Improved'}
+          ### ${ecoindexData.score >= 70 ? '✅ Excellent Performance!' : '⚠️ Performance Could Be Improved'}
 
-              ${ecoindexData.score >= 70 ?
+          ${ecoindexData.score >= 70 ?
             'Your website has a good environmental footprint.' :
-              'Consider optimizing your website to reduce its environmental impact.'
-            }`
-              }
-            });
+            'Consider optimizing your website to reduce its environmental impact.'
+          }`;
+
+          github.rest.issues.createComment({
+            owner: context.repo.owner,
+            repo: context.repo.repo,
+            issue_number: context.payload.pull_request.number,
+            body: commentBody
+          });

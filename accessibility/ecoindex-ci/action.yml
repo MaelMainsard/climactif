@@ -17,6 +17,7 @@ runs:
       id: ecoindex
       shell: bash
       run: |
+        echo ${{ inputs.vercel-url }}
         pip install --no-cache-dir -r ./accessibility/ecoindex-ci/requirements.txt
         playwright install
         python3 ./accessibility/ecoindex-ci/main.py ${{ inputs.vercel-url }}/home

@@ -36,7 +36,7 @@ jobs:
         shell: bash
         run: |
           nohup npx http-server ./dist/climactif/browser -p 3000 > server.log 2>&1 &
-          sleep 5
+          sleep 10
           echo "Server started on port 3000"
 
       - name: Run Pa11y Audit

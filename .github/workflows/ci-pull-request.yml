@@ -39,21 +39,21 @@ jobs:
           sleep 5
           echo "Server started on port 3000"
 
-#      - name: Run Lighthouse CI
-#        run: |
-#          npm install -g @lhci/cli@0.15.x
-#          lhci autorun --config=./accessibility/lighthouse-ci/.lighthouserc.js
-#        env:
-#          LHCI_GITHUB_APP_TOKEN: ${{ secrets.LHCI_GITHUB_APP_TOKEN }}
+      - name: Run Lighthouse CI
+        run: |
+          npm install -g @lhci/cli@0.15.x
+          lhci autorun --config=./accessibility/lighthouse-ci/.lighthouserc.js
+        env:
+          LHCI_GITHUB_APP_TOKEN: ${{ secrets.LHCI_GITHUB_APP_TOKEN }}
 
-      - name: Run Pa11y Audit
-        uses: ./accessibility/pa11y-ci
-        with:
-          github-token: ${{ secrets.GITHUB_TOKEN }}
-
-
-      - name: Run Ecoindex Audit
-        uses: ./accessibility/ecoindex-ci
-        with:
-          github-token: ${{ secrets.GITHUB_TOKEN }}
+#      - name: Run Pa11y Audit
+#        uses: ./accessibility/pa11y-ci
+#        with:
+#          github-token: ${{ secrets.GITHUB_TOKEN }}
+#
+#
+#      - name: Run Ecoindex Audit
+#        uses: ./accessibility/ecoindex-ci
+#        with:
+#          github-token: ${{ secrets.GITHUB_TOKEN }}
 

@@ -19,7 +19,7 @@ jobs:
       - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
-          node-version: 22
+          node-version: 18
 
       - name: Setup Python
         uses: actions/setup-python@v5
@@ -32,12 +32,12 @@ jobs:
           npm install
           npm run build
 
-      - name: Serve app
-        shell: bash
-        run: |
-          nohup npx http-server ./dist/climactif/browser -p 3000 > server.log 2>&1 &
-          sleep 5
-          echo "Server started on port 3000"
+#      - name: Serve app
+#        shell: bash
+#        run: |
+#          nohup npx http-server ./dist/climactif/browser -p 3000 > server.log 2>&1 &
+#          sleep 5
+#          echo "Server started on port 3000"
 
       - name: Run Lighthouse CI
         run: |

@@ -1,5 +1,5 @@
 name: 'Pa11y Audit'
-description: 'Run pa11y-ci audit and create PR check'
+description: 'Run pa11y-ci audit and create PR comment'
 author: 'maelmainsard'
 
 inputs:

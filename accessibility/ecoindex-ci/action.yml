@@ -1,5 +1,5 @@
 name: 'Ecoindex Audit'
-description: 'Run Ecoindex environmental impact audit and create PR check'
+description: 'Run Ecoindex environmental impact audit and create PR comment'
 author: 'maelmainsard'
 
 inputs:

@@ -3,9 +3,6 @@ description: 'Run Ecoindex environmental impact audit and create PR comment'
 author: 'maelmainsard'
 
 inputs:
-  vercel-url:
-    description: 'Url de la preview vercel'
-    required: true
   github-token:
     description: 'GitHub token for creating checks'
     required: true
@@ -17,10 +14,9 @@ runs:
       id: ecoindex
       shell: bash
       run: |
-        echo ${{ inputs.vercel-url }}
         pip install --no-cache-dir -r ./accessibility/ecoindex-ci/requirements.txt
         playwright install
-        python3 ./accessibility/ecoindex-ci/main.py ${{ inputs.vercel-url }}/home
+        python3 ./accessibility/ecoindex-ci/main.py http://localhost:4200/home
         ECOINDEX_JSON=$(cat ecoindex-result.json)
         echo "result=$ECOINDEX_JSON" >> $GITHUB_OUTPUT
 

@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Dialog } from 'primeng/dialog';
 import { ButtonModule } from 'primeng/button';
 import { InputTextarea } from 'primeng/inputtextarea';
-import { MultiSelectModule } from 'primeng/multiselect';
+import { SelectButtonModule } from 'primeng/selectbutton';
 import { SliderModule } from 'primeng/slider';
 import { FormBuilder, FormGroup, ReactiveFormsModule } from '@angular/forms';
 
@@ -19,7 +19,7 @@ interface Keyword {
     Dialog,
     ButtonModule,
     InputTextarea,
-    MultiSelectModule,
+    SelectButtonModule,
     SliderModule,
     ReactiveFormsModule,
   ],

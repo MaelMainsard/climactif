@@ -21,14 +21,13 @@
 
     <div class="flex flex-col gap-2">
       <label for="keywords" class="font-semibold">Keywords</label>
-      <p-multiSelect
+      <p-selectButton
         id="keywords"
         [options]="keywords"
         formControlName="keywords"
         optionLabel="name"
-        placeholder="Select Keywords"
-        class="w-full"
-      ></p-multiSelect>
+        [multiple]="true"
+      ></p-selectButton>
     </div>
 
     <div class="flex flex-col gap-2">

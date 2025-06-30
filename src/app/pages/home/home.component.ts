@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import { NavbarComponent } from '../../components/navbar/navbar.component';
+import { RefreshTitleComponent } from '../../components/refresh-title/refresh-title.component';
 import { DialogService, DynamicDialogRef } from 'primeng/dynamicdialog';
 import { MoodFormComponent } from '../../components/mood-form/mood-form.component';
 import { Button, ButtonModule } from 'primeng/button';
@@ -6,7 +8,7 @@ import { Button, ButtonModule } from 'primeng/button';
 @Component({
   selector: 'app-home',
   standalone: true,
-  imports: [ButtonModule],
+  imports: [NavbarComponent, RefreshTitleComponent, ButtonModule],
   templateUrl: './home.component.html',
 })
 export class HomeComponent {

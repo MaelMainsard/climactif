@@ -40,7 +40,7 @@ jobs:
       - name: Run Lighthouseci Audit
         uses: ./accessibility/lighthouse-ci
         with:
-          github-token: ${{ secrets.GITHUB_TOKEN }}
+          github-token: ${{ secrets.LHCI_GITHUB_APP_TOKEN }}
 
 #      - name: Run Pa11y Audit
 #        uses: ./accessibility/pa11y-ci

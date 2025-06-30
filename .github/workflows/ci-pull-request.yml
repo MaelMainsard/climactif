@@ -37,12 +37,6 @@ jobs:
         with:
           github-token: ${{ secrets.LHCI_GITHUB_APP_TOKEN }}
 
-#      - name: Run Pa11y Audit
-#        uses: ./accessibility/pa11y-ci
-#        with:
-#          github-token: ${{ secrets.GITHUB_TOKEN }}
-
-
       - name: Run Ecoindex Audit
         uses: ./accessibility/ecoindex-ci
         with:

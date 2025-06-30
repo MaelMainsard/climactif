@@ -1,39 +1,60 @@
-<div [formGroup]="moodForm">
-  <div class="flex flex-col gap-8">
-    <div class="flex flex-col gap-2">
-      <label for="description" class="font-semibold">Description</label>
-      <textarea
-        pTextarea
-        id="description"
-        formControlName="description"
-        rows="4"
+<div
+  class="flex flex-col px-8 py-8 gap-6 rounded-2xl"
+  style="
+    border-radius: 12px;
+    background-image: radial-gradient(
+      circle at left top,
+      var(--p-primary-400),
+      var(--p-primary-700)
+    );
+  "
+>
+  <div [formGroup]="moodForm">
+    <div class="flex flex-col gap-8">
+      <div class="flex flex-col gap-2">
+        <textarea
+          pTextarea
+          id="description"
+          formControlName="description"
+          rows="4"
+          class="w-full p-3 placeholder:text-gray-400"
+          placeholder="Quel est votre mood du moment ?"
+        ></textarea>
+      </div>
+
+      <div class="flex flex-col gap-2">
+        <p-selectButton
+          id="keywords"
+          [options]="keywords"
+          formControlName="keywords"
+          optionLabel="name"
+          [multiple]="true"
+        ></p-selectButton>
+      </div>
+
+      <div class="flex flex-col gap-2">
+        <p-slider
+          id="color"
+          formControlName="color"
+          styleClass="color-slider"
+        ></p-slider>
+      </div>
+    </div>
+
+    <div class="flex items-center gap-4 mt-8">
+      <p-button
+        label="Annuler"
+        (click)="onCancel()"
+        [text]="true"
+        styleClass="w-full !text-primary-50 !border !border-white/30 hover:!bg-white/10"
         class="w-full"
-      ></textarea>
+      />
+      <p-button
+        label="Publier"
+        (click)="onSave()"
+        styleClass="w-full"
+        class="w-full"
+      />
     </div>
-
-    <div class="flex flex-col gap-2">
-      <label for="keywords" class="font-semibold">Keywords</label>
-      <p-selectButton
-        id="keywords"
-        [options]="keywords"
-        formControlName="keywords"
-        optionLabel="name"
-        [multiple]="true"
-      ></p-selectButton>
-    </div>
-
-    <div class="flex flex-col gap-2">
-      <label for="color" class="font-semibold">Color</label>
-      <p-slider
-        id="color"
-        formControlName="color"
-        styleClass="color-slider"
-      ></p-slider>
-    </div>
-  </div>
-
-  <div class="flex justify-end gap-2 mt-8">
-    <p-button label="Cancel" severity="secondary" (click)="onCancel()" />
-    <p-button label="Save" (click)="onSave()" />
   </div>
 </div>

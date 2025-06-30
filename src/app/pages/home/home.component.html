@@ -1,13 +1,16 @@
 <h1>Home</h1>
 <p-button (click)="showDialog()" label="What's your mood ?"></p-button>
 <p-dialog
-  header="How are you feeling?"
-  [modal]="true"
   [(visible)]="visible"
   [style]="{ width: '30rem' }"
+  [contentStyle]="{ padding: '0' }"
+  styleClass="!border-0 !bg-transparent"
+  maskStyleClass="backdrop-blur-sm"
 >
-  <app-mood-form
-    (save)="saveMood($event)"
-    (cancel)="visible = false"
-  ></app-mood-form>
+  <ng-template #headless
+    ><app-mood-form
+      (save)="saveMood($event)"
+      (cancel)="visible = false"
+    ></app-mood-form
+  ></ng-template>
 </p-dialog>

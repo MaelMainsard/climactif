@@ -19,12 +19,15 @@ runs:
         node-version: 22
 
     - name: Install dependencies
+      shell: bash
       run: npm ci
 
     - name: Build project
+      shell: bash
       run: npm run build
 
     - name: Run Lighthouse CI
+      shell: bash
       run: npx lhci autorun --config=./accessibility/lighthouse-ci/.lighthouserc.js
 
     - name: Upload Lighthouse reports
@@ -36,74 +39,90 @@ runs:
     - name: Get Vercel preview URL
       id: vercel
       shell: bash
-      uses: actions/github-script@v7
-      with:
-          github-token: ${{ inputs.github-token }}
-          script: |
-              const comments = await github.rest.issues.listComments({
-                  owner: context.repo.owner,
-                  repo: context.repo.repo,
-                  issue_number: context.issue.number,
-              });
+      run: |
+        node -e "
+        const { execSync } = require('child_process');
+        const core = require('@actions/core');
+        const github = require('@actions/github');
 
-              const vercelComment = comments.data.find(c =>
-                  c.user?.login === 'vercel[bot]' && c.body?.includes('Visit Preview')
-              );
+        async function getPreviewUrl() {
+          const token = process.env.GITHUB_TOKEN || '${{ inputs.github-token }}';
+          const octokit = github.getOctokit(token);
+          const context = github.context;
 
-              if (vercelComment) {
-                const match = vercelComment.body.match(/\[Visit Preview\]\((.*?)\)/);
-                if (match) {
-                  core.setOutput('preview-url', match[1]);
-                }
-              }
+          const comments = await octokit.rest.issues.listComments({
+            owner: context.repo.owner,
+            repo: context.repo.repo,
+            issue_number: context.issue.number,
+          });
+
+          const vercelComment = comments.data.find(c =>
+            c.user?.login === 'vercel[bot]' && c.body?.includes('Visit Preview')
+          );
+
+          if (vercelComment) {
+            const match = vercelComment.body.match(/\[Visit Preview\]\((.*?)\)/);
+            if (match) {
+              core.setOutput('preview-url', match[1]);
+            }
+          }
+        }
+
+        getPreviewUrl().catch(console.error);
+        "
+      env:
+        GITHUB_TOKEN: ${{ inputs.github-token }}
 
     - name: Comment (or update) PR with Lighthouse summary
       if: github.event.pull_request
       shell: bash
-      uses: actions/github-script@v7
-      env:
-        PREVIEW_URL: ${{ steps.vercel.outputs.preview-url }}
-      with:
-        github-token: ${{ inputs.github-token }}
-        script: |
-          const fs = require('fs');
+      run: |
+        node -e "
+        const fs = require('fs');
+        const core = require('@actions/core');
+        const github = require('@actions/github');
+
+        async function updatePR() {
+          const token = process.env.GITHUB_TOKEN || '${{ inputs.github-token }}';
+          const octokit = github.getOctokit(token);
+          const context = github.context;
 
           const { owner, repo } = context.repo;
           const issue_number = context.issue.number;
-          const previewBase   = process.env.PREVIEW_URL ?? '';
-          const runUrl        = `https://github.com/${owner}/${repo}/actions/runs/${process.env.GITHUB_RUN_ID}`;
+          const previewBase = process.env.PREVIEW_URL || '';
+          const runUrl = \`https://github.com/\${owner}/\${repo}/actions/runs/\${process.env.GITHUB_RUN_ID}\`;
 
           const manifestPath = './lhci-report/manifest.json';
-          const summary      = JSON.parse(fs.readFileSync(manifestPath, 'utf8'));
+          const summary = JSON.parse(fs.readFileSync(manifestPath, 'utf8'));
 
           const toEmoji = score => {
-              const pct = Math.round(score * 100);
-              if (pct >= 90) return '🟢';
-              if (pct >= 50) return '🟠';
-              return '🔴';
+            const pct = Math.round(score * 100);
+            if (pct >= 90) return '🟢';
+            if (pct >= 50) return '🟠';
+            return '🔴';
           };
           const pct = v => Math.round(v * 100);
 
           const rows = summary
-             .map(({ url, summary: s, htmlPath }) => {
-               const pathname  = new URL(url).pathname;
-               const liveUrl   = previewBase ? `${previewBase}${pathname}` : url;
-               return `| [\`${pathname}\`](${liveUrl}) | ${toEmoji(s.performance)} ${pct(s.performance)} | ${toEmoji(s.accessibility)} ${pct(s.accessibility)} | ${toEmoji(s['best-practices'])} ${pct(s['best-practices'])} | ${toEmoji(s.seo)} ${pct(s.seo)} |`;
-          })
-          .join('\n');
+            .map(({ url, summary: s, htmlPath }) => {
+              const pathname = new URL(url).pathname;
+              const liveUrl = previewBase ? \`\${previewBase}\${pathname}\` : url;
+              return \`| [\\\`\${pathname}\\\`](\${liveUrl}) | \${toEmoji(s.performance)} \${pct(s.performance)} | \${toEmoji(s.accessibility)} \${pct(s.accessibility)} | \${toEmoji(s['best-practices'])} \${pct(s['best-practices'])} | \${toEmoji(s.seo)} \${pct(s.seo)} |\`;
+            })
+            .join('\n');
 
           const body = [
-             '<!-- lhci-report -->',
-             '## 📊 Lighthouse report',
-             '',
-             `*Workflow run: [link](${runUrl})*`,
-             '',
-             '| Page | Performance | Accessibility | Best Practices | SEO |',
-             '|------|-------------|----------------|----------------|-----|',
-             rows
+            '<!-- lhci-report -->',
+            '## 📊 Lighthouse report',
+            '',
+            \`*Workflow run: [link](\${runUrl})*\`,
+            '',
+            '| Page | Performance | Accessibility | Best Practices | SEO |',
+            '|------|-------------|----------------|----------------|-----|',
+            rows
           ].join('\n');
 
-          const { data: comments } = await github.rest.issues.listComments({
+          const { data: comments } = await octokit.rest.issues.listComments({
             owner,
             repo,
             issue_number,
@@ -116,15 +135,15 @@ runs:
           );
 
           if (existing) {
-            await github.rest.issues.updateComment({
+            await octokit.rest.issues.updateComment({
               owner,
               repo,
               comment_id: existing.id,
               body
             });
-            core.info(`Comment mis à jour : #${existing.id}`);
+            core.info(\`Comment mis à jour : #\${existing.id}\`);
           } else {
-            await github.rest.issues.createComment({
+            await octokit.rest.issues.createComment({
               owner,
               repo,
               issue_number,
@@ -132,3 +151,10 @@ runs:
             });
             core.info('Nouveau commentaire créé');
           }
+        }
+
+        updatePR().catch(console.error);
+        "
+      env:
+        GITHUB_TOKEN: ${{ inputs.github-token }}
+        PREVIEW_URL: ${{ steps.vercel.outputs.preview-url }}

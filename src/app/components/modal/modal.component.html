@@ -1,5 +1,5 @@
 <div *ngIf="isOpen" class="modal-overlay">
-  <div class="modal-content">
+  <div class="modal-content" @fade>
     <h2>Modal Title</h2>
     <p>This is the modal content.</p>
     <button (click)="closeModal()">Close</button>

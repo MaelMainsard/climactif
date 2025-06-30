@@ -7,10 +7,8 @@
   styleClass="!border-0 !bg-transparent"
   maskStyleClass="backdrop-blur-sm"
 >
-  <ng-template #headless
-    ><app-mood-form
-      (save)="saveMood($event)"
-      (cancel)="visible = false"
-    ></app-mood-form
-  ></ng-template>
+  <ng-template #headless>
+    <app-mood-form (save)="saveMood($event)" (cancel)="visible = false">
+    </app-mood-form>
+  </ng-template>
 </p-dialog>

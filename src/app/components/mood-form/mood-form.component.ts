@@ -1,4 +1,5 @@
 import { Component, OnInit, Output, EventEmitter } from '@angular/core';
+import { NgForOf } from '@angular/common';
 import { FormBuilder, FormGroup, ReactiveFormsModule } from '@angular/forms';
 import { ButtonModule } from 'primeng/button';
 import { SelectButtonModule } from 'primeng/selectbutton';
@@ -13,6 +14,7 @@ interface Keyword {
   selector: 'app-mood-form',
   standalone: true,
   imports: [
+    NgForOf,
     ReactiveFormsModule,
     ButtonModule,
     SelectButtonModule,
@@ -44,6 +46,21 @@ export class MoodFormComponent implements OnInit {
       { name: 'Angry', code: 'A' },
       { name: 'Excited', code: 'E' },
       { name: 'Calm', code: 'C' },
+      { name: 'Anxious', code: 'AN' },
+      { name: 'Motivated', code: 'M' },
+      { name: 'Tired', code: 'T' },
+      { name: 'Stressed', code: 'ST' },
+      { name: 'Grateful', code: 'G' },
+      { name: 'Confident', code: 'CO' },
+      { name: 'Lonely', code: 'L' },
+      { name: 'Hopeful', code: 'H' },
+      { name: 'Relaxed', code: 'R' },
+      { name: 'Overwhelmed', code: 'O' },
+      { name: 'Curious', code: 'CU' },
+      { name: 'Bored', code: 'B' },
+      { name: 'Inspired', code: 'I' },
+      { name: 'Loved', code: 'LO' },
+      { name: 'Frustrated', code: 'F' },
     ];
   }
 
@@ -53,5 +70,24 @@ export class MoodFormComponent implements OnInit {
 
   onCancel() {
     this.cancel.emit();
+  }
+
+  toggleKeyword(keyword: Keyword) {
+    const selected = this.moodForm.value.keywords as Keyword[];
+    if (this.isKeywordSelected(keyword)) {
+      this.moodForm.patchValue({
+        keywords: selected.filter((k) => k.code !== keyword.code),
+      });
+    } else {
+      this.moodForm.patchValue({
+        keywords: [...selected, keyword],
+      });
+    }
+  }
+
+  isKeywordSelected(keyword: Keyword): boolean {
+    return (this.moodForm.value.keywords as Keyword[]).some(
+      (k) => k.code === keyword.code,
+    );
   }
 }

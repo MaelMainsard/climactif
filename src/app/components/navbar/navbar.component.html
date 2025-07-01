@@ -1,0 +1,7 @@
+<p-menubar [model]="items" class="w-full">
+  <ng-template pTemplate="item" let-item>
+    <a [routerLink]="item.routerLink" class="p-menubar-item-link">
+      <span class="ml-2">{{ item.label }}</span>
+    </a>
+  </ng-template>
+</p-menubar>

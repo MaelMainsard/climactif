@@ -1,15 +1,16 @@
 import { Component, OnInit } from '@angular/core';
 import { NavbarComponent } from '../../components/navbar/navbar.component';
+import { TabsComponent } from '../../components/tabs/tabs.component';
 import { RefreshTitleComponent } from '../../components/refresh-title/refresh-title.component';
 
 @Component({
-  selector: 'app-home',
-  imports: [RefreshTitleComponent],
+  selector: 'app-feelings',
   standalone: true,
-  templateUrl: './home.component.html',
+  imports: [TabsComponent, RefreshTitleComponent],
+  templateUrl: './feelings.component.html',
 })
-export class HomeComponent implements OnInit {
+export class FeelingsComponent implements OnInit {
   ngOnInit() {
-    document.title = 'Accueil';
+    document.title = 'Sentiments';
   }
 }

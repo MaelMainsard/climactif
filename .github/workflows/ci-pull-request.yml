@@ -2,7 +2,7 @@ name: CI/CD for pull request
 on:
   pull_request:
     branches:
-     - prod
+     - dev
 
 permissions:
   contents: read
@@ -21,39 +21,29 @@ jobs:
         with:
           node-version: 22
 
-      - name: Setup Python
-        uses: actions/setup-python@v5
-        with:
-          python-version: '3.13'
-
       - name: Build App
         shell: bash
         run: |
           npm install
           npm run build
 
-      - name: Serve app
-        shell: bash
+      - name: Start Angular app
         run: |
-          nohup npx http-server ./dist/climactif/browser -p 3000 > server.log 2>&1 &
-          sleep 5
-          echo "Server started on port 3000"
+          npm start &
+          npx wait-on http://localhost:4200
 
-#      - name: Run Lighthouse CI
-#        run: |
-#          npm install -g @lhci/cli@0.15.x
-#          lhci autorun --config=./accessibility/lighthouse-ci/.lighthouserc.js
-#        env:
-#          LHCI_GITHUB_APP_TOKEN: ${{ secrets.LHCI_GITHUB_APP_TOKEN }}
-
-      - name: Run Pa11y Audit
-        uses: ./accessibility/pa11y-ci
+      - name: Run Linter
+        uses: ./accessibility/lint
         with:
           github-token: ${{ secrets.GITHUB_TOKEN }}
 
+      - name: Run Lighthouseci Audit
+        uses: ./accessibility/lighthouse-ci
+        with:
+          github-token: ${{ secrets.LHCI_GITHUB_APP_TOKEN }}
 
       - name: Run Ecoindex Audit
         uses: ./accessibility/ecoindex-ci
         with:
-          github-token: ${{ secrets.GITHUB_TOKEN }}
+            github-token: ${{ secrets.GITHUB_TOKEN }}
 

@@ -1,14 +1,4 @@
-<div
-  class="flex flex-col px-8 py-8 gap-6 rounded-2xl"
-  style="
-    border-radius: 12px;
-    background-image: radial-gradient(
-      circle at left top,
-      color-mix(in srgb, var(--p-primary-color), var(--p-surface-ground) 30%),
-      color-mix(in srgb, var(--p-primary-color), var(--p-surface-ground) 60%)
-    );
-  "
->
+<div class="mood-form flex flex-col px-8 py-8 gap-6 rounded-2xl">
   <div [formGroup]="moodForm">
     <div class="flex flex-col gap-8">
       <div class="flex flex-col gap-4">
@@ -29,7 +19,12 @@
       </div>
 
       <div class="flex flex-col gap-2 mt-2">
-        <p-slider id="color" formControlName="color" styleClass="color-slider"></p-slider>
+        <p-slider
+          id="color"
+          formControlName="color"
+          styleClass="color-slider"
+          (onChange)="onColorChanged($event.value)"
+        ></p-slider>
       </div>
 
       <textarea
@@ -44,15 +39,9 @@
       </textarea>
     </div>
 
-    <div class="flex items-center gap-4 mt-8">
-      <p-button
-        label="Annuler"
-        (click)="onCancel()"
-        [text]="true"
-        styleClass="w-full !border !border-primary/30 hover:!bg-white/10"
-        class="w-full"
-      />
-      <p-button label="Publier" (click)="onSave()" styleClass="w-full" class="w-full" />
+    <div class="button-row flex items-center gap-4 mt-8">
+      <p-button label="Annuler" (click)="onCancel()" [text]="true" class="w-full" />
+      <p-button label="Publier" (click)="onSave()" class="w-full" />
     </div>
   </div>
 </div>

@@ -1,3 +1,7 @@
 main {
   background-color: var(--p-surface-ground);
 }
+.dialog-theme {
+  --p-primary-color: #00c49a;
+  /* ... any other variables from your preset ... */
+}

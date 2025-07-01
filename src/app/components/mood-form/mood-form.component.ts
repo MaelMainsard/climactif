@@ -4,6 +4,8 @@ import { FormBuilder, FormGroup, ReactiveFormsModule } from '@angular/forms';
 import { ButtonModule } from 'primeng/button';
 import { SelectButtonModule } from 'primeng/selectbutton';
 import { SliderModule } from 'primeng/slider';
+import ClimactifPreset, { createColorScheme } from '../../resources/app_preset';
+import chroma from 'chroma-js';
 
 interface Keyword {
   name: string;
@@ -13,13 +15,7 @@ interface Keyword {
 @Component({
   selector: 'app-mood-form',
   standalone: true,
-  imports: [
-    NgForOf,
-    ReactiveFormsModule,
-    ButtonModule,
-    SelectButtonModule,
-    SliderModule,
-  ],
+  imports: [NgForOf, ReactiveFormsModule, ButtonModule, SelectButtonModule, SliderModule],
   templateUrl: './mood-form.component.html',
   styleUrl: './mood-form.component.css',
 })
@@ -62,6 +58,8 @@ export class MoodFormComponent implements OnInit {
       { name: 'Loved', code: 'LO' },
       { name: 'Frustrated', code: 'F' },
     ];
+
+    this.onColorChanged(50);
   }
 
   onSave() {
@@ -86,8 +84,29 @@ export class MoodFormComponent implements OnInit {
   }
 
   isKeywordSelected(keyword: Keyword): boolean {
-    return (this.moodForm.value.keywords as Keyword[]).some(
-      (k) => k.code === keyword.code,
-    );
+    return (this.moodForm.value.keywords as Keyword[]).some((k) => k.code === keyword.code);
+  }
+
+  onColorChanged(color: number | undefined) {
+    if (color == undefined) return;
+
+    const primary = chroma('#880000')
+      .set('hsl.h', color * 3.6)
+      .hex();
+    const dialogTheme = createColorScheme(primary);
+    const style = document.createElement('style');
+    style.textContent = `
+      .mood-form {
+        --p-primary-color: ${dialogTheme.primary.color};
+        --p-primary-inverse-color: ${dialogTheme.primary.inverseColor};
+        --p-primary-focus-color: ${dialogTheme.primary.focusColor};
+        --p-primary-hover-color: ${dialogTheme.primary.hoverColor};
+        --p-primary-active-color: ${dialogTheme.primary.activeColor};
+        --p-surface-ground: ${dialogTheme.surface.ground};
+        --p-surface-card: ${dialogTheme.surface.card};
+        --p-surface-on: ${dialogTheme.surface.on};
+      }
+    `;
+    document.head.appendChild(style);
   }
 }

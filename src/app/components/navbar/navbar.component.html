@@ -1,3 +1,5 @@
+<p-button label="Toggle Dark Mode" (onClick)="toggleDarkMode()"/>
+
 <p-menubar [model]="items" class="w-full">
   <ng-template pTemplate="item" let-item>
     <a [routerLink]="item.routerLink" class="p-menubar-item-link">

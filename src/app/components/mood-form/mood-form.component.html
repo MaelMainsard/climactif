@@ -36,6 +36,13 @@
               {{ keyword.name }}
             </button>
           </div>
+          <div
+            *ngIf="moodForm.get('keywords')?.invalid && (moodForm.get('keywords')?.touched || submitted)"
+            class="text-red-600 text-sm mt-1"
+            id="keywords-error"
+          >
+            Veuillez sélectionner au moins un mot-clé.
+          </div>
         </fieldset>
       </div>
 
@@ -55,7 +62,7 @@
       </div>
 
       <div class="flex flex-col gap-2 mt-2">
-        <label for="description" class="sr-only">Description</label>
+        <label for="description" class="sr-only">Ressenti</label>
         <textarea
           pTextarea
           id="description"
@@ -66,9 +73,16 @@
           placeholder="Décrivez ce que vous ressentez..."
           aria-required="true"
           [attr.aria-invalid]="moodForm.get('description')?.invalid && moodForm.get('description')?.touched"
-          aria-describedby="moodform-desc"
+          aria-describedby="moodform-desc description-error"
         >
         </textarea>
+        <div
+          *ngIf="moodForm.get('description')?.invalid && (moodForm.get('description')?.touched || submitted)"
+          class="text-red-600 text-sm mt-1"
+          id="description-error"
+        >
+          Veuillez remplir ce champ.
+        </div>
       </div>
     </div>
 

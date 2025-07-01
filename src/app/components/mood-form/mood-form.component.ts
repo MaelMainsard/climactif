@@ -1,6 +1,6 @@
 import { Component, OnInit, Output, EventEmitter } from '@angular/core';
-import { NgForOf } from '@angular/common';
-import { FormBuilder, FormGroup, ReactiveFormsModule } from '@angular/forms';
+import { NgForOf, NgIf } from '@angular/common';
+import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { ButtonModule } from 'primeng/button';
 import { SelectButtonModule } from 'primeng/selectbutton';
 import { SliderModule } from 'primeng/slider';
@@ -15,7 +15,7 @@ interface Keyword {
 @Component({
   selector: 'app-mood-form',
   standalone: true,
-  imports: [NgForOf, ReactiveFormsModule, ButtonModule, SelectButtonModule, SliderModule],
+  imports: [NgForOf, NgIf, ReactiveFormsModule, ButtonModule, SelectButtonModule, SliderModule],
   templateUrl: './mood-form.component.html',
   styleUrl: './mood-form.component.css',
 })
@@ -26,13 +26,14 @@ export class MoodFormComponent implements OnInit {
   moodForm!: FormGroup;
   keywords: Keyword[] = [];
   value!: string;
+  submitted = false;
 
   constructor(private fb: FormBuilder) {}
 
   ngOnInit() {
     this.moodForm = this.fb.group({
-      description: [''],
-      keywords: [[]],
+      description: ['', Validators.required],
+      keywords: [[], Validators.required],
       color: [50],
     });
 
@@ -62,7 +63,11 @@ export class MoodFormComponent implements OnInit {
   }
 
   onSave() {
-    this.save.emit(this.moodForm.value);
+    this.submitted = true;
+    this.moodForm.markAllAsTouched();
+    if (this.moodForm.valid) {
+      this.save.emit(this.moodForm.value);
+    }
   }
 
   onCancel() {

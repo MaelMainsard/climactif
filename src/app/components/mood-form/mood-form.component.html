@@ -12,9 +12,7 @@
   <div [formGroup]="moodForm">
     <div class="flex flex-col gap-8">
       <div class="flex flex-col gap-4">
-        <h1 class="font-semibold text-black">
-          Quel est votre mood du moment ?
-        </h1>
+        <h1 class="font-semibold text-black">Quel est votre mood du moment ?</h1>
         <div class="flex flex-col gap-2">
           <div class="flex flex-wrap justify-center gap-2">
             <button
@@ -31,11 +29,7 @@
       </div>
 
       <div class="flex flex-col gap-2 mt-2">
-        <p-slider
-          id="color"
-          formControlName="color"
-          styleClass="color-slider"
-        ></p-slider>
+        <p-slider id="color" formControlName="color" styleClass="color-slider"></p-slider>
       </div>
 
       <textarea
@@ -44,7 +38,7 @@
         formControlName="description"
         [(ngModel)]="value"
         rows="2"
-        class="mood-textarea w-full p-3 placeholder:text-gray-700 bg-gray-700/30 border-0 rounded-lg text-black"
+        class="mood-textarea w-full p-3 placeholder:text-black/60 bg-gray-50/20 border-0 rounded-lg text-black"
         placeholder="Une impression ?"
       >
       </textarea>
@@ -55,15 +49,10 @@
         label="Annuler"
         (click)="onCancel()"
         [text]="true"
-        styleClass="w-full !text-primary-50 !border !border-white/30 hover:!bg-white/10"
+        styleClass="w-full !border !border-primary/30 hover:!bg-white/10"
         class="w-full"
       />
-      <p-button
-        label="Publier"
-        (click)="onSave()"
-        styleClass="w-full"
-        class="w-full"
-      />
+      <p-button label="Publier" (click)="onSave()" styleClass="w-full" class="w-full" />
     </div>
   </div>
 </div>

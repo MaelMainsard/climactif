@@ -1,52 +1,52 @@
 <p-tabs value="0">
-    <div class="flex justify-center">
-        <p-tablist>
-            <p-tab value="0">Par jour</p-tab>
-            <p-tab value="1">Par humeur</p-tab>
-            <p-tab value="2">Par région</p-tab>
-        </p-tablist>
-    </div>
-    <p-tabpanels>
-        <p-tabpanel value="0" class="flex justify-between text-left">
-            <app-card
-                class="m-4 w-full"
-                header="☀️"
-                title="Optimisme"
-                text="23 personnes"/>
-            <app-card
-                class="m-4 w-full"
-                header="🌧️"
-                title="Mélancolie"
-                text="18 personnes"/>
-            <app-card
-                class="m-4 w-full"
-                header="🌱"
-                title="Espoir"
-                text="31 personnes"/>
-        </p-tabpanel>
-        <p-tabpanel value="1">
-            <app-card
-                header="💝"
-                title="Gratitude"
-                text="42 ressentis"
-                layout="horizontal"
-                class="m-4"/>
-            <app-card
-                header="🤔"
-                title="Réflexion"
-                text="28 ressentis"
-                layout="horizontal"
-                class="m-4"/>
-        </p-tabpanel>
-        <p-tabpanel value="2">
-            <app-card
-                header="Île-de-France"
-                text="🌤️ Humeur générale : Mitigée"
-                class="m-4"/>
-            <app-card
-                header="Provence"
-                text="☀️ Humeur générale : Ensoleillée"
-                class="m-4"/>
-        </p-tabpanel>
-    </p-tabpanels>
+  <div class="flex justify-center">
+    <p-tablist>
+      <p-tab value="0">Par jour</p-tab>
+      <p-tab value="1">Par humeur</p-tab>
+      <p-tab value="2">Par région</p-tab>
+    </p-tablist>
+  </div>
+
+  <p-tabpanels>
+
+    <!-- PAR JOUR -->
+    <p-tabpanel value="0">
+      <ul class="flex justify-between text-left flex-wrap">
+        <li class="m-4 flex-1 min-w-[200px]">
+          <app-card header="☀️" title="Optimisme" text="23 personnes" />
+        </li>
+        <li class="m-4 flex-1 min-w-[200px]">
+          <app-card header="🌧️" title="Mélancolie" text="18 personnes" />
+        </li>
+        <li class="m-4 flex-1 min-w-[200px]">
+          <app-card header="🌱" title="Espoir" text="31 personnes" />
+        </li>
+      </ul>
+    </p-tabpanel>
+
+    <!-- PAR HUMEUR -->
+    <p-tabpanel value="1">
+      <ul class="flex flex-col text-left">
+        <li>
+          <app-card header="💝" title="Gratitude" text="42 ressentis" layout="horizontal" class="m-2" />
+        </li>
+        <li>
+          <app-card header="🤔" title="Réflexion" text="28 ressentis" layout="horizontal" />
+        </li>
+      </ul>
+    </p-tabpanel>
+
+    <!-- PAR RÉGION -->
+    <p-tabpanel value="2">
+      <ul class="flex flex-col text-left">
+        <li>
+          <app-card header="Île-de-France" text="🌤️ Humeur générale : Mitigée" class="m-2" />
+        </li>
+        <li>
+          <app-card header="Provence" text="☀️ Humeur générale : Ensoleillée" />
+        </li>
+      </ul>
+    </p-tabpanel>
+
+  </p-tabpanels>
 </p-tabs>

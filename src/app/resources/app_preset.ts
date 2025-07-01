@@ -16,6 +16,7 @@ const ClimactifPreset = definePreset(Aura, {
                 surface: {
                     ground: 'var(--color-background-light)',
                     card: 'var(--color-background-light)',
+                    tab: 'var(--color-background-light)'
                 },
             },
             dark: {

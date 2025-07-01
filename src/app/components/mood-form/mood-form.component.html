@@ -12,11 +12,12 @@
           Prenez un moment pour vous. Partagez ce que vous ressentez en toute bienveillance.
         </h1>
         <p id="moodform-desc" class="sr-only">
-          Ce formulaire vous permet de décrire votre humeur, de choisir des mots-clés et une couleur pour l'exprimer.
+          Ce formulaire vous permet de décrire votre humeur, de choisir des émotions et une couleur pour l'exprimer.
         </p>
         <fieldset>
-          <legend class="sr-only">Mots-clés</legend>
+          <label for="feelings" class="sr-only">Émotions</label>
           <div
+            id="feelings"
             class="flex flex-wrap justify-center gap-2"
             role="group"
             aria-label="Mots-clés"
@@ -69,8 +70,8 @@
           formControlName="description"
           [(ngModel)]="value"
           rows="2"
-          class="mood-textarea w-full p-3 placeholder:text-black/60 bg-gray-50/20 border-0 rounded-lg text-black"
-          placeholder="Décrivez ce que vous ressentez..."
+          class="mood-textarea w-full p-3 placeholder:text-black/60 bg-white/50 border-0 rounded-lg text-black"
+          placeholder="Décrivez ce que vous ressentez... *"
           aria-required="true"
           [attr.aria-invalid]="moodForm.get('description')?.invalid && moodForm.get('description')?.touched"
           aria-describedby="moodform-desc description-error"

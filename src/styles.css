@@ -1,10 +1,11 @@
 @import "tailwindcss";
 @plugin "tailwindcss-primeui";
+@import "primeicons/primeicons.css";
 
 p-menubarsub {
   width: 100%;
   display: flex;
-  padding-inline: calc(var(--spacing) * 80);
+  padding-inline: calc(var(--spacing) * 20);
   margin-inline: auto;
   .p-menubar-root-list {
     width: 100%;

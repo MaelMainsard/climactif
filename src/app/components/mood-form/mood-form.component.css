@@ -23,32 +23,6 @@
   outline-offset: 2px;
 }
 
-:host ::ng-deep .mood-keywords-select .p-selectbutton {
-  display: flex !important;
-  flex-wrap: wrap !important;
-  justify-content: center !important;
-  gap: 0.5rem;
-}
-
-:host ::ng-deep .mood-keywords-select .p-selectbutton > * {
-  flex: 0 1 auto !important;
-  width: auto !important;
-  margin-bottom: 0.5rem !important;
-  display: flex !important;
-}
-
-:host ::ng-deep .mood-keywords-select .p-selectbutton .p-button {
-  flex: 0 1 auto !important;
-  width: auto !important;
-  margin-bottom: 0.5rem !important;
-}
-
-button.selected {
-  background-color: #6366f1 !important; /* Tailwind indigo-500 */
-  color: #fff !important;
-  border-color: #6366f1 !important;
-}
-
 .mood-chip {
   background-color: #f3f4f6; /* Tailwind gray-100 */
   color: #374151; /* Tailwind gray-700 */

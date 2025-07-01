@@ -1,0 +1,56 @@
+:host ::ng-deep .color-slider.p-slider {
+  background: linear-gradient(
+    to right,
+    /* #ff0000,
+    #ff7f00,
+    #ffff00,
+    #00ff00,
+    #0000ff,
+    #4b0082,
+    #9400d3 */
+      #553533,
+    #af6d58,
+    #f2bd9e,
+    #fcf9f7,
+    #bd9797
+  );
+}
+
+:host ::ng-deep .color-slider.p-slider .p-slider-range {
+  background: transparent;
+}
+
+.mood-textarea:focus {
+  outline: none;
+}
+.mood-textarea:focus-visible {
+  outline: 1px solid var(--p-primary-color);
+  outline-offset: 2px;
+}
+
+.mood-chip {
+  background-color:var(--p-surface-card);
+  border: none;
+}
+
+.mood-chip.selected {
+  background-color: var(--p-primary-color);
+  color: var(--p-primary-inverse-color);
+}
+
+.mood-chip:hover:not(.selected) {
+  background-color: var(--p-primary-active-color);
+  color: var(--p-primary-inverse-color);
+}
+
+.mood-chip:active {
+  background-color: var(--p-primary-hover-color);
+}
+
+.mood-chip:focus {
+    outline: none;
+  }
+.mood-chip:focus-visible {
+    outline: 1px solid var(--p-primary-color);
+    outline-offset: 2px;
+}

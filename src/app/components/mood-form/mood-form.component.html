@@ -1,0 +1,69 @@
+<div
+  class="flex flex-col px-8 py-8 gap-6 rounded-2xl"
+  style="
+    border-radius: 12px;
+    background-image: radial-gradient(
+      circle at left top,
+      color-mix(in srgb, var(--p-primary-color), var(--p-surface-ground) 30%),
+      color-mix(in srgb, var(--p-primary-color), var(--p-surface-ground) 60%)
+    );
+  "
+>
+  <div [formGroup]="moodForm">
+    <div class="flex flex-col gap-8">
+      <div class="flex flex-col gap-4">
+        <h1 class="font-semibold text-black">
+          Quel est votre mood du moment ?
+        </h1>
+        <div class="flex flex-col gap-2">
+          <div class="flex flex-wrap justify-center gap-2">
+            <button
+              *ngFor="let keyword of keywords"
+              type="button"
+              (click)="toggleKeyword(keyword)"
+              [class.selected]="isKeywordSelected(keyword)"
+              class="mood-chip px-4 py-1 rounded-full border cursor-pointer"
+            >
+              {{ keyword.name }}
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <div class="flex flex-col gap-2 mt-2">
+        <p-slider
+          id="color"
+          formControlName="color"
+          styleClass="color-slider"
+        ></p-slider>
+      </div>
+
+      <textarea
+        pTextarea
+        id="description"
+        formControlName="description"
+        [(ngModel)]="value"
+        rows="2"
+        class="mood-textarea w-full p-3 placeholder:text-gray-700 bg-gray-700/30 border-0 rounded-lg text-black"
+        placeholder="Une impression ?"
+      >
+      </textarea>
+    </div>
+
+    <div class="flex items-center gap-4 mt-8">
+      <p-button
+        label="Annuler"
+        (click)="onCancel()"
+        [text]="true"
+        styleClass="w-full !text-primary-50 !border !border-white/30 hover:!bg-white/10"
+        class="w-full"
+      />
+      <p-button
+        label="Publier"
+        (click)="onSave()"
+        styleClass="w-full"
+        class="w-full"
+      />
+    </div>
+  </div>
+</div>

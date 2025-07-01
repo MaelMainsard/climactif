@@ -1,13 +1,18 @@
 :host ::ng-deep .color-slider.p-slider {
   background: linear-gradient(
     to right,
-    #ff0000,
+    /* #ff0000,
     #ff7f00,
     #ffff00,
     #00ff00,
     #0000ff,
     #4b0082,
-    #9400d3
+    #9400d3 */
+      #553533,
+    #af6d58,
+    #f2bd9e,
+    #fcf9f7,
+    #bd9797
   );
 }
 
@@ -19,32 +24,33 @@
   outline: none;
 }
 .mood-textarea:focus-visible {
-  outline: 1px solid #000000;
+  outline: 1px solid var(--p-primary-color);
   outline-offset: 2px;
 }
 
 .mood-chip {
-  background-color: #f3f4f6; /* Tailwind gray-100 */
-  color: #374151; /* Tailwind gray-700 */
-  border-color: #d1d5db; /* Tailwind gray-300 */
+  background-color:var(--p-surface-card);
+  border: none;
 }
 
 .mood-chip.selected {
-  background-color: #6366f1 !important; /* Tailwind indigo-500 */
-  color: #fff !important;
-  border-color: #6366f1 !important;
+  background-color: var(--p-primary-color);
+  color: var(--p-primary-inverse-color);
 }
 
 .mood-chip:hover:not(.selected) {
-  background-color: #e0e7ff; /* Tailwind indigo-100 */
-  color: #3730a3; /* Tailwind indigo-700 */
-  border-color: #a5b4fc; /* Tailwind indigo-300 */
+  background-color: var(--p-primary-active-color);
+  color: var(--p-primary-inverse-color);
 }
 
 .mood-chip:active {
-  background-color: #a5b4fc; /* Tailwind indigo-300 */
+  background-color: var(--p-primary-hover-color);
 }
 
 .mood-chip:focus {
-  outline: none;
+    outline: none;
+  }
+.mood-chip:focus-visible {
+    outline: 1px solid var(--p-primary-color);
+    outline-offset: 2px;
 }

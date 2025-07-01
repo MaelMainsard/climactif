@@ -4,8 +4,8 @@
     border-radius: 12px;
     background-image: radial-gradient(
       circle at left top,
-      var(--p-primary-400),
-      var(--p-primary-700)
+      color-mix(in srgb, var(--p-primary-color), var(--p-surface-ground) 30%),
+      color-mix(in srgb, var(--p-primary-color), var(--p-surface-ground) 60%)
     );
   "
 >
@@ -16,14 +16,13 @@
           Quel est votre mood du moment ?
         </h1>
         <div class="flex flex-col gap-2">
-          <label class="font-semibold">Keywords</label>
           <div class="flex flex-wrap justify-center gap-2">
             <button
               *ngFor="let keyword of keywords"
               type="button"
               (click)="toggleKeyword(keyword)"
               [class.selected]="isKeywordSelected(keyword)"
-              class="mood-chip px-4 py-2 rounded-full border cursor-pointer"
+              class="mood-chip px-4 py-1 rounded-full border cursor-pointer"
             >
               {{ keyword.name }}
             </button>

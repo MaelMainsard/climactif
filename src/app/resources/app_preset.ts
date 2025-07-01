@@ -28,6 +28,7 @@ export function createColorScheme(primary: string) {
     surface: {
       ground,
       card,
+      tab: card,
       on: onSurface,
     },
   };
@@ -38,32 +39,6 @@ const ClimactifPreset = definePreset(Aura, {
     colorScheme: {
       light: createColorScheme('#553533'),
       dark: createColorScheme('#f2bd9e'),
-      //       {
-      //     primary: {
-      //       color: 'var(--color-primary-light)',
-      //       inverseColor: '#ffffff',
-      //       hoverColor: 'var(--color-primary-light-hover)',
-      //       activeColor: 'var(--color-primary-light-active)',
-      //       background: 'var(--color-background-light)',
-      //     },
-      //     surface: {
-      //       ground: 'var(--color-background-light)',
-      //       card: 'var(--color-background-light)',
-      //     },
-      //   },
-      //   dark: {
-      //     primary: {
-      //       color: 'var(--color-primary-dark)',
-      //       inverseColor: '#000000',
-      //       hoverColor: 'var(--color-primary-dark-hover)',
-      //       activeColor: 'var(--color-primary-dark-active)',
-      //       background: 'var(--color-background-dark)',
-      //     },
-      //     surface: {
-      //       ground: 'var(--color-background-dark)',
-      //       card: 'var(--color-background-dark)',
-      //     },
-      //   },
     },
   },
 });

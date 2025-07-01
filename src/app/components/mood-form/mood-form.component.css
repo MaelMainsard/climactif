@@ -59,7 +59,6 @@
 }
 :host ::ng-deep .p-button:hover:not(:active) {
   background-color: var(--p-primary-hover-color);
-  color: var(--p-primary-inverse-color);
 }
 :host ::ng-deep .p-button.p-button-text {
   border: 1px solid var(--p-primary-color);

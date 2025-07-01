@@ -8,8 +8,7 @@ import { Menubar } from 'primeng/menubar';
   selector: 'app-navbar',
   standalone: true,
   imports: [ButtonModule,RouterModule, Menubar],
-  templateUrl: './navbar.component.html',
-  styleUrl: './navbar.component.css',
+  templateUrl: './navbar.component.html'
 })
 export class NavbarComponent {
   items: MenuItem[] = [

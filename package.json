@@ -7,7 +7,14 @@
     "build": "ng build",
     "lint": "ng lint",
     "lint:fix": "ng lint --fix",
-    "watch": "ng build --watch --configuration development"
+    "p:fix": "prettier --config ./.prettierrc --write \"src/{app,environnements}/**/*{.ts,.html,.scss}\"",
+    "p:verify": "prettier --config ./.prettierrc --list-different \"src/{app,environments}/**/*{.ts,.html,.scss}\"",
+    "watch": "ng build --watch --configuration development",
+    "husky": {
+      "hooks": {
+        "pre-commit": "npm run p:fix"
+      }
+    }
   },
   "private": true,
   "dependencies": {
@@ -41,6 +48,8 @@
     "@typescript-eslint/eslint-plugin": "7.11.0",
     "@typescript-eslint/parser": "7.11.0",
     "eslint": "8.57.1",
+    "husky": "^9.1.7",
+    "prettier": "^3.6.2",
     "typescript": "~5.7.2"
   }
 }

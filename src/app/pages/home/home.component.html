@@ -1,5 +1,10 @@
-<h1>Home</h1>
-<p-button (click)="showDialog()" label="What's your mood ?"></p-button>
+<app-refresh-title />
+
+<h1>Accueil</h1>
+<section>
+    <p-button (click)="showDialog()" label="What's your mood ?"></p-button>
+  <h2>La météo intérieure d'aujourd'hui</h2>
+</section>
 <p-dialog
   [(visible)]="visible"
   [style]="{ width: '30rem' }"

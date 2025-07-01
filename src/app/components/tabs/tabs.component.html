@@ -7,30 +7,46 @@
         </p-tablist>
     </div>
     <p-tabpanels>
-        <p-tabpanel value="0" class="flex justify-between">
+        <p-tabpanel value="0" class="flex justify-between text-left">
             <app-card
-                class="my-4 w-auto"
+                class="m-4 w-full"
                 header="☀️"
                 title="Optimisme"
                 text="23 personnes"/>
             <app-card
-                class="my-4 w-auto"
+                class="m-4 w-full"
                 header="🌧️"
                 title="Mélancolie"
                 text="18 personnes"/>
             <app-card
-                class="my-4 w-auto"
+                class="m-4 w-full"
                 header="🌱"
                 title="Espoir"
                 text="31 personnes"/>
         </p-tabpanel>
         <p-tabpanel value="1">
-            <app-card class="my-4"/>
-            <app-card class="my-4"/>
+            <app-card
+                header="💝"
+                title="Gratitude"
+                text="42 ressentis"
+                layout="horizontal"
+                class="m-4"/>
+            <app-card
+                header="🤔"
+                title="Réflexion"
+                text="28 ressentis"
+                layout="horizontal"
+                class="m-4"/>
         </p-tabpanel>
         <p-tabpanel value="2">
-            <app-card class="my-4"/>
-            <app-card class="my-4"/>
+            <app-card
+                header="Île-de-France"
+                text="🌤️ Humeur générale : Mitigée"
+                class="m-4"/>
+            <app-card
+                header="Provence"
+                text="☀️ Humeur générale : Ensoleillée"
+                class="m-4"/>
         </p-tabpanel>
     </p-tabpanels>
 </p-tabs>

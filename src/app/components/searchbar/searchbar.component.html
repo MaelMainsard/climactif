@@ -1,0 +1,38 @@
+<div class="search-container">
+  <div class="search-wrapper">
+    <div class="search-icon">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <circle cx="11" cy="11" r="8"></circle>
+        <path d="m21 21-4.35-4.35"></path>
+      </svg>
+    </div>
+    <input 
+      type="text" 
+      class="search-input" 
+      placeholder="fatigue, espoir, joie..."
+      [(ngModel)]="searchQuery"
+      (input)="onSearchInput($event)"
+      (keydown)="onKeyDown($event)"
+      (focus)="onFocus()"
+      #searchInput>
+  </div>
+  
+  <div class="search-results" [class.show]="showResults && searchQuery.trim().length >= 3 && (filteredResults.length > 0 || searchQuery.trim().length > 0)">
+    @if (filteredResults.length === 0 && searchQuery.trim().length >= 3) {
+      <div class="no-results">
+        Aucun résultat trouvé
+      </div>
+    }
+    
+    @for (result of filteredResults; track result.id; let i = $index) {
+      <div 
+        class="search-result-item"
+        [class.selected]="selectedIndex === i"
+        (click)="selectResult(result)"
+        (mouseenter)="selectedIndex = i">
+        <div class="result-title" [innerHTML]="highlightText(result.title, searchQuery)"></div>
+        <div class="result-description" [innerHTML]="highlightText(result.description, searchQuery)"></div>
+      </div>
+    }
+  </div>
+</div>

@@ -2,6 +2,17 @@
 @plugin "tailwindcss-primeui";
 @import "primeicons/primeicons.css";
 
+@theme {
+  --color-primary-light: #553533;
+  --color-primary-light-hover: #402826;
+  --color-primary-light-active: #80514d;
+  --color-background-light: #fcf1f5;
+  --color-primary-dark: #f2bd9e;
+  --color-primary-dark-hover: #f6d1bc;
+  --color-primary-dark-active: #eda378;
+  --color-background-dark: #120c07;
+}
+
 p-menubarsub {
   width: 100%;
   display: flex;

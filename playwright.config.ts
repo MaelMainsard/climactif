@@ -1,7 +1,11 @@
 import { defineConfig, devices } from '@playwright/test';
 
 export default defineConfig({
-  reporter: [['html', { outputFolder: 'playwright-report' }]],
+  reporter: [
+    ['@skilbourn/playwright-report-summary', { outputFile: 'playwright-summary.txt' }],
+    ['json', {  outputFile: 'playwright-results.json' }],
+    ['html']
+  ],
   projects: [
     {
       name: 'chromium',

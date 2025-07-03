@@ -1,0 +1,910 @@
+{
+  "config": {
+    "configFile": "/home/maelmainsard/Documents/projects/climactif/playwright.config.ts",
+    "rootDir": "/home/maelmainsard/Documents/projects/climactif",
+    "forbidOnly": false,
+    "fullyParallel": false,
+    "globalSetup": null,
+    "globalTeardown": null,
+    "globalTimeout": 0,
+    "grep": {},
+    "grepInvert": null,
+    "maxFailures": 0,
+    "metadata": {
+      "actualWorkers": 2
+    },
+    "preserveOutput": "always",
+    "reporter": [
+      [
+        "/home/maelmainsard/Documents/projects/climactif/node_modules/@skilbourn/playwright-report-summary/dist/index.js",
+        {
+          "outputFile": "playwright-summary.txt"
+        }
+      ],
+      [
+        "json",
+        {
+          "outputFile": "playwright-results.json"
+        }
+      ],
+      [
+        "html",
+        null
+      ]
+    ],
+    "reportSlowTests": {
+      "max": 5,
+      "threshold": 300000
+    },
+    "quiet": false,
+    "projects": [
+      {
+        "outputDir": "/home/maelmainsard/Documents/projects/climactif/test-results",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 2
+        },
+        "id": "chromium",
+        "name": "chromium",
+        "testDir": "/home/maelmainsard/Documents/projects/climactif",
+        "testIgnore": [],
+        "testMatch": [
+          "**/*.@(spec|test).?(c|m)[jt]s?(x)"
+        ],
+        "timeout": 30000
+      }
+    ],
+    "shard": null,
+    "updateSnapshots": "missing",
+    "updateSourceMethod": "patch",
+    "version": "1.53.2",
+    "workers": 6,
+    "webServer": null
+  },
+  "suites": [
+    {
+      "title": "src/app/pages/home/home.e2e.spec.ts",
+      "file": "src/app/pages/home/home.e2e.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [],
+      "suites": [
+        {
+          "title": "Home Page - Accessibility and Quality Tests",
+          "file": "src/app/pages/home/home.e2e.spec.ts",
+          "line": 4,
+          "column": 6,
+          "specs": [
+            {
+              "title": "should not have accessibility violations",
+              "ok": false,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 0,
+                      "parallelIndex": 0,
+                      "status": "failed",
+                      "duration": 2826,
+                      "error": {
+                        "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoEqual\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // deep equality\u001b[22m\n\n\u001b[32m- Expected  -  1\u001b[39m\n\u001b[31m+ Received  + 95\u001b[39m\n\n\u001b[32m- Array []\u001b[39m\n\u001b[31m+ Array [\u001b[39m\n\u001b[31m+   Object {\u001b[39m\n\u001b[31m+     \"description\": \"Ensure every form element has a label\",\u001b[39m\n\u001b[31m+     \"help\": \"Form elements must have labels\",\u001b[39m\n\u001b[31m+     \"helpUrl\": \"https://dequeuniversity.com/rules/axe/4.10/label?application=playwright\",\u001b[39m\n\u001b[31m+     \"id\": \"label\",\u001b[39m\n\u001b[31m+     \"impact\": \"critical\",\u001b[39m\n\u001b[31m+     \"nodes\": Array [\u001b[39m\n\u001b[31m+       Object {\u001b[39m\n\u001b[31m+         \"all\": Array [],\u001b[39m\n\u001b[31m+         \"any\": Array [\u001b[39m\n\u001b[31m+           Object {\u001b[39m\n\u001b[31m+             \"data\": null,\u001b[39m\n\u001b[31m+             \"id\": \"implicit-label\",\u001b[39m\n\u001b[31m+             \"impact\": \"critical\",\u001b[39m\n\u001b[31m+             \"message\": \"Element does not have an implicit (wrapped) <label>\",\u001b[39m\n\u001b[31m+             \"relatedNodes\": Array [],\u001b[39m\n\u001b[31m+           },\u001b[39m\n\u001b[31m+           Object {\u001b[39m\n\u001b[31m+             \"data\": null,\u001b[39m\n\u001b[31m+             \"id\": \"explicit-label\",\u001b[39m\n\u001b[31m+             \"impact\": \"critical\",\u001b[39m\n\u001b[31m+             \"message\": \"Element does not have an explicit <label>\",\u001b[39m\n\u001b[31m+             \"relatedNodes\": Array [],\u001b[39m\n\u001b[31m+           },\u001b[39m\n\u001b[31m+           Object {\u001b[39m\n\u001b[31m+             \"data\": null,\u001b[39m\n\u001b[31m+             \"id\": \"aria-label\",\u001b[39m\n\u001b[31m+             \"impact\": \"critical\",\u001b[39m\n\u001b[31m+             \"message\": \"aria-label attribute does not exist or is empty\",\u001b[39m\n\u001b[31m+             \"relatedNodes\": Array [],\u001b[39m\n\u001b[31m+           },\u001b[39m\n\u001b[31m+           Object {\u001b[39m\n\u001b[31m+             \"data\": null,\u001b[39m\n\u001b[31m+             \"id\": \"aria-labelledby\",\u001b[39m\n\u001b[31m+             \"impact\": \"critical\",\u001b[39m\n\u001b[31m+             \"message\": \"aria-labelledby attribute does not exist, references elements that do not exist or references elements that are empty\",\u001b[39m\n\u001b[31m+             \"relatedNodes\": Array [],\u001b[39m\n\u001b[31m+           },\u001b[39m\n\u001b[31m+           Object {\u001b[39m\n\u001b[31m+             \"data\": Object {\u001b[39m\n\u001b[31m+               \"messageKey\": \"noAttr\",\u001b[39m\n\u001b[31m+             },\u001b[39m\n\u001b[31m+             \"id\": \"non-empty-title\",\u001b[39m\n\u001b[31m+             \"impact\": \"critical\",\u001b[39m\n\u001b[31m+             \"message\": \"Element has no title attribute\",\u001b[39m\n\u001b[31m+             \"relatedNodes\": Array [],\u001b[39m\n\u001b[31m+           },\u001b[39m\n\u001b[31m+           Object {\u001b[39m\n\u001b[31m+             \"data\": Object {\u001b[39m\n\u001b[31m+               \"messageKey\": \"noAttr\",\u001b[39m\n\u001b[31m+             },\u001b[39m\n\u001b[31m+             \"id\": \"non-empty-placeholder\",\u001b[39m\n\u001b[31m+             \"impact\": \"critical\",\u001b[39m\n\u001b[31m+             \"message\": \"Element has no placeholder attribute\",\u001b[39m\n\u001b[31m+             \"relatedNodes\": Array [],\u001b[39m\n\u001b[31m+           },\u001b[39m\n\u001b[31m+           Object {\u001b[39m\n\u001b[31m+             \"data\": null,\u001b[39m\n\u001b[31m+             \"id\": \"presentational-role\",\u001b[39m\n\u001b[31m+             \"impact\": \"critical\",\u001b[39m\n\u001b[31m+             \"message\": \"Element's default semantics were not overridden with role=\\\"none\\\" or role=\\\"presentation\\\"\",\u001b[39m\n\u001b[31m+             \"relatedNodes\": Array [],\u001b[39m\n\u001b[31m+           },\u001b[39m\n\u001b[31m+         ],\u001b[39m\n\u001b[31m+         \"failureSummary\": \"Fix any of the following:\u001b[39m\n\u001b[31m+   Element does not have an implicit (wrapped) <label>\u001b[39m\n\u001b[31m+   Element does not have an explicit <label>\u001b[39m\n\u001b[31m+   aria-label attribute does not exist or is empty\u001b[39m\n\u001b[31m+   aria-labelledby attribute does not exist, references elements that do not exist or references elements that are empty\u001b[39m\n\u001b[31m+   Element has no title attribute\u001b[39m\n\u001b[31m+   Element has no placeholder attribute\u001b[39m\n\u001b[31m+   Element's default semantics were not overridden with role=\\\"none\\\" or role=\\\"presentation\\\"\",\u001b[39m\n\u001b[31m+         \"html\": \"<input type=\\\"checkbox\\\" role=\\\"switch\\\" ng-reflect-ng-class=\\\"p-toggleswitch-input\\\" aria-checked=\\\"false\\\" data-pc-section=\\\"hiddenInput\\\" class=\\\"p-toggleswitch-input\\\" pc5=\\\"\\\">\",\u001b[39m\n\u001b[31m+         \"impact\": \"critical\",\u001b[39m\n\u001b[31m+         \"none\": Array [],\u001b[39m\n\u001b[31m+         \"target\": Array [\u001b[39m\n\u001b[31m+           \"input\",\u001b[39m\n\u001b[31m+         ],\u001b[39m\n\u001b[31m+       },\u001b[39m\n\u001b[31m+     ],\u001b[39m\n\u001b[31m+     \"tags\": Array [\u001b[39m\n\u001b[31m+       \"cat.forms\",\u001b[39m\n\u001b[31m+       \"wcag2a\",\u001b[39m\n\u001b[31m+       \"wcag412\",\u001b[39m\n\u001b[31m+       \"section508\",\u001b[39m\n\u001b[31m+       \"section508.22.n\",\u001b[39m\n\u001b[31m+       \"TTv5\",\u001b[39m\n\u001b[31m+       \"TT5.c\",\u001b[39m\n\u001b[31m+       \"EN-301-549\",\u001b[39m\n\u001b[31m+       \"EN-9.4.1.2\",\u001b[39m\n\u001b[31m+       \"ACT\",\u001b[39m\n\u001b[31m+     ],\u001b[39m\n\u001b[31m+   },\u001b[39m\n\u001b[31m+ ]\u001b[39m",
+                        "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoEqual\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // deep equality\u001b[22m\n\n\u001b[32m- Expected  -  1\u001b[39m\n\u001b[31m+ Received  + 95\u001b[39m\n\n\u001b[32m- Array []\u001b[39m\n\u001b[31m+ Array [\u001b[39m\n\u001b[31m+   Object {\u001b[39m\n\u001b[31m+     \"description\": \"Ensure every form element has a label\",\u001b[39m\n\u001b[31m+     \"help\": \"Form elements must have labels\",\u001b[39m\n\u001b[31m+     \"helpUrl\": \"https://dequeuniversity.com/rules/axe/4.10/label?application=playwright\",\u001b[39m\n\u001b[31m+     \"id\": \"label\",\u001b[39m\n\u001b[31m+     \"impact\": \"critical\",\u001b[39m\n\u001b[31m+     \"nodes\": Array [\u001b[39m\n\u001b[31m+       Object {\u001b[39m\n\u001b[31m+         \"all\": Array [],\u001b[39m\n\u001b[31m+         \"any\": Array [\u001b[39m\n\u001b[31m+           Object {\u001b[39m\n\u001b[31m+             \"data\": null,\u001b[39m\n\u001b[31m+             \"id\": \"implicit-label\",\u001b[39m\n\u001b[31m+             \"impact\": \"critical\",\u001b[39m\n\u001b[31m+             \"message\": \"Element does not have an implicit (wrapped) <label>\",\u001b[39m\n\u001b[31m+             \"relatedNodes\": Array [],\u001b[39m\n\u001b[31m+           },\u001b[39m\n\u001b[31m+           Object {\u001b[39m\n\u001b[31m+             \"data\": null,\u001b[39m\n\u001b[31m+             \"id\": \"explicit-label\",\u001b[39m\n\u001b[31m+             \"impact\": \"critical\",\u001b[39m\n\u001b[31m+             \"message\": \"Element does not have an explicit <label>\",\u001b[39m\n\u001b[31m+             \"relatedNodes\": Array [],\u001b[39m\n\u001b[31m+           },\u001b[39m\n\u001b[31m+           Object {\u001b[39m\n\u001b[31m+             \"data\": null,\u001b[39m\n\u001b[31m+             \"id\": \"aria-label\",\u001b[39m\n\u001b[31m+             \"impact\": \"critical\",\u001b[39m\n\u001b[31m+             \"message\": \"aria-label attribute does not exist or is empty\",\u001b[39m\n\u001b[31m+             \"relatedNodes\": Array [],\u001b[39m\n\u001b[31m+           },\u001b[39m\n\u001b[31m+           Object {\u001b[39m\n\u001b[31m+             \"data\": null,\u001b[39m\n\u001b[31m+             \"id\": \"aria-labelledby\",\u001b[39m\n\u001b[31m+             \"impact\": \"critical\",\u001b[39m\n\u001b[31m+             \"message\": \"aria-labelledby attribute does not exist, references elements that do not exist or references elements that are empty\",\u001b[39m\n\u001b[31m+             \"relatedNodes\": Array [],\u001b[39m\n\u001b[31m+           },\u001b[39m\n\u001b[31m+           Object {\u001b[39m\n\u001b[31m+             \"data\": Object {\u001b[39m\n\u001b[31m+               \"messageKey\": \"noAttr\",\u001b[39m\n\u001b[31m+             },\u001b[39m\n\u001b[31m+             \"id\": \"non-empty-title\",\u001b[39m\n\u001b[31m+             \"impact\": \"critical\",\u001b[39m\n\u001b[31m+             \"message\": \"Element has no title attribute\",\u001b[39m\n\u001b[31m+             \"relatedNodes\": Array [],\u001b[39m\n\u001b[31m+           },\u001b[39m\n\u001b[31m+           Object {\u001b[39m\n\u001b[31m+             \"data\": Object {\u001b[39m\n\u001b[31m+               \"messageKey\": \"noAttr\",\u001b[39m\n\u001b[31m+             },\u001b[39m\n\u001b[31m+             \"id\": \"non-empty-placeholder\",\u001b[39m\n\u001b[31m+             \"impact\": \"critical\",\u001b[39m\n\u001b[31m+             \"message\": \"Element has no placeholder attribute\",\u001b[39m\n\u001b[31m+             \"relatedNodes\": Array [],\u001b[39m\n\u001b[31m+           },\u001b[39m\n\u001b[31m+           Object {\u001b[39m\n\u001b[31m+             \"data\": null,\u001b[39m\n\u001b[31m+             \"id\": \"presentational-role\",\u001b[39m\n\u001b[31m+             \"impact\": \"critical\",\u001b[39m\n\u001b[31m+             \"message\": \"Element's default semantics were not overridden with role=\\\"none\\\" or role=\\\"presentation\\\"\",\u001b[39m\n\u001b[31m+             \"relatedNodes\": Array [],\u001b[39m\n\u001b[31m+           },\u001b[39m\n\u001b[31m+         ],\u001b[39m\n\u001b[31m+         \"failureSummary\": \"Fix any of the following:\u001b[39m\n\u001b[31m+   Element does not have an implicit (wrapped) <label>\u001b[39m\n\u001b[31m+   Element does not have an explicit <label>\u001b[39m\n\u001b[31m+   aria-label attribute does not exist or is empty\u001b[39m\n\u001b[31m+   aria-labelledby attribute does not exist, references elements that do not exist or references elements that are empty\u001b[39m\n\u001b[31m+   Element has no title attribute\u001b[39m\n\u001b[31m+   Element has no placeholder attribute\u001b[39m\n\u001b[31m+   Element's default semantics were not overridden with role=\\\"none\\\" or role=\\\"presentation\\\"\",\u001b[39m\n\u001b[31m+         \"html\": \"<input type=\\\"checkbox\\\" role=\\\"switch\\\" ng-reflect-ng-class=\\\"p-toggleswitch-input\\\" aria-checked=\\\"false\\\" data-pc-section=\\\"hiddenInput\\\" class=\\\"p-toggleswitch-input\\\" pc5=\\\"\\\">\",\u001b[39m\n\u001b[31m+         \"impact\": \"critical\",\u001b[39m\n\u001b[31m+         \"none\": Array [],\u001b[39m\n\u001b[31m+         \"target\": Array [\u001b[39m\n\u001b[31m+           \"input\",\u001b[39m\n\u001b[31m+         ],\u001b[39m\n\u001b[31m+       },\u001b[39m\n\u001b[31m+     ],\u001b[39m\n\u001b[31m+     \"tags\": Array [\u001b[39m\n\u001b[31m+       \"cat.forms\",\u001b[39m\n\u001b[31m+       \"wcag2a\",\u001b[39m\n\u001b[31m+       \"wcag412\",\u001b[39m\n\u001b[31m+       \"section508\",\u001b[39m\n\u001b[31m+       \"section508.22.n\",\u001b[39m\n\u001b[31m+       \"TTv5\",\u001b[39m\n\u001b[31m+       \"TT5.c\",\u001b[39m\n\u001b[31m+       \"EN-301-549\",\u001b[39m\n\u001b[31m+       \"EN-9.4.1.2\",\u001b[39m\n\u001b[31m+       \"ACT\",\u001b[39m\n\u001b[31m+     ],\u001b[39m\n\u001b[31m+   },\u001b[39m\n\u001b[31m+ ]\u001b[39m\n    at /home/maelmainsard/Documents/projects/climactif/src/app/pages/home/home.e2e.spec.ts:15:49",
+                        "location": {
+                          "file": "/home/maelmainsard/Documents/projects/climactif/src/app/pages/home/home.e2e.spec.ts",
+                          "column": 49,
+                          "line": 15
+                        },
+                        "snippet": "\u001b[0m \u001b[90m 13 |\u001b[39m   test(\u001b[32m'should not have accessibility violations'\u001b[39m\u001b[33m,\u001b[39m \u001b[36masync\u001b[39m ({ page }) \u001b[33m=>\u001b[39m {\n \u001b[90m 14 |\u001b[39m     \u001b[36mconst\u001b[39m accessibilityScanResults \u001b[33m=\u001b[39m \u001b[36mawait\u001b[39m \u001b[36mnew\u001b[39m \u001b[33mAxeBuilder\u001b[39m({ page })\u001b[33m.\u001b[39manalyze()\u001b[33m;\u001b[39m\n\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 15 |\u001b[39m     expect(accessibilityScanResults\u001b[33m.\u001b[39mviolations)\u001b[33m.\u001b[39mtoEqual([])\u001b[33m;\u001b[39m\n \u001b[90m    |\u001b[39m                                                 \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\n \u001b[90m 16 |\u001b[39m   })\u001b[33m;\u001b[39m\n \u001b[90m 17 |\u001b[39m\n \u001b[90m 18 |\u001b[39m\u001b[0m"
+                      },
+                      "errors": [
+                        {
+                          "location": {
+                            "file": "/home/maelmainsard/Documents/projects/climactif/src/app/pages/home/home.e2e.spec.ts",
+                            "column": 49,
+                            "line": 15
+                          },
+                          "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoEqual\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // deep equality\u001b[22m\n\n\u001b[32m- Expected  -  1\u001b[39m\n\u001b[31m+ Received  + 95\u001b[39m\n\n\u001b[32m- Array []\u001b[39m\n\u001b[31m+ Array [\u001b[39m\n\u001b[31m+   Object {\u001b[39m\n\u001b[31m+     \"description\": \"Ensure every form element has a label\",\u001b[39m\n\u001b[31m+     \"help\": \"Form elements must have labels\",\u001b[39m\n\u001b[31m+     \"helpUrl\": \"https://dequeuniversity.com/rules/axe/4.10/label?application=playwright\",\u001b[39m\n\u001b[31m+     \"id\": \"label\",\u001b[39m\n\u001b[31m+     \"impact\": \"critical\",\u001b[39m\n\u001b[31m+     \"nodes\": Array [\u001b[39m\n\u001b[31m+       Object {\u001b[39m\n\u001b[31m+         \"all\": Array [],\u001b[39m\n\u001b[31m+         \"any\": Array [\u001b[39m\n\u001b[31m+           Object {\u001b[39m\n\u001b[31m+             \"data\": null,\u001b[39m\n\u001b[31m+             \"id\": \"implicit-label\",\u001b[39m\n\u001b[31m+             \"impact\": \"critical\",\u001b[39m\n\u001b[31m+             \"message\": \"Element does not have an implicit (wrapped) <label>\",\u001b[39m\n\u001b[31m+             \"relatedNodes\": Array [],\u001b[39m\n\u001b[31m+           },\u001b[39m\n\u001b[31m+           Object {\u001b[39m\n\u001b[31m+             \"data\": null,\u001b[39m\n\u001b[31m+             \"id\": \"explicit-label\",\u001b[39m\n\u001b[31m+             \"impact\": \"critical\",\u001b[39m\n\u001b[31m+             \"message\": \"Element does not have an explicit <label>\",\u001b[39m\n\u001b[31m+             \"relatedNodes\": Array [],\u001b[39m\n\u001b[31m+           },\u001b[39m\n\u001b[31m+           Object {\u001b[39m\n\u001b[31m+             \"data\": null,\u001b[39m\n\u001b[31m+             \"id\": \"aria-label\",\u001b[39m\n\u001b[31m+             \"impact\": \"critical\",\u001b[39m\n\u001b[31m+             \"message\": \"aria-label attribute does not exist or is empty\",\u001b[39m\n\u001b[31m+             \"relatedNodes\": Array [],\u001b[39m\n\u001b[31m+           },\u001b[39m\n\u001b[31m+           Object {\u001b[39m\n\u001b[31m+             \"data\": null,\u001b[39m\n\u001b[31m+             \"id\": \"aria-labelledby\",\u001b[39m\n\u001b[31m+             \"impact\": \"critical\",\u001b[39m\n\u001b[31m+             \"message\": \"aria-labelledby attribute does not exist, references elements that do not exist or references elements that are empty\",\u001b[39m\n\u001b[31m+             \"relatedNodes\": Array [],\u001b[39m\n\u001b[31m+           },\u001b[39m\n\u001b[31m+           Object {\u001b[39m\n\u001b[31m+             \"data\": Object {\u001b[39m\n\u001b[31m+               \"messageKey\": \"noAttr\",\u001b[39m\n\u001b[31m+             },\u001b[39m\n\u001b[31m+             \"id\": \"non-empty-title\",\u001b[39m\n\u001b[31m+             \"impact\": \"critical\",\u001b[39m\n\u001b[31m+             \"message\": \"Element has no title attribute\",\u001b[39m\n\u001b[31m+             \"relatedNodes\": Array [],\u001b[39m\n\u001b[31m+           },\u001b[39m\n\u001b[31m+           Object {\u001b[39m\n\u001b[31m+             \"data\": Object {\u001b[39m\n\u001b[31m+               \"messageKey\": \"noAttr\",\u001b[39m\n\u001b[31m+             },\u001b[39m\n\u001b[31m+             \"id\": \"non-empty-placeholder\",\u001b[39m\n\u001b[31m+             \"impact\": \"critical\",\u001b[39m\n\u001b[31m+             \"message\": \"Element has no placeholder attribute\",\u001b[39m\n\u001b[31m+             \"relatedNodes\": Array [],\u001b[39m\n\u001b[31m+           },\u001b[39m\n\u001b[31m+           Object {\u001b[39m\n\u001b[31m+             \"data\": null,\u001b[39m\n\u001b[31m+             \"id\": \"presentational-role\",\u001b[39m\n\u001b[31m+             \"impact\": \"critical\",\u001b[39m\n\u001b[31m+             \"message\": \"Element's default semantics were not overridden with role=\\\"none\\\" or role=\\\"presentation\\\"\",\u001b[39m\n\u001b[31m+             \"relatedNodes\": Array [],\u001b[39m\n\u001b[31m+           },\u001b[39m\n\u001b[31m+         ],\u001b[39m\n\u001b[31m+         \"failureSummary\": \"Fix any of the following:\u001b[39m\n\u001b[31m+   Element does not have an implicit (wrapped) <label>\u001b[39m\n\u001b[31m+   Element does not have an explicit <label>\u001b[39m\n\u001b[31m+   aria-label attribute does not exist or is empty\u001b[39m\n\u001b[31m+   aria-labelledby attribute does not exist, references elements that do not exist or references elements that are empty\u001b[39m\n\u001b[31m+   Element has no title attribute\u001b[39m\n\u001b[31m+   Element has no placeholder attribute\u001b[39m\n\u001b[31m+   Element's default semantics were not overridden with role=\\\"none\\\" or role=\\\"presentation\\\"\",\u001b[39m\n\u001b[31m+         \"html\": \"<input type=\\\"checkbox\\\" role=\\\"switch\\\" ng-reflect-ng-class=\\\"p-toggleswitch-input\\\" aria-checked=\\\"false\\\" data-pc-section=\\\"hiddenInput\\\" class=\\\"p-toggleswitch-input\\\" pc5=\\\"\\\">\",\u001b[39m\n\u001b[31m+         \"impact\": \"critical\",\u001b[39m\n\u001b[31m+         \"none\": Array [],\u001b[39m\n\u001b[31m+         \"target\": Array [\u001b[39m\n\u001b[31m+           \"input\",\u001b[39m\n\u001b[31m+         ],\u001b[39m\n\u001b[31m+       },\u001b[39m\n\u001b[31m+     ],\u001b[39m\n\u001b[31m+     \"tags\": Array [\u001b[39m\n\u001b[31m+       \"cat.forms\",\u001b[39m\n\u001b[31m+       \"wcag2a\",\u001b[39m\n\u001b[31m+       \"wcag412\",\u001b[39m\n\u001b[31m+       \"section508\",\u001b[39m\n\u001b[31m+       \"section508.22.n\",\u001b[39m\n\u001b[31m+       \"TTv5\",\u001b[39m\n\u001b[31m+       \"TT5.c\",\u001b[39m\n\u001b[31m+       \"EN-301-549\",\u001b[39m\n\u001b[31m+       \"EN-9.4.1.2\",\u001b[39m\n\u001b[31m+       \"ACT\",\u001b[39m\n\u001b[31m+     ],\u001b[39m\n\u001b[31m+   },\u001b[39m\n\u001b[31m+ ]\u001b[39m\n\n\u001b[0m \u001b[90m 13 |\u001b[39m   test(\u001b[32m'should not have accessibility violations'\u001b[39m\u001b[33m,\u001b[39m \u001b[36masync\u001b[39m ({ page }) \u001b[33m=>\u001b[39m {\n \u001b[90m 14 |\u001b[39m     \u001b[36mconst\u001b[39m accessibilityScanResults \u001b[33m=\u001b[39m \u001b[36mawait\u001b[39m \u001b[36mnew\u001b[39m \u001b[33mAxeBuilder\u001b[39m({ page })\u001b[33m.\u001b[39manalyze()\u001b[33m;\u001b[39m\n\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 15 |\u001b[39m     expect(accessibilityScanResults\u001b[33m.\u001b[39mviolations)\u001b[33m.\u001b[39mtoEqual([])\u001b[33m;\u001b[39m\n \u001b[90m    |\u001b[39m                                                 \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\n \u001b[90m 16 |\u001b[39m   })\u001b[33m;\u001b[39m\n \u001b[90m 17 |\u001b[39m\n \u001b[90m 18 |\u001b[39m\u001b[0m\n\u001b[2m    at /home/maelmainsard/Documents/projects/climactif/src/app/pages/home/home.e2e.spec.ts:15:49\u001b[22m"
+                        }
+                      ],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2025-07-03T14:26:47.223Z",
+                      "annotations": [],
+                      "attachments": [
+                        {
+                          "name": "error-context",
+                          "contentType": "text/markdown",
+                          "path": "/home/maelmainsard/Documents/projects/climactif/test-results/src-app-pages-home-home.e2-37adb-ve-accessibility-violations-chromium/error-context.md"
+                        }
+                      ],
+                      "errorLocation": {
+                        "file": "/home/maelmainsard/Documents/projects/climactif/src/app/pages/home/home.e2e.spec.ts",
+                        "column": 49,
+                        "line": 15
+                      }
+                    }
+                  ],
+                  "status": "unexpected"
+                }
+              ],
+              "id": "dca82e0d2f9b3b6ce057-a020ce4f535f44b97f4d",
+              "file": "src/app/pages/home/home.e2e.spec.ts",
+              "line": 13,
+              "column": 7
+            },
+            {
+              "title": "should have proper page structure",
+              "ok": false,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 2,
+                      "parallelIndex": 0,
+                      "status": "failed",
+                      "duration": 5819,
+                      "error": {
+                        "message": "Error: \u001b[31mTimed out 5000ms waiting for \u001b[39m\u001b[2mexpect(\u001b[22m\u001b[31mpage\u001b[39m\u001b[2m).\u001b[22mtoHaveTitle\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m\n\nLocator: locator(':root')\nExpected pattern: \u001b[32m/climactif/i\u001b[39m\nReceived string:  \u001b[31m\"Accueil\"\u001b[39m\nCall log:\n\u001b[2m  - Expect \"toHaveTitle\" with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for locator(':root')\u001b[22m\n\u001b[2m    9 × locator resolved to <html lang=\"en\">…</html>\u001b[22m\n\u001b[2m      - unexpected value \"Accueil\"\u001b[22m\n",
+                        "stack": "Error: \u001b[31mTimed out 5000ms waiting for \u001b[39m\u001b[2mexpect(\u001b[22m\u001b[31mpage\u001b[39m\u001b[2m).\u001b[22mtoHaveTitle\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m\n\nLocator: locator(':root')\nExpected pattern: \u001b[32m/climactif/i\u001b[39m\nReceived string:  \u001b[31m\"Accueil\"\u001b[39m\nCall log:\n\u001b[2m  - Expect \"toHaveTitle\" with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for locator(':root')\u001b[22m\n\u001b[2m    9 × locator resolved to <html lang=\"en\">…</html>\u001b[22m\n\u001b[2m      - unexpected value \"Accueil\"\u001b[22m\n\n    at /home/maelmainsard/Documents/projects/climactif/src/app/pages/home/home.e2e.spec.ts:20:24",
+                        "location": {
+                          "file": "/home/maelmainsard/Documents/projects/climactif/src/app/pages/home/home.e2e.spec.ts",
+                          "column": 24,
+                          "line": 20
+                        },
+                        "snippet": "\u001b[0m \u001b[90m 18 |\u001b[39m\n \u001b[90m 19 |\u001b[39m   test(\u001b[32m'should have proper page structure'\u001b[39m\u001b[33m,\u001b[39m \u001b[36masync\u001b[39m ({ page }) \u001b[33m=>\u001b[39m {\n\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 20 |\u001b[39m     \u001b[36mawait\u001b[39m expect(page)\u001b[33m.\u001b[39mtoHaveTitle(\u001b[35m/climactif/i\u001b[39m)\u001b[33m;\u001b[39m\n \u001b[90m    |\u001b[39m                        \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\n \u001b[90m 21 |\u001b[39m     \u001b[36mawait\u001b[39m expect(page\u001b[33m.\u001b[39mlocator(\u001b[32m'h1'\u001b[39m))\u001b[33m.\u001b[39mtoBeVisible()\u001b[33m;\u001b[39m\n \u001b[90m 22 |\u001b[39m     \u001b[36mawait\u001b[39m expect(page\u001b[33m.\u001b[39mlocator(\u001b[32m'main'\u001b[39m))\u001b[33m.\u001b[39mtoBeVisible()\u001b[33m;\u001b[39m\n \u001b[90m 23 |\u001b[39m   })\u001b[33m;\u001b[39m\u001b[0m"
+                      },
+                      "errors": [
+                        {
+                          "location": {
+                            "file": "/home/maelmainsard/Documents/projects/climactif/src/app/pages/home/home.e2e.spec.ts",
+                            "column": 24,
+                            "line": 20
+                          },
+                          "message": "Error: \u001b[31mTimed out 5000ms waiting for \u001b[39m\u001b[2mexpect(\u001b[22m\u001b[31mpage\u001b[39m\u001b[2m).\u001b[22mtoHaveTitle\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m\n\nLocator: locator(':root')\nExpected pattern: \u001b[32m/climactif/i\u001b[39m\nReceived string:  \u001b[31m\"Accueil\"\u001b[39m\nCall log:\n\u001b[2m  - Expect \"toHaveTitle\" with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for locator(':root')\u001b[22m\n\u001b[2m    9 × locator resolved to <html lang=\"en\">…</html>\u001b[22m\n\u001b[2m      - unexpected value \"Accueil\"\u001b[22m\n\n\n\u001b[0m \u001b[90m 18 |\u001b[39m\n \u001b[90m 19 |\u001b[39m   test(\u001b[32m'should have proper page structure'\u001b[39m\u001b[33m,\u001b[39m \u001b[36masync\u001b[39m ({ page }) \u001b[33m=>\u001b[39m {\n\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 20 |\u001b[39m     \u001b[36mawait\u001b[39m expect(page)\u001b[33m.\u001b[39mtoHaveTitle(\u001b[35m/climactif/i\u001b[39m)\u001b[33m;\u001b[39m\n \u001b[90m    |\u001b[39m                        \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\n \u001b[90m 21 |\u001b[39m     \u001b[36mawait\u001b[39m expect(page\u001b[33m.\u001b[39mlocator(\u001b[32m'h1'\u001b[39m))\u001b[33m.\u001b[39mtoBeVisible()\u001b[33m;\u001b[39m\n \u001b[90m 22 |\u001b[39m     \u001b[36mawait\u001b[39m expect(page\u001b[33m.\u001b[39mlocator(\u001b[32m'main'\u001b[39m))\u001b[33m.\u001b[39mtoBeVisible()\u001b[33m;\u001b[39m\n \u001b[90m 23 |\u001b[39m   })\u001b[33m;\u001b[39m\u001b[0m\n\u001b[2m    at /home/maelmainsard/Documents/projects/climactif/src/app/pages/home/home.e2e.spec.ts:20:24\u001b[22m"
+                        }
+                      ],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2025-07-03T14:26:50.538Z",
+                      "annotations": [],
+                      "attachments": [
+                        {
+                          "name": "error-context",
+                          "contentType": "text/markdown",
+                          "path": "/home/maelmainsard/Documents/projects/climactif/test-results/src-app-pages-home-home.e2-9b631--have-proper-page-structure-chromium/error-context.md"
+                        }
+                      ],
+                      "errorLocation": {
+                        "file": "/home/maelmainsard/Documents/projects/climactif/src/app/pages/home/home.e2e.spec.ts",
+                        "column": 24,
+                        "line": 20
+                      }
+                    }
+                  ],
+                  "status": "unexpected"
+                }
+              ],
+              "id": "dca82e0d2f9b3b6ce057-abc497ff5534ff66a6cc",
+              "file": "src/app/pages/home/home.e2e.spec.ts",
+              "line": 19,
+              "column": 7
+            },
+            {
+              "title": "should have proper heading hierarchy",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 4,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 802,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2025-07-03T14:26:56.851Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "dca82e0d2f9b3b6ce057-d6e62aac1e3df6380ea1",
+              "file": "src/app/pages/home/home.e2e.spec.ts",
+              "line": 26,
+              "column": 7
+            },
+            {
+              "title": "should have proper alt text for images",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 4,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 732,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2025-07-03T14:26:57.723Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "dca82e0d2f9b3b6ce057-9fb7f85dd9fe3a000031",
+              "file": "src/app/pages/home/home.e2e.spec.ts",
+              "line": 34,
+              "column": 7
+            },
+            {
+              "title": "should be keyboard navigable",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 4,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 739,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2025-07-03T14:26:58.459Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "dca82e0d2f9b3b6ce057-3f0e3ab1422ce39f4af6",
+              "file": "src/app/pages/home/home.e2e.spec.ts",
+              "line": 44,
+              "column": 7
+            },
+            {
+              "title": "should have proper color contrast",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 4,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 1026,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2025-07-03T14:26:59.201Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "dca82e0d2f9b3b6ce057-28cfa79c87a3bfcec6a7",
+              "file": "src/app/pages/home/home.e2e.spec.ts",
+              "line": 53,
+              "column": 7
+            },
+            {
+              "title": "should have proper form labels if forms exist",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 4,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 750,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2025-07-03T14:27:00.230Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "dca82e0d2f9b3b6ce057-2d34acdbd16ea6676c48",
+              "file": "src/app/pages/home/home.e2e.spec.ts",
+              "line": 65,
+              "column": 7
+            },
+            {
+              "title": "should have semantic HTML elements",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 4,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 740,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2025-07-03T14:27:00.984Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "dca82e0d2f9b3b6ce057-5910062df829a7d78765",
+              "file": "src/app/pages/home/home.e2e.spec.ts",
+              "line": 88,
+              "column": 7
+            },
+            {
+              "title": "should have proper viewport meta tag",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 4,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 727,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2025-07-03T14:27:01.726Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "dca82e0d2f9b3b6ce057-70fc2e5146b115555321",
+              "file": "src/app/pages/home/home.e2e.spec.ts",
+              "line": 95,
+              "column": 7
+            },
+            {
+              "title": "should load in reasonable time",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 4,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 838,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2025-07-03T14:27:02.456Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "dca82e0d2f9b3b6ce057-705d508b3b9537d98d06",
+              "file": "src/app/pages/home/home.e2e.spec.ts",
+              "line": 102,
+              "column": 7
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "title": "src/app/pages/meteo/meteo.component.spec.ts",
+      "file": "src/app/pages/meteo/meteo.component.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [],
+      "suites": [
+        {
+          "title": "Home Page - Accessibility and Quality Tests",
+          "file": "src/app/pages/meteo/meteo.component.spec.ts",
+          "line": 4,
+          "column": 6,
+          "specs": [
+            {
+              "title": "should not have accessibility violations",
+              "ok": false,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 1,
+                      "parallelIndex": 1,
+                      "status": "failed",
+                      "duration": 2890,
+                      "error": {
+                        "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoEqual\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // deep equality\u001b[22m\n\n\u001b[32m- Expected  -  1\u001b[39m\n\u001b[31m+ Received  + 95\u001b[39m\n\n\u001b[32m- Array []\u001b[39m\n\u001b[31m+ Array [\u001b[39m\n\u001b[31m+   Object {\u001b[39m\n\u001b[31m+     \"description\": \"Ensure every form element has a label\",\u001b[39m\n\u001b[31m+     \"help\": \"Form elements must have labels\",\u001b[39m\n\u001b[31m+     \"helpUrl\": \"https://dequeuniversity.com/rules/axe/4.10/label?application=playwright\",\u001b[39m\n\u001b[31m+     \"id\": \"label\",\u001b[39m\n\u001b[31m+     \"impact\": \"critical\",\u001b[39m\n\u001b[31m+     \"nodes\": Array [\u001b[39m\n\u001b[31m+       Object {\u001b[39m\n\u001b[31m+         \"all\": Array [],\u001b[39m\n\u001b[31m+         \"any\": Array [\u001b[39m\n\u001b[31m+           Object {\u001b[39m\n\u001b[31m+             \"data\": null,\u001b[39m\n\u001b[31m+             \"id\": \"implicit-label\",\u001b[39m\n\u001b[31m+             \"impact\": \"critical\",\u001b[39m\n\u001b[31m+             \"message\": \"Element does not have an implicit (wrapped) <label>\",\u001b[39m\n\u001b[31m+             \"relatedNodes\": Array [],\u001b[39m\n\u001b[31m+           },\u001b[39m\n\u001b[31m+           Object {\u001b[39m\n\u001b[31m+             \"data\": null,\u001b[39m\n\u001b[31m+             \"id\": \"explicit-label\",\u001b[39m\n\u001b[31m+             \"impact\": \"critical\",\u001b[39m\n\u001b[31m+             \"message\": \"Element does not have an explicit <label>\",\u001b[39m\n\u001b[31m+             \"relatedNodes\": Array [],\u001b[39m\n\u001b[31m+           },\u001b[39m\n\u001b[31m+           Object {\u001b[39m\n\u001b[31m+             \"data\": null,\u001b[39m\n\u001b[31m+             \"id\": \"aria-label\",\u001b[39m\n\u001b[31m+             \"impact\": \"critical\",\u001b[39m\n\u001b[31m+             \"message\": \"aria-label attribute does not exist or is empty\",\u001b[39m\n\u001b[31m+             \"relatedNodes\": Array [],\u001b[39m\n\u001b[31m+           },\u001b[39m\n\u001b[31m+           Object {\u001b[39m\n\u001b[31m+             \"data\": null,\u001b[39m\n\u001b[31m+             \"id\": \"aria-labelledby\",\u001b[39m\n\u001b[31m+             \"impact\": \"critical\",\u001b[39m\n\u001b[31m+             \"message\": \"aria-labelledby attribute does not exist, references elements that do not exist or references elements that are empty\",\u001b[39m\n\u001b[31m+             \"relatedNodes\": Array [],\u001b[39m\n\u001b[31m+           },\u001b[39m\n\u001b[31m+           Object {\u001b[39m\n\u001b[31m+             \"data\": Object {\u001b[39m\n\u001b[31m+               \"messageKey\": \"noAttr\",\u001b[39m\n\u001b[31m+             },\u001b[39m\n\u001b[31m+             \"id\": \"non-empty-title\",\u001b[39m\n\u001b[31m+             \"impact\": \"critical\",\u001b[39m\n\u001b[31m+             \"message\": \"Element has no title attribute\",\u001b[39m\n\u001b[31m+             \"relatedNodes\": Array [],\u001b[39m\n\u001b[31m+           },\u001b[39m\n\u001b[31m+           Object {\u001b[39m\n\u001b[31m+             \"data\": Object {\u001b[39m\n\u001b[31m+               \"messageKey\": \"noAttr\",\u001b[39m\n\u001b[31m+             },\u001b[39m\n\u001b[31m+             \"id\": \"non-empty-placeholder\",\u001b[39m\n\u001b[31m+             \"impact\": \"critical\",\u001b[39m\n\u001b[31m+             \"message\": \"Element has no placeholder attribute\",\u001b[39m\n\u001b[31m+             \"relatedNodes\": Array [],\u001b[39m\n\u001b[31m+           },\u001b[39m\n\u001b[31m+           Object {\u001b[39m\n\u001b[31m+             \"data\": null,\u001b[39m\n\u001b[31m+             \"id\": \"presentational-role\",\u001b[39m\n\u001b[31m+             \"impact\": \"critical\",\u001b[39m\n\u001b[31m+             \"message\": \"Element's default semantics were not overridden with role=\\\"none\\\" or role=\\\"presentation\\\"\",\u001b[39m\n\u001b[31m+             \"relatedNodes\": Array [],\u001b[39m\n\u001b[31m+           },\u001b[39m\n\u001b[31m+         ],\u001b[39m\n\u001b[31m+         \"failureSummary\": \"Fix any of the following:\u001b[39m\n\u001b[31m+   Element does not have an implicit (wrapped) <label>\u001b[39m\n\u001b[31m+   Element does not have an explicit <label>\u001b[39m\n\u001b[31m+   aria-label attribute does not exist or is empty\u001b[39m\n\u001b[31m+   aria-labelledby attribute does not exist, references elements that do not exist or references elements that are empty\u001b[39m\n\u001b[31m+   Element has no title attribute\u001b[39m\n\u001b[31m+   Element has no placeholder attribute\u001b[39m\n\u001b[31m+   Element's default semantics were not overridden with role=\\\"none\\\" or role=\\\"presentation\\\"\",\u001b[39m\n\u001b[31m+         \"html\": \"<input type=\\\"checkbox\\\" role=\\\"switch\\\" ng-reflect-ng-class=\\\"p-toggleswitch-input\\\" aria-checked=\\\"false\\\" data-pc-section=\\\"hiddenInput\\\" class=\\\"p-toggleswitch-input\\\" pc5=\\\"\\\">\",\u001b[39m\n\u001b[31m+         \"impact\": \"critical\",\u001b[39m\n\u001b[31m+         \"none\": Array [],\u001b[39m\n\u001b[31m+         \"target\": Array [\u001b[39m\n\u001b[31m+           \"input\",\u001b[39m\n\u001b[31m+         ],\u001b[39m\n\u001b[31m+       },\u001b[39m\n\u001b[31m+     ],\u001b[39m\n\u001b[31m+     \"tags\": Array [\u001b[39m\n\u001b[31m+       \"cat.forms\",\u001b[39m\n\u001b[31m+       \"wcag2a\",\u001b[39m\n\u001b[31m+       \"wcag412\",\u001b[39m\n\u001b[31m+       \"section508\",\u001b[39m\n\u001b[31m+       \"section508.22.n\",\u001b[39m\n\u001b[31m+       \"TTv5\",\u001b[39m\n\u001b[31m+       \"TT5.c\",\u001b[39m\n\u001b[31m+       \"EN-301-549\",\u001b[39m\n\u001b[31m+       \"EN-9.4.1.2\",\u001b[39m\n\u001b[31m+       \"ACT\",\u001b[39m\n\u001b[31m+     ],\u001b[39m\n\u001b[31m+   },\u001b[39m\n\u001b[31m+ ]\u001b[39m",
+                        "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoEqual\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // deep equality\u001b[22m\n\n\u001b[32m- Expected  -  1\u001b[39m\n\u001b[31m+ Received  + 95\u001b[39m\n\n\u001b[32m- Array []\u001b[39m\n\u001b[31m+ Array [\u001b[39m\n\u001b[31m+   Object {\u001b[39m\n\u001b[31m+     \"description\": \"Ensure every form element has a label\",\u001b[39m\n\u001b[31m+     \"help\": \"Form elements must have labels\",\u001b[39m\n\u001b[31m+     \"helpUrl\": \"https://dequeuniversity.com/rules/axe/4.10/label?application=playwright\",\u001b[39m\n\u001b[31m+     \"id\": \"label\",\u001b[39m\n\u001b[31m+     \"impact\": \"critical\",\u001b[39m\n\u001b[31m+     \"nodes\": Array [\u001b[39m\n\u001b[31m+       Object {\u001b[39m\n\u001b[31m+         \"all\": Array [],\u001b[39m\n\u001b[31m+         \"any\": Array [\u001b[39m\n\u001b[31m+           Object {\u001b[39m\n\u001b[31m+             \"data\": null,\u001b[39m\n\u001b[31m+             \"id\": \"implicit-label\",\u001b[39m\n\u001b[31m+             \"impact\": \"critical\",\u001b[39m\n\u001b[31m+             \"message\": \"Element does not have an implicit (wrapped) <label>\",\u001b[39m\n\u001b[31m+             \"relatedNodes\": Array [],\u001b[39m\n\u001b[31m+           },\u001b[39m\n\u001b[31m+           Object {\u001b[39m\n\u001b[31m+             \"data\": null,\u001b[39m\n\u001b[31m+             \"id\": \"explicit-label\",\u001b[39m\n\u001b[31m+             \"impact\": \"critical\",\u001b[39m\n\u001b[31m+             \"message\": \"Element does not have an explicit <label>\",\u001b[39m\n\u001b[31m+             \"relatedNodes\": Array [],\u001b[39m\n\u001b[31m+           },\u001b[39m\n\u001b[31m+           Object {\u001b[39m\n\u001b[31m+             \"data\": null,\u001b[39m\n\u001b[31m+             \"id\": \"aria-label\",\u001b[39m\n\u001b[31m+             \"impact\": \"critical\",\u001b[39m\n\u001b[31m+             \"message\": \"aria-label attribute does not exist or is empty\",\u001b[39m\n\u001b[31m+             \"relatedNodes\": Array [],\u001b[39m\n\u001b[31m+           },\u001b[39m\n\u001b[31m+           Object {\u001b[39m\n\u001b[31m+             \"data\": null,\u001b[39m\n\u001b[31m+             \"id\": \"aria-labelledby\",\u001b[39m\n\u001b[31m+             \"impact\": \"critical\",\u001b[39m\n\u001b[31m+             \"message\": \"aria-labelledby attribute does not exist, references elements that do not exist or references elements that are empty\",\u001b[39m\n\u001b[31m+             \"relatedNodes\": Array [],\u001b[39m\n\u001b[31m+           },\u001b[39m\n\u001b[31m+           Object {\u001b[39m\n\u001b[31m+             \"data\": Object {\u001b[39m\n\u001b[31m+               \"messageKey\": \"noAttr\",\u001b[39m\n\u001b[31m+             },\u001b[39m\n\u001b[31m+             \"id\": \"non-empty-title\",\u001b[39m\n\u001b[31m+             \"impact\": \"critical\",\u001b[39m\n\u001b[31m+             \"message\": \"Element has no title attribute\",\u001b[39m\n\u001b[31m+             \"relatedNodes\": Array [],\u001b[39m\n\u001b[31m+           },\u001b[39m\n\u001b[31m+           Object {\u001b[39m\n\u001b[31m+             \"data\": Object {\u001b[39m\n\u001b[31m+               \"messageKey\": \"noAttr\",\u001b[39m\n\u001b[31m+             },\u001b[39m\n\u001b[31m+             \"id\": \"non-empty-placeholder\",\u001b[39m\n\u001b[31m+             \"impact\": \"critical\",\u001b[39m\n\u001b[31m+             \"message\": \"Element has no placeholder attribute\",\u001b[39m\n\u001b[31m+             \"relatedNodes\": Array [],\u001b[39m\n\u001b[31m+           },\u001b[39m\n\u001b[31m+           Object {\u001b[39m\n\u001b[31m+             \"data\": null,\u001b[39m\n\u001b[31m+             \"id\": \"presentational-role\",\u001b[39m\n\u001b[31m+             \"impact\": \"critical\",\u001b[39m\n\u001b[31m+             \"message\": \"Element's default semantics were not overridden with role=\\\"none\\\" or role=\\\"presentation\\\"\",\u001b[39m\n\u001b[31m+             \"relatedNodes\": Array [],\u001b[39m\n\u001b[31m+           },\u001b[39m\n\u001b[31m+         ],\u001b[39m\n\u001b[31m+         \"failureSummary\": \"Fix any of the following:\u001b[39m\n\u001b[31m+   Element does not have an implicit (wrapped) <label>\u001b[39m\n\u001b[31m+   Element does not have an explicit <label>\u001b[39m\n\u001b[31m+   aria-label attribute does not exist or is empty\u001b[39m\n\u001b[31m+   aria-labelledby attribute does not exist, references elements that do not exist or references elements that are empty\u001b[39m\n\u001b[31m+   Element has no title attribute\u001b[39m\n\u001b[31m+   Element has no placeholder attribute\u001b[39m\n\u001b[31m+   Element's default semantics were not overridden with role=\\\"none\\\" or role=\\\"presentation\\\"\",\u001b[39m\n\u001b[31m+         \"html\": \"<input type=\\\"checkbox\\\" role=\\\"switch\\\" ng-reflect-ng-class=\\\"p-toggleswitch-input\\\" aria-checked=\\\"false\\\" data-pc-section=\\\"hiddenInput\\\" class=\\\"p-toggleswitch-input\\\" pc5=\\\"\\\">\",\u001b[39m\n\u001b[31m+         \"impact\": \"critical\",\u001b[39m\n\u001b[31m+         \"none\": Array [],\u001b[39m\n\u001b[31m+         \"target\": Array [\u001b[39m\n\u001b[31m+           \"input\",\u001b[39m\n\u001b[31m+         ],\u001b[39m\n\u001b[31m+       },\u001b[39m\n\u001b[31m+     ],\u001b[39m\n\u001b[31m+     \"tags\": Array [\u001b[39m\n\u001b[31m+       \"cat.forms\",\u001b[39m\n\u001b[31m+       \"wcag2a\",\u001b[39m\n\u001b[31m+       \"wcag412\",\u001b[39m\n\u001b[31m+       \"section508\",\u001b[39m\n\u001b[31m+       \"section508.22.n\",\u001b[39m\n\u001b[31m+       \"TTv5\",\u001b[39m\n\u001b[31m+       \"TT5.c\",\u001b[39m\n\u001b[31m+       \"EN-301-549\",\u001b[39m\n\u001b[31m+       \"EN-9.4.1.2\",\u001b[39m\n\u001b[31m+       \"ACT\",\u001b[39m\n\u001b[31m+     ],\u001b[39m\n\u001b[31m+   },\u001b[39m\n\u001b[31m+ ]\u001b[39m\n    at /home/maelmainsard/Documents/projects/climactif/src/app/pages/meteo/meteo.component.spec.ts:15:49",
+                        "location": {
+                          "file": "/home/maelmainsard/Documents/projects/climactif/src/app/pages/meteo/meteo.component.spec.ts",
+                          "column": 49,
+                          "line": 15
+                        },
+                        "snippet": "\u001b[0m \u001b[90m 13 |\u001b[39m   test(\u001b[32m'should not have accessibility violations'\u001b[39m\u001b[33m,\u001b[39m \u001b[36masync\u001b[39m ({ page }) \u001b[33m=>\u001b[39m {\n \u001b[90m 14 |\u001b[39m     \u001b[36mconst\u001b[39m accessibilityScanResults \u001b[33m=\u001b[39m \u001b[36mawait\u001b[39m \u001b[36mnew\u001b[39m \u001b[33mAxeBuilder\u001b[39m({ page })\u001b[33m.\u001b[39manalyze()\u001b[33m;\u001b[39m\n\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 15 |\u001b[39m     expect(accessibilityScanResults\u001b[33m.\u001b[39mviolations)\u001b[33m.\u001b[39mtoEqual([])\u001b[33m;\u001b[39m\n \u001b[90m    |\u001b[39m                                                 \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\n \u001b[90m 16 |\u001b[39m   })\u001b[33m;\u001b[39m\n \u001b[90m 17 |\u001b[39m\n \u001b[90m 18 |\u001b[39m\u001b[0m"
+                      },
+                      "errors": [
+                        {
+                          "location": {
+                            "file": "/home/maelmainsard/Documents/projects/climactif/src/app/pages/meteo/meteo.component.spec.ts",
+                            "column": 49,
+                            "line": 15
+                          },
+                          "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoEqual\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // deep equality\u001b[22m\n\n\u001b[32m- Expected  -  1\u001b[39m\n\u001b[31m+ Received  + 95\u001b[39m\n\n\u001b[32m- Array []\u001b[39m\n\u001b[31m+ Array [\u001b[39m\n\u001b[31m+   Object {\u001b[39m\n\u001b[31m+     \"description\": \"Ensure every form element has a label\",\u001b[39m\n\u001b[31m+     \"help\": \"Form elements must have labels\",\u001b[39m\n\u001b[31m+     \"helpUrl\": \"https://dequeuniversity.com/rules/axe/4.10/label?application=playwright\",\u001b[39m\n\u001b[31m+     \"id\": \"label\",\u001b[39m\n\u001b[31m+     \"impact\": \"critical\",\u001b[39m\n\u001b[31m+     \"nodes\": Array [\u001b[39m\n\u001b[31m+       Object {\u001b[39m\n\u001b[31m+         \"all\": Array [],\u001b[39m\n\u001b[31m+         \"any\": Array [\u001b[39m\n\u001b[31m+           Object {\u001b[39m\n\u001b[31m+             \"data\": null,\u001b[39m\n\u001b[31m+             \"id\": \"implicit-label\",\u001b[39m\n\u001b[31m+             \"impact\": \"critical\",\u001b[39m\n\u001b[31m+             \"message\": \"Element does not have an implicit (wrapped) <label>\",\u001b[39m\n\u001b[31m+             \"relatedNodes\": Array [],\u001b[39m\n\u001b[31m+           },\u001b[39m\n\u001b[31m+           Object {\u001b[39m\n\u001b[31m+             \"data\": null,\u001b[39m\n\u001b[31m+             \"id\": \"explicit-label\",\u001b[39m\n\u001b[31m+             \"impact\": \"critical\",\u001b[39m\n\u001b[31m+             \"message\": \"Element does not have an explicit <label>\",\u001b[39m\n\u001b[31m+             \"relatedNodes\": Array [],\u001b[39m\n\u001b[31m+           },\u001b[39m\n\u001b[31m+           Object {\u001b[39m\n\u001b[31m+             \"data\": null,\u001b[39m\n\u001b[31m+             \"id\": \"aria-label\",\u001b[39m\n\u001b[31m+             \"impact\": \"critical\",\u001b[39m\n\u001b[31m+             \"message\": \"aria-label attribute does not exist or is empty\",\u001b[39m\n\u001b[31m+             \"relatedNodes\": Array [],\u001b[39m\n\u001b[31m+           },\u001b[39m\n\u001b[31m+           Object {\u001b[39m\n\u001b[31m+             \"data\": null,\u001b[39m\n\u001b[31m+             \"id\": \"aria-labelledby\",\u001b[39m\n\u001b[31m+             \"impact\": \"critical\",\u001b[39m\n\u001b[31m+             \"message\": \"aria-labelledby attribute does not exist, references elements that do not exist or references elements that are empty\",\u001b[39m\n\u001b[31m+             \"relatedNodes\": Array [],\u001b[39m\n\u001b[31m+           },\u001b[39m\n\u001b[31m+           Object {\u001b[39m\n\u001b[31m+             \"data\": Object {\u001b[39m\n\u001b[31m+               \"messageKey\": \"noAttr\",\u001b[39m\n\u001b[31m+             },\u001b[39m\n\u001b[31m+             \"id\": \"non-empty-title\",\u001b[39m\n\u001b[31m+             \"impact\": \"critical\",\u001b[39m\n\u001b[31m+             \"message\": \"Element has no title attribute\",\u001b[39m\n\u001b[31m+             \"relatedNodes\": Array [],\u001b[39m\n\u001b[31m+           },\u001b[39m\n\u001b[31m+           Object {\u001b[39m\n\u001b[31m+             \"data\": Object {\u001b[39m\n\u001b[31m+               \"messageKey\": \"noAttr\",\u001b[39m\n\u001b[31m+             },\u001b[39m\n\u001b[31m+             \"id\": \"non-empty-placeholder\",\u001b[39m\n\u001b[31m+             \"impact\": \"critical\",\u001b[39m\n\u001b[31m+             \"message\": \"Element has no placeholder attribute\",\u001b[39m\n\u001b[31m+             \"relatedNodes\": Array [],\u001b[39m\n\u001b[31m+           },\u001b[39m\n\u001b[31m+           Object {\u001b[39m\n\u001b[31m+             \"data\": null,\u001b[39m\n\u001b[31m+             \"id\": \"presentational-role\",\u001b[39m\n\u001b[31m+             \"impact\": \"critical\",\u001b[39m\n\u001b[31m+             \"message\": \"Element's default semantics were not overridden with role=\\\"none\\\" or role=\\\"presentation\\\"\",\u001b[39m\n\u001b[31m+             \"relatedNodes\": Array [],\u001b[39m\n\u001b[31m+           },\u001b[39m\n\u001b[31m+         ],\u001b[39m\n\u001b[31m+         \"failureSummary\": \"Fix any of the following:\u001b[39m\n\u001b[31m+   Element does not have an implicit (wrapped) <label>\u001b[39m\n\u001b[31m+   Element does not have an explicit <label>\u001b[39m\n\u001b[31m+   aria-label attribute does not exist or is empty\u001b[39m\n\u001b[31m+   aria-labelledby attribute does not exist, references elements that do not exist or references elements that are empty\u001b[39m\n\u001b[31m+   Element has no title attribute\u001b[39m\n\u001b[31m+   Element has no placeholder attribute\u001b[39m\n\u001b[31m+   Element's default semantics were not overridden with role=\\\"none\\\" or role=\\\"presentation\\\"\",\u001b[39m\n\u001b[31m+         \"html\": \"<input type=\\\"checkbox\\\" role=\\\"switch\\\" ng-reflect-ng-class=\\\"p-toggleswitch-input\\\" aria-checked=\\\"false\\\" data-pc-section=\\\"hiddenInput\\\" class=\\\"p-toggleswitch-input\\\" pc5=\\\"\\\">\",\u001b[39m\n\u001b[31m+         \"impact\": \"critical\",\u001b[39m\n\u001b[31m+         \"none\": Array [],\u001b[39m\n\u001b[31m+         \"target\": Array [\u001b[39m\n\u001b[31m+           \"input\",\u001b[39m\n\u001b[31m+         ],\u001b[39m\n\u001b[31m+       },\u001b[39m\n\u001b[31m+     ],\u001b[39m\n\u001b[31m+     \"tags\": Array [\u001b[39m\n\u001b[31m+       \"cat.forms\",\u001b[39m\n\u001b[31m+       \"wcag2a\",\u001b[39m\n\u001b[31m+       \"wcag412\",\u001b[39m\n\u001b[31m+       \"section508\",\u001b[39m\n\u001b[31m+       \"section508.22.n\",\u001b[39m\n\u001b[31m+       \"TTv5\",\u001b[39m\n\u001b[31m+       \"TT5.c\",\u001b[39m\n\u001b[31m+       \"EN-301-549\",\u001b[39m\n\u001b[31m+       \"EN-9.4.1.2\",\u001b[39m\n\u001b[31m+       \"ACT\",\u001b[39m\n\u001b[31m+     ],\u001b[39m\n\u001b[31m+   },\u001b[39m\n\u001b[31m+ ]\u001b[39m\n\n\u001b[0m \u001b[90m 13 |\u001b[39m   test(\u001b[32m'should not have accessibility violations'\u001b[39m\u001b[33m,\u001b[39m \u001b[36masync\u001b[39m ({ page }) \u001b[33m=>\u001b[39m {\n \u001b[90m 14 |\u001b[39m     \u001b[36mconst\u001b[39m accessibilityScanResults \u001b[33m=\u001b[39m \u001b[36mawait\u001b[39m \u001b[36mnew\u001b[39m \u001b[33mAxeBuilder\u001b[39m({ page })\u001b[33m.\u001b[39manalyze()\u001b[33m;\u001b[39m\n\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 15 |\u001b[39m     expect(accessibilityScanResults\u001b[33m.\u001b[39mviolations)\u001b[33m.\u001b[39mtoEqual([])\u001b[33m;\u001b[39m\n \u001b[90m    |\u001b[39m                                                 \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\n \u001b[90m 16 |\u001b[39m   })\u001b[33m;\u001b[39m\n \u001b[90m 17 |\u001b[39m\n \u001b[90m 18 |\u001b[39m\u001b[0m\n\u001b[2m    at /home/maelmainsard/Documents/projects/climactif/src/app/pages/meteo/meteo.component.spec.ts:15:49\u001b[22m"
+                        }
+                      ],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2025-07-03T14:26:47.236Z",
+                      "annotations": [],
+                      "attachments": [
+                        {
+                          "name": "error-context",
+                          "contentType": "text/markdown",
+                          "path": "/home/maelmainsard/Documents/projects/climactif/test-results/src-app-pages-meteo-meteo.-cf1ba-ve-accessibility-violations-chromium/error-context.md"
+                        }
+                      ],
+                      "errorLocation": {
+                        "file": "/home/maelmainsard/Documents/projects/climactif/src/app/pages/meteo/meteo.component.spec.ts",
+                        "column": 49,
+                        "line": 15
+                      }
+                    }
+                  ],
+                  "status": "unexpected"
+                }
+              ],
+              "id": "2ccf4ae9b05c2574c0a0-37d54d36392799667463",
+              "file": "src/app/pages/meteo/meteo.component.spec.ts",
+              "line": 13,
+              "column": 7
+            },
+            {
+              "title": "should have proper page structure",
+              "ok": false,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 3,
+                      "parallelIndex": 1,
+                      "status": "failed",
+                      "duration": 5801,
+                      "error": {
+                        "message": "Error: \u001b[31mTimed out 5000ms waiting for \u001b[39m\u001b[2mexpect(\u001b[22m\u001b[31mpage\u001b[39m\u001b[2m).\u001b[22mtoHaveTitle\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m\n\nLocator: locator(':root')\nExpected pattern: \u001b[32m/climactif/i\u001b[39m\nReceived string:  \u001b[31m\"Sentiments\"\u001b[39m\nCall log:\n\u001b[2m  - Expect \"toHaveTitle\" with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for locator(':root')\u001b[22m\n\u001b[2m    9 × locator resolved to <html lang=\"en\">…</html>\u001b[22m\n\u001b[2m      - unexpected value \"Sentiments\"\u001b[22m\n",
+                        "stack": "Error: \u001b[31mTimed out 5000ms waiting for \u001b[39m\u001b[2mexpect(\u001b[22m\u001b[31mpage\u001b[39m\u001b[2m).\u001b[22mtoHaveTitle\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m\n\nLocator: locator(':root')\nExpected pattern: \u001b[32m/climactif/i\u001b[39m\nReceived string:  \u001b[31m\"Sentiments\"\u001b[39m\nCall log:\n\u001b[2m  - Expect \"toHaveTitle\" with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for locator(':root')\u001b[22m\n\u001b[2m    9 × locator resolved to <html lang=\"en\">…</html>\u001b[22m\n\u001b[2m      - unexpected value \"Sentiments\"\u001b[22m\n\n    at /home/maelmainsard/Documents/projects/climactif/src/app/pages/meteo/meteo.component.spec.ts:20:24",
+                        "location": {
+                          "file": "/home/maelmainsard/Documents/projects/climactif/src/app/pages/meteo/meteo.component.spec.ts",
+                          "column": 24,
+                          "line": 20
+                        },
+                        "snippet": "\u001b[0m \u001b[90m 18 |\u001b[39m\n \u001b[90m 19 |\u001b[39m   test(\u001b[32m'should have proper page structure'\u001b[39m\u001b[33m,\u001b[39m \u001b[36masync\u001b[39m ({ page }) \u001b[33m=>\u001b[39m {\n\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 20 |\u001b[39m     \u001b[36mawait\u001b[39m expect(page)\u001b[33m.\u001b[39mtoHaveTitle(\u001b[35m/climactif/i\u001b[39m)\u001b[33m;\u001b[39m\n \u001b[90m    |\u001b[39m                        \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\n \u001b[90m 21 |\u001b[39m     \u001b[36mawait\u001b[39m expect(page\u001b[33m.\u001b[39mlocator(\u001b[32m'h1'\u001b[39m))\u001b[33m.\u001b[39mtoBeVisible()\u001b[33m;\u001b[39m\n \u001b[90m 22 |\u001b[39m     \u001b[36mawait\u001b[39m expect(page\u001b[33m.\u001b[39mlocator(\u001b[32m'main'\u001b[39m))\u001b[33m.\u001b[39mtoBeVisible()\u001b[33m;\u001b[39m\n \u001b[90m 23 |\u001b[39m   })\u001b[33m;\u001b[39m\u001b[0m"
+                      },
+                      "errors": [
+                        {
+                          "location": {
+                            "file": "/home/maelmainsard/Documents/projects/climactif/src/app/pages/meteo/meteo.component.spec.ts",
+                            "column": 24,
+                            "line": 20
+                          },
+                          "message": "Error: \u001b[31mTimed out 5000ms waiting for \u001b[39m\u001b[2mexpect(\u001b[22m\u001b[31mpage\u001b[39m\u001b[2m).\u001b[22mtoHaveTitle\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m\n\nLocator: locator(':root')\nExpected pattern: \u001b[32m/climactif/i\u001b[39m\nReceived string:  \u001b[31m\"Sentiments\"\u001b[39m\nCall log:\n\u001b[2m  - Expect \"toHaveTitle\" with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for locator(':root')\u001b[22m\n\u001b[2m    9 × locator resolved to <html lang=\"en\">…</html>\u001b[22m\n\u001b[2m      - unexpected value \"Sentiments\"\u001b[22m\n\n\n\u001b[0m \u001b[90m 18 |\u001b[39m\n \u001b[90m 19 |\u001b[39m   test(\u001b[32m'should have proper page structure'\u001b[39m\u001b[33m,\u001b[39m \u001b[36masync\u001b[39m ({ page }) \u001b[33m=>\u001b[39m {\n\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 20 |\u001b[39m     \u001b[36mawait\u001b[39m expect(page)\u001b[33m.\u001b[39mtoHaveTitle(\u001b[35m/climactif/i\u001b[39m)\u001b[33m;\u001b[39m\n \u001b[90m    |\u001b[39m                        \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\n \u001b[90m 21 |\u001b[39m     \u001b[36mawait\u001b[39m expect(page\u001b[33m.\u001b[39mlocator(\u001b[32m'h1'\u001b[39m))\u001b[33m.\u001b[39mtoBeVisible()\u001b[33m;\u001b[39m\n \u001b[90m 22 |\u001b[39m     \u001b[36mawait\u001b[39m expect(page\u001b[33m.\u001b[39mlocator(\u001b[32m'main'\u001b[39m))\u001b[33m.\u001b[39mtoBeVisible()\u001b[33m;\u001b[39m\n \u001b[90m 23 |\u001b[39m   })\u001b[33m;\u001b[39m\u001b[0m\n\u001b[2m    at /home/maelmainsard/Documents/projects/climactif/src/app/pages/meteo/meteo.component.spec.ts:20:24\u001b[22m"
+                        }
+                      ],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2025-07-03T14:26:50.610Z",
+                      "annotations": [],
+                      "attachments": [
+                        {
+                          "name": "error-context",
+                          "contentType": "text/markdown",
+                          "path": "/home/maelmainsard/Documents/projects/climactif/test-results/src-app-pages-meteo-meteo.-16777--have-proper-page-structure-chromium/error-context.md"
+                        }
+                      ],
+                      "errorLocation": {
+                        "file": "/home/maelmainsard/Documents/projects/climactif/src/app/pages/meteo/meteo.component.spec.ts",
+                        "column": 24,
+                        "line": 20
+                      }
+                    }
+                  ],
+                  "status": "unexpected"
+                }
+              ],
+              "id": "2ccf4ae9b05c2574c0a0-138f1e2e53cec169ef8a",
+              "file": "src/app/pages/meteo/meteo.component.spec.ts",
+              "line": 19,
+              "column": 7
+            },
+            {
+              "title": "should have proper heading hierarchy",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 5,
+                      "parallelIndex": 1,
+                      "status": "passed",
+                      "duration": 811,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2025-07-03T14:26:56.901Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "2ccf4ae9b05c2574c0a0-9e2f5793c74a3be69d7e",
+              "file": "src/app/pages/meteo/meteo.component.spec.ts",
+              "line": 26,
+              "column": 7
+            },
+            {
+              "title": "should have proper alt text for images",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 5,
+                      "parallelIndex": 1,
+                      "status": "passed",
+                      "duration": 707,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2025-07-03T14:26:57.783Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "2ccf4ae9b05c2574c0a0-e72d37b39b387e6b91ba",
+              "file": "src/app/pages/meteo/meteo.component.spec.ts",
+              "line": 34,
+              "column": 7
+            },
+            {
+              "title": "should be keyboard navigable",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 5,
+                      "parallelIndex": 1,
+                      "status": "passed",
+                      "duration": 739,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2025-07-03T14:26:58.494Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "2ccf4ae9b05c2574c0a0-f54b269fd38b8373a24b",
+              "file": "src/app/pages/meteo/meteo.component.spec.ts",
+              "line": 44,
+              "column": 7
+            },
+            {
+              "title": "should have proper color contrast",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 5,
+                      "parallelIndex": 1,
+                      "status": "passed",
+                      "duration": 1071,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2025-07-03T14:26:59.235Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "2ccf4ae9b05c2574c0a0-b09c2adb7178443f6b30",
+              "file": "src/app/pages/meteo/meteo.component.spec.ts",
+              "line": 53,
+              "column": 7
+            },
+            {
+              "title": "should have proper form labels if forms exist",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 5,
+                      "parallelIndex": 1,
+                      "status": "passed",
+                      "duration": 737,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2025-07-03T14:27:00.311Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "2ccf4ae9b05c2574c0a0-d1f18f162c01778103c0",
+              "file": "src/app/pages/meteo/meteo.component.spec.ts",
+              "line": 65,
+              "column": 7
+            },
+            {
+              "title": "should have semantic HTML elements",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 5,
+                      "parallelIndex": 1,
+                      "status": "passed",
+                      "duration": 721,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2025-07-03T14:27:01.051Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "2ccf4ae9b05c2574c0a0-b6bc8a20360a6562cf04",
+              "file": "src/app/pages/meteo/meteo.component.spec.ts",
+              "line": 88,
+              "column": 7
+            },
+            {
+              "title": "should have proper viewport meta tag",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 5,
+                      "parallelIndex": 1,
+                      "status": "passed",
+                      "duration": 745,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2025-07-03T14:27:01.775Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "2ccf4ae9b05c2574c0a0-d77c523e7468f0c4a7a8",
+              "file": "src/app/pages/meteo/meteo.component.spec.ts",
+              "line": 95,
+              "column": 7
+            },
+            {
+              "title": "should load in reasonable time",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 5,
+                      "parallelIndex": 1,
+                      "status": "passed",
+                      "duration": 815,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2025-07-03T14:27:02.524Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "2ccf4ae9b05c2574c0a0-158c2c1c44f18f73201c",
+              "file": "src/app/pages/meteo/meteo.component.spec.ts",
+              "line": 102,
+              "column": 7
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "errors": [],
+  "stats": {
+    "startTime": "2025-07-03T14:26:46.673Z",
+    "duration": 16697.481,
+    "expected": 16,
+    "skipped": 0,
+    "unexpected": 4,
+    "flaky": 0
+  }
+}

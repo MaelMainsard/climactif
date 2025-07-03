@@ -1,6 +1,6 @@
-@import "tailwindcss";
+@import 'tailwindcss';
 @plugin "tailwindcss-primeui";
-@import "primeicons/primeicons.css";
+@import 'primeicons/primeicons.css';
 
 @theme {
   --color-primary-light: #553533;
@@ -22,4 +22,28 @@ p-menubarsub {
     width: 100%;
     justify-content: end;
   }
+}
+
+/* Accessibility skip link styles */
+.skip-link {
+  position: absolute;
+  left: -999px;
+  top: auto;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  z-index: 1000;
+}
+.skip-link:focus,
+.skip-link:active {
+  left: 0;
+  top: 0;
+  width: auto;
+  height: auto;
+  background: #fff;
+  color: #000;
+  padding: 1rem 2rem;
+  font-size: 1.2rem;
+  border-radius: 0 0 8px 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
 }

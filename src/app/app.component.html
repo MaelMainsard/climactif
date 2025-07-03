@@ -1,9 +1,16 @@
+<!-- Accessibility skip link -->
+<a
+  href="#main-content"
+  class="skip-link sr-only focus:not-sr-only focus:absolute focus:top-2 focus:left-2 bg-white text-black p-2 z-50"
+  >Aller au contenu principal</a
+>
+
 <div class="min-h-screen flex flex-col">
   <header role="banner">
-      <app-navbar></app-navbar>
+    <app-navbar></app-navbar>
   </header>
 
-  <main class="px-auto px-80 text-center flex flex-col flex-grow">
+  <main id="main-content" class="px-auto px-80 text-center flex flex-col flex-grow">
     <router-outlet />
   </main>
 </div>

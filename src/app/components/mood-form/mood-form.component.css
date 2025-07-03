@@ -1,35 +1,31 @@
-:host ::ng-deep .color-slider.p-slider {
-  background: linear-gradient(
-    to right,
-    /* #ff0000,
-    #ff7f00,
-    #ffff00,
-    #00ff00,
-    #0000ff,
-    #4b0082,
-    #9400d3 */
-      #553533,
-    #af6d58,
-    #f2bd9e,
-    #fcf9f7,
-    #bd9797
+.mood-form {
+  border-radius: 12px;
+  background-image: radial-gradient(
+    circle at left top,
+    color-mix(in srgb, var(--p-primary-color), var(--p-surface-ground) 50%),
+    color-mix(in srgb, var(--p-primary-color), var(--p-surface-ground) 75%)
   );
+}
+
+:host ::ng-deep .color-slider.p-slider {
+  background: linear-gradient(to right, #ff0000, #ffff00, #00ff00, #00ffff, #0000ff, #ff00ff, #ff0000);
 }
 
 :host ::ng-deep .color-slider.p-slider .p-slider-range {
   background: transparent;
 }
 
-.mood-textarea:focus {
+:focus {
   outline: none;
 }
-.mood-textarea:focus-visible {
-  outline: 1px solid var(--p-primary-color);
+:focus-visible {
+  outline: 1px solid var(--p-primary-focus-color);
   outline-offset: 2px;
 }
 
 .mood-chip {
-  background-color:var(--p-surface-card);
+  background: var(--p-surface-card);
+  color: var(--p-surface-on);
   border: none;
 }
 
@@ -38,19 +34,39 @@
   color: var(--p-primary-inverse-color);
 }
 
+.mood-chip:active {
+  background-color: var(--p-primary-active-color) !important;
+  color: var(--p-primary-inverse-color) !important;
+}
+
+.mood-chip:hover {
+  box-shadow: inset 0px 0px 0px 1px var(--p-primary-inverse-color);
+}
 .mood-chip:hover:not(.selected) {
-  background-color: var(--p-primary-active-color);
+  background-color: var(--p-primary-hover-color);
   color: var(--p-primary-inverse-color);
 }
 
-.mood-chip:active {
+:host ::ng-deep .p-button {
+  width: 100%;
+  background-color: var(--p-primary-color);
+  color: var(--p-primary-inverse-color);
+  border: none;
+}
+:host ::ng-deep .p-button:active {
+  background-color: var(--p-primary-active-color);
+  color: var(--p-primary-inverse-color);
+}
+:host ::ng-deep .p-button:hover:not(:active) {
   background-color: var(--p-primary-hover-color);
 }
-
-.mood-chip:focus {
-    outline: none;
-  }
-.mood-chip:focus-visible {
-    outline: 1px solid var(--p-primary-color);
-    outline-offset: 2px;
+:host ::ng-deep .p-button.p-button-text {
+  border: 1px solid var(--p-primary-color);
+  color: var(--p-primary-color);
+  border-radius: 0.5rem;
+  background: transparent;
+  transition: background 0.2s;
+}
+:host ::ng-deep .p-button.p-button-text:hover {
+  background: rgba(255, 255, 255, 0.1);
 }

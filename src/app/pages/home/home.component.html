@@ -2,7 +2,7 @@
 
 <h1>Accueil</h1>
 <section>
-    <p-button (click)="showDialog()" label="What's your mood ?"></p-button>
+  <p-button (click)="showDialog()" label="Partager mon ressenti du jour"></p-button>
   <h2>La météo intérieure d'aujourd'hui</h2>
 </section>
 <p-dialog
@@ -13,7 +13,6 @@
   maskStyleClass="backdrop-blur-sm"
 >
   <ng-template #headless>
-    <app-mood-form (save)="saveMood($event)" (cancel)="visible = false">
-    </app-mood-form>
+    <app-mood-form (save)="saveMood($event)" (cancel)="visible = false"> </app-mood-form>
   </ng-template>
 </p-dialog>

@@ -1,59 +1,97 @@
 # Climactif
 
-This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 19.2.14.
+Site web pour sensibiliser et accompagner les utilisateurs dans leurs actions climat.
 
-## Development server
+## Get Started
 
-To start a local development server, run:
+### Prérequis
 
-```bash
-ng serve
+- [Node.js](https://nodejs.org/) (version 18 ou supérieure)
+- [Angular CLI](https://angular.io/cli) : `npm install -g @angular/cli`
+
+### Installation
+
+1. Cloner le repository :
+   ```bash
+   git clone https://github.com/MaelMainsard/climactif.git
+   cd climactif
+   ```
+
+2. Installer les dépendances :
+   ```bash
+   npm install
+   ```
+
+3. Lancer le serveur de développement :
+   ```bash
+   npm run start
+   ```
+
+4. Ouvrir votre navigateur sur [http://localhost:4200](http://localhost:4200)
+
+## Développement
+
+### Messages de commit
+
+Ce projet utilise **semantic release** pour la gestion automatique des versions. Il est **obligatoire** d'utiliser le format de commit conventionnel.
+
+Format : `type(scope): description`
+
+**Types autorisés :**
+- `feat`: Nouvelle fonctionnalité
+- `fix`: Correction de bug
+- `docs`: Documentation
+- `style`: Changements de style (formatage, indentation)
+- `refactor`: Refactorisation du code
+- `test`: Ajout ou modification de tests
+- `chore`: Tâches de maintenance
+
+**Exemples :**
+```
+feat(auth): ajout de l'authentification par email
+fix(navbar): correction du menu responsive
+docs(readme): mise à jour des instructions d'installation
+refactor(api): réorganisation des services
+test(user): ajout des tests unitaires pour le composant utilisateur
 ```
 
-Once the server is running, open your browser and navigate to `http://localhost:4200/`. The application will automatically reload whenever you modify any of the source files.
+### Structure du projet
 
-## Code scaffolding
-
-Angular CLI includes powerful code scaffolding tools. To generate a new component, run:
-
-```bash
-ng generate component component-name
+```
+src/
+├── app/
+│   ├── components/          # Composants réutilisables
+│   ├── pages/              # Pages de l'application
+│   ├── models/             # Modèles de données
+│   ├── services/           # Services Angular
+│   └── utils/              # Utilitaires
+├── assets/                 # Ressources statiques
+└── styles.css             # Styles globaux
 ```
 
-For a complete list of available schematics (such as `components`, `directives`, or `pipes`), run:
+## CI/CD
 
-```bash
-ng generate --help
-```
+Le projet utilise GitHub Actions pour l'intégration continue et le déploiement automatique.
 
-## Building
+### Déploiement
 
-To build the project run:
+L'application est automatiquement déployée sur **Vercel** à chaque push sur la branche prod.
 
-```bash
-ng build
-```
+**URL de production :** [https://climactif.vercel.app](https://climactif.vercel.app)
 
-This will compile your project and store the build artifacts in the `dist/` directory. By default, the production build optimizes your application for performance and speed.
+### Pipeline CI/CD
 
-## Running unit tests
+#### Pull request vers dev
 
-To execute unit tests with the [Karma](https://karma-runner.github.io) test runner, use the following command:
+- **Linting** : Vérification du code avec ESLint
+- **Lighthouse** : Exécution de l'audit lighthouse
+- **Ecoindex** : Exécution de l'audit ecoindex
 
-```bash
-ng test
-```
+#### Push dev vers prod
+- **Release** : Versioning & release créés par semantic-release
 
-## Running end-to-end tests
 
-For end-to-end (e2e) testing, run:
+## Contributeurs
 
-```bash
-ng e2e
-```
-
-Angular CLI does not come with an end-to-end testing framework by default. You can choose one that suits your needs.
-
-## Additional Resources
-
-For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+- **Maël Mainsard** - Développeur / DevOps
+- **Maxence Pille** - Développeur

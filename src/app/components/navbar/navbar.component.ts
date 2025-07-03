@@ -1,16 +1,20 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnChanges, OnInit} from '@angular/core';
 import { RouterModule } from '@angular/router';
+import { ButtonModule } from 'primeng/button';
 import { MenuItem } from 'primeng/api';
 import { Menubar } from 'primeng/menubar';
+import {ToggleSwitch} from 'primeng/toggleswitch';
+import {FormsModule} from '@angular/forms';
 
 @Component({
   selector: 'app-navbar',
   standalone: true,
-  imports: [RouterModule, Menubar],
-  templateUrl: './navbar.component.html',
-  styleUrl: './navbar.component.css',
+  imports: [ButtonModule, RouterModule, Menubar, ToggleSwitch, FormsModule],
+  templateUrl: './navbar.component.html'
 })
-export class NavbarComponent implements OnInit {
+export class NavbarComponent {
+  darkMode: boolean = false;
+
   items: MenuItem[] = [
     {
       label: 'Accueil',
@@ -24,7 +28,9 @@ export class NavbarComponent implements OnInit {
     },
   ];
 
-  ngOnInit() {
-    console.log('Navbar coucou');
+  toggleDarkMode()  {
+    const element = document.querySelector('html');
+    if (element != null)
+      element.classList.toggle('my-app-dark');
   }
 }

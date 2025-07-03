@@ -1,7 +1,9 @@
-<header>
-  <app-navbar></app-navbar>
-</header>
+<div class="min-h-screen flex flex-col">
+  <header role="banner">
+      <app-navbar></app-navbar>
+  </header>
 
-<main class="mx-auto px-80">
-  <router-outlet />
-</main>
+  <main class="px-auto px-80 text-center flex flex-col flex-grow">
+    <router-outlet />
+  </main>
+</div>

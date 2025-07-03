@@ -19,12 +19,12 @@ export class NavbarComponent {
     {
       label: 'Accueil',
       icon: 'pi pi-home',
-      routerLink: '/home',
+      routerLink: '/partage',
     },
     {
       label: 'Sentiments',
       icon: 'pi pi-heart',
-      routerLink: '/feelings',
+      routerLink: '/meteo',
     },
   ];
 

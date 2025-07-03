@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { NavbarComponent } from '../../components/navbar/navbar.component';
 import { RefreshTitleComponent } from '../../components/refresh-title/refresh-title.component';
 import { Dialog } from 'primeng/dialog';
 import { ButtonModule } from 'primeng/button';

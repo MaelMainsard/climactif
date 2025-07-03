@@ -1,3 +1,17 @@
+# [1.2.0](https://github.com/MaelMainsard/climactif/compare/v1.1.0...v1.2.0) (2025-07-03)
+
+
+### Bug Fixes
+
+* **gotomain:** va au main de la page sur laquel on se trouve (pas toujours celle de départ) ([4dd5450](https://github.com/MaelMainsard/climactif/commit/4dd5450347c0996e17b3b8e18c8b42c5e258a192))
+* **meteo:** suppression ([0edb97d](https://github.com/MaelMainsard/climactif/commit/0edb97d1752019d906f48d0ecb91f30d241efbb3))
+
+
+### Features
+
+* **gotomain:** ajout du bouton pour aller au contenu principal ([d9bb2a1](https://github.com/MaelMainsard/climactif/commit/d9bb2a1469790c288b065e5468719361421518fe))
+* **pages:** renommer le path des pages (sentiments devient accueil) ([8aab113](https://github.com/MaelMainsard/climactif/commit/8aab11381be5ce922e83564c3a0b760b1796fe31))
+
 # [1.1.0](https://github.com/MaelMainsard/climactif/compare/v1.0.0...v1.1.0) (2025-07-03)
 
 

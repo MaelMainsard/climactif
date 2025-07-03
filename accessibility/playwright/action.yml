@@ -23,14 +23,26 @@ runs:
         path: playwright-report/
         retention-days: 30
 
+    - name: Deploy to GitHub Pages
+      uses: peaceiris/actions-gh-pages@v3
+      if: always()
+      with:
+        github_token: ${{ inputs.github-token }}
+        publish_dir: ./playwright-report
+        destination_dir: reports/${{ github.run_id }}
 
     - name: Create PR Check
       uses: actions/github-script@v7
+      if: always()
       with:
         github-token: ${{ inputs.github-token }}
         script: |
           const runId = context.runId;
           const artifactUrl = `https://github.com/${context.repo.owner}/${context.repo.repo}/actions/runs/${runId}`;
+
+          const repoName = context.repo.repo;
+          const owner = context.repo.owner;
+          const pagesUrl = `https://${owner}.github.io/${repoName}/reports/${runId}/`;
 
           github.rest.checks.create({
             owner: context.repo.owner,
@@ -40,10 +52,13 @@ runs:
             status: 'completed',
             conclusion: 'success',
             output: {
-              title: `🎭 Playwright Accessibility Report - ${artifactUrl}`,
+              title: `🎭 Playwright Accessibility Report`,
               summary: 'Accessibility tests completed successfully',
               text: `## 🎭 Playwright Accessibility Test Report
 
-            🔗 **Download Report**: ${artifactUrl}`
+          🌐 **View Report Online**: [${pagesUrl}](${pagesUrl})
+          📦 **Download Artifact**: [${artifactUrl}](${artifactUrl})
+
+          The report is now accessible directly in your browser!`
             }
           });

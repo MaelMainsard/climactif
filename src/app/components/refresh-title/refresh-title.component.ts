@@ -4,8 +4,7 @@ import { Component } from '@angular/core';
   selector: 'app-refresh-title',
   imports: [],
   standalone: true,
-  templateUrl: './refresh-title.component.html',
-  styleUrl: './refresh-title.component.css',
+  templateUrl: './refresh-title.component.html'
 })
 export class RefreshTitleComponent {
   title!: string;

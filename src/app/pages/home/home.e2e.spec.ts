@@ -5,7 +5,7 @@ test.describe('Home Page - Accessibility and Quality Tests', () => {
 
 
   test.beforeEach(async ({ page }) => {
-    await page.goto('http://localhost:4200');
+    await page.goto('http://localhost:4200/partage');
     await page.waitForLoadState('networkidle');
   });
 

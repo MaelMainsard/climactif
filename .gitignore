@@ -41,3 +41,9 @@ testem.log
 # System files
 .DS_Store
 Thumbs.db
+
+# Playwright
+node_modules/
+/test-results/
+/blob-report/
+/playwright/.cache/

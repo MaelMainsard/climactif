@@ -5,8 +5,7 @@ import { CardModule } from 'primeng/card';
 @Component({
   selector: 'app-card',
   imports: [CardModule, CommonModule],
-  templateUrl: './card.component.html',
-  styleUrl: './card.component.css'
+  templateUrl: './card.component.html'
 })
 export class CardComponent {
   @Input() header!: string;

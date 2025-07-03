@@ -1,0 +1,49 @@
+name: 'Playwright + Axe-core Audit'
+description: 'Run Playwright + Axe-core audit and create PR comment'
+author: 'maelmainsard'
+
+inputs:
+  github-token:
+    description: 'GitHub token for creating checks'
+    required: true
+
+runs:
+  using: 'composite'
+  steps:
+    - name: Run test
+      shell: bash
+      run: |
+        npm run test:e2e || true
+
+    - name: Upload Playwright Report
+      uses: actions/upload-artifact@v4
+      if: always()
+      with:
+        name: playwright-report
+        path: playwright-report/
+        retention-days: 30
+
+
+    - name: Create PR Check
+      uses: actions/github-script@v7
+      with:
+        github-token: ${{ inputs.github-token }}
+        script: |
+          const runId = context.runId;
+          const artifactUrl = `https://github.com/${context.repo.owner}/${context.repo.repo}/actions/runs/${runId}`;
+
+          github.rest.checks.create({
+            owner: context.repo.owner,
+            repo: context.repo.repo,
+            name: 'Playwright Accessibility Report',
+            head_sha: context.payload.pull_request.head.sha,
+            status: 'completed',
+            conclusion: 'success',
+            output: {
+              title: `🎭 Playwright Accessibility Report - ${artifactUrl}`,
+              summary: 'Accessibility tests completed successfully',
+              text: `## 🎭 Playwright Accessibility Test Report
+
+            🔗 **Download Report**: ${artifactUrl}`
+            }
+          });

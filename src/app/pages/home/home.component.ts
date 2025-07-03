@@ -12,7 +12,7 @@ import { MoodFormComponent } from '../../components/mood-form/mood-form.componen
 })
 export class HomeComponent implements OnInit {
   ngOnInit() {
-    document.title = 'Accueil';
+    document.title = 'Partage';
   }
 
   visible: boolean = false;

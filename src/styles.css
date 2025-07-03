@@ -1,6 +1,6 @@
-@import "tailwindcss";
+@import 'tailwindcss';
 @plugin "tailwindcss-primeui";
-@import "primeicons/primeicons.css";
+@import 'primeicons/primeicons.css';
 
 @theme {
   --color-primary-light: #553533;
@@ -13,13 +13,13 @@
   --color-background-dark: #120c07;
 }
 
-p-menubarsub {
-  width: 100%;
-  display: flex;
-  padding-inline: calc(var(--spacing) * 20);
-  margin-inline: auto;
-  .p-menubar-root-list {
-    width: 100%;
-    justify-content: end;
-  }
+.menu-item:hover {
+  text-decoration: underline;
+  text-decoration-color: var(--p-primary-color);
+  color: var(--p-primary-color);
+  cursor: pointer;
+}
+
+.menu-item {
+  padding: 4px;
 }

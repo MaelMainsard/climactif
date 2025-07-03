@@ -2,11 +2,12 @@
 
 <h1>Accueil</h1>
 <section>
-  <p-button (click)="showDialog()" label="Partager mon ressenti du jour"></p-button>
+  <p-button id="openDialogBtn" (click)="showDialog()" label="Partager mon ressenti du jour" tabindex="0"></p-button>
   <h2>La météo intérieure d'aujourd'hui</h2>
 </section>
 <p-dialog
   [(visible)]="visible"
+  (onHide)="onDialogHide()"
   [style]="{ width: '30rem' }"
   [contentStyle]="{ padding: '0' }"
   styleClass="!border-0 !bg-transparent"

@@ -62,6 +62,17 @@ export class MoodFormComponent implements OnInit {
     this.onColorChanged(50);
   }
 
+  ngAfterViewInit() {
+    const myElement = document.getElementById('feelings');
+    if (!myElement) return;
+    for (const child of myElement.children) {
+      if (child instanceof HTMLButtonElement) {
+        child.focus();
+        break;
+      }
+    }
+  }
+
   onSave() {
     this.submitted = true;
     this.moodForm.markAllAsTouched();

@@ -8,5 +8,14 @@ import { NavbarComponent } from './components/navbar/navbar.component';
   templateUrl: './app.component.html',
   styleUrl: './app.component.css',
 })
-export class AppComponent {}
+export class AppComponent {
+  skipToContent(event: Event) {
+    event.preventDefault();
+    const main = document.getElementById('main-content');
+    if (main) {
+      main.focus();
+      main.scrollIntoView({ behavior: 'smooth' });
+    }
+  }
+}
  

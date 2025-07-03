@@ -18,8 +18,10 @@ runs:
         RESULT_JSON=$(cat playwright-results.json)
         RESULT_SUMMARY=$(cat playwright-summary.txt)
 
+        STATS_ONLY=$(echo "$RESULT_JSON" | jq '.stats')
+
         echo "json<<EOF" >> $GITHUB_OUTPUT
-        echo "$RESULT_JSON" >> $GITHUB_OUTPUT
+        echo "$STATS_ONLY" >> $GITHUB_OUTPUT
         echo "EOF" >> $GITHUB_OUTPUT
         echo "summary<<EOF" >> $GITHUB_OUTPUT
         echo "$RESULT_SUMMARY" >> $GITHUB_OUTPUT

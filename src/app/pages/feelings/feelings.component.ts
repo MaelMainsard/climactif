@@ -13,6 +13,6 @@ import { TabsComponent } from '../../components/tabs/tabs.component';
 })
 export class FeelingsComponent implements OnInit {
   ngOnInit() {
-    document.title = 'Sentiments';
+    document.title = 'Météo';
   }
 }

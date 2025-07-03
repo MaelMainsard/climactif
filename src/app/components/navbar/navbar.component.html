@@ -1,6 +1,6 @@
 <p-menubar [model]="items">
   <ng-template pTemplate="item" let-item>
-    <a [routerLink]="item.routerLink" class="p-menubar-item-link">
+    <a [routerLink]="item.routerLink" class="p-menubar-item-link" tabindex="0">
       <span class="ml-2">{{ item.label }}</span>
     </a>
   </ng-template>

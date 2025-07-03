@@ -1,10 +1,20 @@
-<p-menubar [model]="items">
-  <ng-template pTemplate="item" let-item>
-    <a [routerLink]="item.routerLink" class="p-menubar-item-link">
-      <span class="ml-2">{{ item.label }}</span>
-    </a>
-  </ng-template>
-  <ng-template #end>
-    <p-toggleswitch [(ngModel)]="darkMode" (onChange)="toggleDarkMode()" />
-  </ng-template>
-</p-menubar>
+<nav aria-label="Menu principal" class="flex items-center py-3 w-full">
+  <ul class="flex flex-row gap-4 items-center justify-between w-full">
+    <li class="flex-1 flex justify-start">
+      <img
+        [src]="darkMode ? '/assets/climactif-dark.png' : '/assets/climactif-light.png'"
+        width="180"
+        height="120"
+        alt="Climactif logo"
+      />
+    </li>
+    <div class="flex flex-row gap-2 flex-1 justify-center">
+      <li class="menu-item"><a routerLink="/meteo">Météo</a></li>
+      <li class="menu-item"><a routerLink="/partage">Partage</a></li>
+    </div>
+    <li class="flex items-center justify-end gap-2 flex-1 px-2">
+      Thème
+      <p-toggleswitch [(ngModel)]="darkMode" (onChange)="toggleDarkMode()" class="flex justify-between items-center" />
+    </li>
+  </ul>
+</nav>

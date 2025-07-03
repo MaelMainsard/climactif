@@ -10,11 +10,20 @@ import { Component } from '@angular/core';
 export class RefreshTitleComponent {
   title!: string;
 
-  ngOnChange() {
+  ngOnInit() {
     const title = document.getElementById('virtual-title');
+
+    // console.log('Title refreshed:', document.title);
+
     if (title) {
-      title.textContent = document.title;
-      title.focus();
+      title?.focus();
+      console.log('test :', title != undefined);
+      document.title = title.textContent || 'Climactif';
     }
+
+    // const goMain = document.getElementById('skip-to-main-content');
+    // goMain?.focus();
+
+    // console.log('go main :', goMain != undefined);
   }
 }

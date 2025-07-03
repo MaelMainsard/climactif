@@ -14,7 +14,7 @@ export class HomeComponent implements OnInit {
   visible: boolean = false;
 
   ngOnInit() {
-    document.title = 'Partage';
+    // document.title = 'Partage';
   }
 
   showDialog() {

@@ -1,4 +1,4 @@
-import { Component, OnInit, Output, EventEmitter } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter, ViewChildren, ViewChild, QueryList, ElementRef } from '@angular/core';
 import { NgForOf, NgIf } from '@angular/common';
 import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { ButtonModule } from 'primeng/button';
@@ -20,6 +20,10 @@ interface Keyword {
   styleUrl: './mood-form.component.css',
 })
 export class MoodFormComponent implements OnInit {
+  @ViewChildren('keywordBtn') keywordBtns!: QueryList<ElementRef<HTMLButtonElement>>;
+  @ViewChild('colorSlider') colorSlider!: ElementRef;
+  @ViewChild('descTextarea') descTextarea!: ElementRef;
+
   @Output() save = new EventEmitter<any>();
   @Output() cancel = new EventEmitter<void>();
 
@@ -78,6 +82,22 @@ export class MoodFormComponent implements OnInit {
     this.moodForm.markAllAsTouched();
     if (this.moodForm.valid) {
       this.save.emit(this.moodForm.value);
+    } else {
+      // Focus first invalid field
+      if (this.moodForm.get('keywords')?.invalid) {
+        // Focus the first keyword button
+        const btn = this.keywordBtns.first;
+        if (btn) btn.nativeElement.focus();
+        return;
+      }
+      if (this.moodForm.get('color')?.invalid) {
+        this.colorSlider?.nativeElement?.focus();
+        return;
+      }
+      if (this.moodForm.get('description')?.invalid) {
+        this.descTextarea?.nativeElement?.focus();
+        return;
+      }
     }
   }
 

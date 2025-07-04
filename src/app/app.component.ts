@@ -5,18 +5,21 @@ import { filter } from 'rxjs';
 
 @Component({
   selector: 'app-root',
-  imports: [RouterOutlet, NavbarComponent],
+  imports: [NavbarComponent, RouterOutlet],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css',
 })
 export class AppComponent {
   constructor(private router: Router) {
     this.router.events.pipe(filter((event) => event instanceof NavigationEnd)).subscribe(() => {
-      const mainHeader = document.getElementById('main-content') as HTMLElement;
-      if (mainHeader) {
-        console.log('Setting document focus');
-        mainHeader.focus();
-      }
+      // wait 1 frame to ensure document.title is updated
+      setTimeout(() => {
+        const title = document.getElementById('virtual-title') as HTMLElement;
+        if (title) {
+          title.textContent = document.title;
+          title.focus();
+        }
+      });
     });
   }
 

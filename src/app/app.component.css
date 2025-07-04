@@ -1,6 +1,40 @@
 main {
   background-color: var(--p-surface-ground);
 }
+
+.main-content {
+  width: 100%;
+  max-width: 80rem;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 1rem;
+  padding-right: 1rem;
+}
+
+@media (min-width: 640px) {
+  .main-content {
+    padding-left: 2rem;
+    padding-right: 2rem;
+  }
+}
+@media (min-width: 768px) {
+  .main-content {
+    padding-left: 4rem;
+    padding-right: 4rem;
+  }
+}
+@media (min-width: 1024px) {
+  .main-content {
+    padding-left: 8rem;
+    padding-right: 8rem;
+  }
+}
+@media (min-width: 1280px) {
+  .main-content {
+    padding-left: 20rem;
+    padding-right: 20rem;
+  }
+}
 .dialog-theme {
   --p-primary-color: #00c49a;
   /* ... any other variables from your preset ... */

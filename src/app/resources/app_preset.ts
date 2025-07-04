@@ -5,6 +5,7 @@ import chroma from 'chroma-js';
 export function createColorScheme(primary: string) {
   const primaryIsDark = chroma(primary).luminance() < 0.5;
   const inverseColor = primaryIsDark ? '#ffffff' : '#000000';
+  const focusColor = primaryIsDark ? '#000000' : '#ffffff';
   const hoverColor = primaryIsDark ? chroma(primary).brighten(0.5).hex() : chroma(primary).darken(0.5).hex();
   const activeColor = primaryIsDark ? chroma(primary).darken(1).hex() : chroma(primary).brighten(1).hex();
 
@@ -21,7 +22,7 @@ export function createColorScheme(primary: string) {
     primary: {
       color: primary,
       inverseColor,
-      focusColor: primary,
+      focusColor,
       hoverColor,
       activeColor,
     },

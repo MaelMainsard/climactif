@@ -4,11 +4,7 @@ import { TabsComponent } from '../../components/tabs/tabs.component';
 @Component({
   selector: 'app-feelings',
   standalone: true,
-  imports: [
-    // NavbarComponent,
-    TabsComponent,
-    // RefreshTitleComponent,
-  ],
+  imports: [TabsComponent],
   templateUrl: './feelings.component.html',
 })
 export class FeelingsComponent implements OnInit {

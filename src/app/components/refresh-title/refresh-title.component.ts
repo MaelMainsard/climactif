@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, AfterViewInit, ElementRef } from '@angular/core';
 
 @Component({
   selector: 'app-refresh-title',
@@ -7,23 +7,14 @@ import { Component } from '@angular/core';
   templateUrl: './refresh-title.component.html',
   styleUrl: './refresh-title.component.css',
 })
-export class RefreshTitleComponent {
-  title!: string;
+export class RefreshTitleComponent implements AfterViewInit {
+  constructor(private host: ElementRef) {}
 
-  ngOnInit() {
-    const title = document.getElementById('virtual-title');
-
-    // console.log('Title refreshed:', document.title);
-
-    if (title) {
-      title?.focus();
-      console.log('test :', title != undefined);
-      document.title = title.textContent || 'Climactif';
-    }
-
-    // const goMain = document.getElementById('skip-to-main-content');
-    // goMain?.focus();
-
-    // console.log('go main :', goMain != undefined);
+  ngAfterViewInit() {
+    const title = document.getElementById('virtual-title') as HTMLElement;
+    if (title == null) return;
+    const text = title.innerText.trim();
+    if (text) document.title = text;
+    title.focus();
   }
 }

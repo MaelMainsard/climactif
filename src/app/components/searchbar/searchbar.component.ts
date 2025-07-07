@@ -1,4 +1,7 @@
-import { Component, Input, Output, EventEmitter, OnInit, OnDestroy, HostListener, ElementRef } from '@angular/core';
+import {
+  Component, Input, Output, EventEmitter,
+  OnInit, OnDestroy, HostListener, ElementRef
+} from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { Subject, debounceTime, distinctUntilChanged, takeUntil } from 'rxjs';
 
@@ -7,7 +10,7 @@ export interface SearchItem {
   title: string;
   description: string;
   category?: string;
-  [key: string]: any; 
+  [key: string]: any;
 }
 
 @Component({
@@ -24,7 +27,7 @@ export class SearchbarComponent implements OnInit, OnDestroy {
   @Input() minSearchLength: number = 3;
   @Input() maxResults: number = 10;
   @Input() searchFields: string[] = ['title', 'description', 'category'];
-  
+
   @Output() resultSelected = new EventEmitter<SearchItem>();
   @Output() searchQueryChanged = new EventEmitter<string>();
   @Output() resultsChanged = new EventEmitter<SearchItem[]>();
@@ -33,65 +36,28 @@ export class SearchbarComponent implements OnInit, OnDestroy {
   filteredResults: SearchItem[] = [];
   showResults: boolean = false;
   selectedIndex: number = -1;
+  public ariaMessage: string = '';
 
   private searchSubject = new Subject<string>();
   private destroy$ = new Subject<void>();
 
-  // Données d'exemple - à remplacer par vos vraies données
   private defaultData: SearchItem[] = [
-    {
-      id: 1,
-      title: 'Fatigue',
-      description: 'État de lassitude physique ou mentale',
-      category: 'santé'
-    },
-    {
-      id: 2,
-      title: 'Espoir',
-      description: 'Sentiment de confiance en l\'avenir',
-      category: 'émotion'
-    },
-    {
-      id: 3,
-      title: 'Joie',
-      description: 'Sentiment de bonheur et de satisfaction',
-      category: 'émotion'
-    },
-    {
-      id: 4,
-      title: 'Motivation',
-      description: 'Force qui pousse à agir',
-      category: 'psychologie'
-    },
-    {
-      id: 5,
-      title: 'Stress',
-      description: 'Réaction de l\'organisme face aux contraintes',
-      category: 'santé'
-    },
-    {
-      id: 6,
-      title: 'Anxiété',
-      description: 'Trouble émotionnel causé par l\'incertitude',
-      category: 'santé'
-    },
-    {
-      id: 7,
-      title: 'Confiance',
-      description: 'Sentiment de sécurité et d\'assurance',
-      category: 'émotion'
-    }
+    { id: 1, title: 'Fatigue', description: 'État de lassitude physique ou mentale', category: 'santé' },
+    { id: 2, title: 'Espoir', description: 'Sentiment de confiance en l\'avenir', category: 'émotion' },
+    { id: 3, title: 'Joie', description: 'Sentiment de bonheur et de satisfaction', category: 'émotion' },
+    { id: 4, title: 'Motivation', description: 'Force qui pousse à agir', category: 'psychologie' },
+    { id: 5, title: 'Stress', description: 'Réaction de l\'organisme face aux contraintes', category: 'santé' },
+    { id: 6, title: 'Anxiété', description: 'Trouble émotionnel causé par l\'incertitude', category: 'santé' },
+    { id: 7, title: 'Confiance', description: 'Sentiment de sécurité et d\'assurance', category: 'émotion' }
   ];
 
   constructor(private elementRef: ElementRef) {}
 
   ngOnInit(): void {
-    // Utiliser les données par défaut si aucune donnée n'est fournie
     if (this.data.length === 0) {
       this.data = this.defaultData;
     }
 
-    // Configuration du debounce pour la recherche
     this.searchSubject.pipe(
       debounceTime(this.debounceTime),
       distinctUntilChanged(),
@@ -111,7 +77,7 @@ export class SearchbarComponent implements OnInit, OnDestroy {
     const query = target.value;
     this.searchQuery = query;
     this.selectedIndex = -1;
-    
+
     this.searchQueryChanged.emit(query);
     this.searchSubject.next(query);
   }
@@ -152,21 +118,35 @@ export class SearchbarComponent implements OnInit, OnDestroy {
   private performSearch(query: string): void {
     if (query.trim().length < this.minSearchLength) {
       this.filteredResults = [];
+      this.ariaMessage = '';
       this.showResults = false;
       this.resultsChanged.emit(this.filteredResults);
       return;
     }
 
     const searchTerm = query.toLowerCase().trim();
-    
     this.filteredResults = this.data
       .filter(item => this.matchesSearchTerm(item, searchTerm))
       .slice(0, this.maxResults);
 
+    this.updateAriaMessage();
     this.showResults = true;
     this.selectedIndex = -1;
     this.resultsChanged.emit(this.filteredResults);
   }
+
+  private updateAriaMessage(): void {
+  if (this.filteredResults.length === 0) {
+    this.ariaMessage = `Aucun résultat trouvé pour "${this.searchQuery}"`;
+  } else {
+    const message = this.filteredResults.map(r => 
+      `${r.title}, ${r.description}`
+    ).join('. ');
+
+    this.ariaMessage = `${this.filteredResults.length} résultat${this.filteredResults.length > 1 ? 's' : ''} pour "${this.searchQuery}" : ${message}.`;
+  }
+}
+
 
   private matchesSearchTerm(item: SearchItem, searchTerm: string): boolean {
     return this.searchFields.some(field => {
@@ -177,18 +157,12 @@ export class SearchbarComponent implements OnInit, OnDestroy {
 
   private navigateDown(): void {
     if (this.filteredResults.length === 0) return;
-    
-    this.selectedIndex = this.selectedIndex < this.filteredResults.length - 1 
-      ? this.selectedIndex + 1 
-      : 0;
+    this.selectedIndex = this.selectedIndex < this.filteredResults.length - 1 ? this.selectedIndex + 1 : 0;
   }
 
   private navigateUp(): void {
     if (this.filteredResults.length === 0) return;
-    
-    this.selectedIndex = this.selectedIndex > 0 
-      ? this.selectedIndex - 1 
-      : this.filteredResults.length - 1;
+    this.selectedIndex = this.selectedIndex > 0 ? this.selectedIndex - 1 : this.filteredResults.length - 1;
   }
 
   private selectCurrentResult(): void {
@@ -209,19 +183,15 @@ export class SearchbarComponent implements OnInit, OnDestroy {
   }
 
   highlightText(text: string, searchTerm: string): string {
-    if (!searchTerm || !text) {
-      return text;
-    }
-
+    if (!searchTerm || !text) return text;
     const regex = new RegExp(`(${this.escapeRegExp(searchTerm)})`, 'gi');
     return text.replace(regex, '<span class="highlight">$1</span>');
   }
 
-  private escapeRegExp(string: string): string {
-    return string.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+  private escapeRegExp(str: string): string {
+    return str.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
   }
 
-  // Méthodes publiques pour contrôler le composant depuis l'extérieur
   public clearSearch(): void {
     this.searchQuery = '';
     this.filteredResults = [];
@@ -230,9 +200,7 @@ export class SearchbarComponent implements OnInit, OnDestroy {
 
   public focusInput(): void {
     const input = this.elementRef.nativeElement.querySelector('.search-input');
-    if (input) {
-      input.focus();
-    }
+    if (input) input.focus();
   }
 
   public setData(newData: SearchItem[]): void {

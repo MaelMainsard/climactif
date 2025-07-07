@@ -35,6 +35,8 @@ export class SearchbarComponent implements OnInit, OnDestroy {
   showResults: boolean = false;
   selectedIndex: number = -1;
 
+  public ariaMessage: string = '';
+
   private searchSubject = new Subject<string>();
   private destroy$ = new Subject<void>();
 

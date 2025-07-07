@@ -37,7 +37,7 @@ runs:
             name: 'Playwright Accessibility Report',
             head_sha: context.payload.pull_request.head.sha,
             status: 'completed',
-            conclusion: isFailure ? 'error' : 'success',
+            conclusion: isFailure ? 'failure' : 'success',
             output: {
               title: `🎭 Playwright Accessibility Report completed`,
               summary: 'Accessibility tests completed',

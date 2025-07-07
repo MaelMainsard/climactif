@@ -7,7 +7,7 @@ import { SearchbarComponent } from '../../components/searchbar/searchbar.compone
 @Component({
   selector: 'app-feelings',
   standalone: true,
-  imports: [NavbarComponent, TabsComponent, RefreshTitleComponent, SearchbarComponent],
+  imports: [NavbarComponent, TabsComponent, SearchbarComponent],
   templateUrl: './feelings.component.html',
 })
 export class FeelingsComponent {}

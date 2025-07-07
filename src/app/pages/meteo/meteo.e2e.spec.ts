@@ -1,11 +1,11 @@
 import { test, expect } from '@playwright/test';
 import AxeBuilder from '@axe-core/playwright';
 
-test.describe('Home Page - Accessibility and Quality Tests', () => {
+test.describe('Meteo Page - Accessibility and Quality Tests', () => {
 
 
   test.beforeEach(async ({ page }) => {
-    await page.goto('http://localhost:4200/partage');
+    await page.goto('http://localhost:4200/meteo');
     await page.waitForLoadState('networkidle');
   });
 
@@ -101,7 +101,7 @@ test.describe('Home Page - Accessibility and Quality Tests', () => {
 
   test('should load in reasonable time', async ({ page }) => {
     const startTime = Date.now();
-    await page.goto('http://localhost:4200');
+    await page.goto('http://localhost:4200/meteo');
     await page.waitForLoadState('domcontentloaded');
     const loadTime = Date.now() - startTime;
     expect(loadTime).toBeLessThan(3000);

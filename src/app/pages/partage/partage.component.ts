@@ -4,12 +4,12 @@ import { ButtonModule } from 'primeng/button';
 import { MoodFormComponent } from '../../components/mood-form/mood-form.component';
 
 @Component({
-  selector: 'app-home',
+  selector: 'app-partage',
   imports: [Dialog, ButtonModule, MoodFormComponent],
   standalone: true,
-  templateUrl: './home.component.html',
+  templateUrl: './partage.component.html',
 })
-export class HomeComponent implements OnInit {
+export class PartageComponent implements OnInit {
   visible: boolean = false;
 
   ngOnInit() {

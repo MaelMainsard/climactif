@@ -67,7 +67,7 @@ export class MoodFormComponent implements OnInit {
   }
 
   ngAfterViewInit() {
-    const myElement = document.getElementById('feelings');
+    const myElement = document.getElementById('meteo');
     if (!myElement) return;
     for (const child of myElement.children) {
       if (child instanceof HTMLButtonElement) {

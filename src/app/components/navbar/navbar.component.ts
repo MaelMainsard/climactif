@@ -17,7 +17,7 @@ export class NavbarComponent {
   items: MenuItem[] = [
     {
       label: 'Accueil',
-      icon: 'pi pi-home',
+      icon: 'pi pi-partage',
       routerLink: '/partage',
     },
     {

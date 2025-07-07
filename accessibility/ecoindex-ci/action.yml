@@ -21,7 +21,7 @@ runs:
       run: |
         pip install --no-cache-dir -r ./accessibility/ecoindex-ci/requirements.txt
         playwright install
-        python3 ./accessibility/ecoindex-ci/main.py http://localhost:4200/feelings
+        python3 ./accessibility/ecoindex-ci/main.py http://localhost:4200/meteo
         ECOINDEX_JSON=$(cat ecoindex-result.json)
         echo "result=$ECOINDEX_JSON" >> $GITHUB_OUTPUT
 

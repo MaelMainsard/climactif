@@ -29,6 +29,7 @@ runs:
         github-token: ${{ inputs.github-token }}
         script: |
           const summary = process.env.RESULT_SUMMARY;
+          const isFailure = summary.includes('Test run was failure free? false');
 
           await github.rest.checks.create({
             owner: context.repo.owner,
@@ -36,7 +37,7 @@ runs:
             name: 'Playwright Accessibility Report',
             head_sha: context.payload.pull_request.head.sha,
             status: 'completed',
-            conclusion: 'neutral',
+            conclusion: isFailure ? 'error' : 'success',
             output: {
               title: `🎭 Playwright Accessibility Report completed`,
               summary: 'Accessibility tests completed',

@@ -21,7 +21,7 @@ runs:
       run: |
         pip install --no-cache-dir -r ./accessibility/ecoindex-ci/requirements.txt
         playwright install
-        python3 ./accessibility/ecoindex-ci/main.py http://localhost:4200/feelings
+        python3 ./accessibility/ecoindex-ci/main.py http://localhost:4200/meteo
         ECOINDEX_JSON=$(cat ecoindex-result.json)
         echo "result=$ECOINDEX_JSON" >> $GITHUB_OUTPUT
 
@@ -40,7 +40,7 @@ runs:
             name: 'Ecoindex report',
             head_sha: context.payload.pull_request.head.sha,
             status: 'completed',
-            conclusion: ecoindexData.score >= 70 ? 'success' : 'error',
+            conclusion: ecoindexData.score >= 70 ? 'success' : 'failure',
             output: {
               title: `🌱 Ecoindex Report - URL tested : ${ecoindexData.url}`,
               summary: 'Environmental impact analysis completed',

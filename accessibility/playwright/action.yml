@@ -1,0 +1,50 @@
+name: 'Playwright + Axe-core Audit'
+description: 'Run Playwright + Axe-core audit and create PR comment'
+author: 'maelmainsard'
+
+inputs:
+  github-token:
+    description: 'GitHub token for creating checks'
+    required: true
+
+runs:
+  using: 'composite'
+  steps:
+    - name: Run test
+      shell: bash
+      id: test
+      run: |
+        npm run test:e2e || true
+        RESULT_SUMMARY=$(cat playwright-summary.txt)
+
+        echo "summary<<EOF" >> $GITHUB_OUTPUT
+        echo "$RESULT_SUMMARY" >> $GITHUB_OUTPUT
+        echo "EOF" >> $GITHUB_OUTPUT
+
+    - name: Create PR Check
+      uses: actions/github-script@v7
+      env:
+        RESULT_SUMMARY: ${{ steps.test.outputs.summary }}
+      with:
+        github-token: ${{ inputs.github-token }}
+        script: |
+          const summary = process.env.RESULT_SUMMARY;
+          const isFailure = summary.includes('Test run was failure free? false');
+
+          await github.rest.checks.create({
+            owner: context.repo.owner,
+            repo: context.repo.repo,
+            name: 'Playwright Accessibility Report',
+            head_sha: context.payload.pull_request.head.sha,
+            status: 'completed',
+            conclusion: isFailure ? 'failure' : 'success',
+            output: {
+              title: `🎭 Playwright Accessibility Report completed`,
+              summary: 'Accessibility tests completed',
+              text: `## 🎭 Playwright Accessibility Test Report
+
+          ${summary}
+
+          You can view more detail by executing npm run test:e2e locally`
+          }
+          });

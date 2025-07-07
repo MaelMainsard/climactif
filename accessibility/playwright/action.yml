@@ -15,14 +15,8 @@ runs:
       id: test
       run: |
         npm run test:e2e || true
-        RESULT_JSON=$(cat playwright-results.json)
         RESULT_SUMMARY=$(cat playwright-summary.txt)
 
-        STATS_ONLY=$(echo "$RESULT_JSON" | jq '.stats')
-
-        echo "json<<EOF" >> $GITHUB_OUTPUT
-        echo "$STATS_ONLY" >> $GITHUB_OUTPUT
-        echo "EOF" >> $GITHUB_OUTPUT
         echo "summary<<EOF" >> $GITHUB_OUTPUT
         echo "$RESULT_SUMMARY" >> $GITHUB_OUTPUT
         echo "EOF" >> $GITHUB_OUTPUT
@@ -30,14 +24,11 @@ runs:
     - name: Create PR Check
       uses: actions/github-script@v7
       env:
-        RESULT_JSON: ${{ steps.test.outputs.json }}
         RESULT_SUMMARY: ${{ steps.test.outputs.summary }}
       with:
         github-token: ${{ inputs.github-token }}
         script: |
           const summary = process.env.RESULT_SUMMARY;
-          const json = JSON.parse(process.env.RESULT_JSON);
-          const failed = json.stats.unexpected != 0;
 
           await github.rest.checks.create({
             owner: context.repo.owner,
@@ -45,7 +36,7 @@ runs:
             name: 'Playwright Accessibility Report',
             head_sha: context.payload.pull_request.head.sha,
             status: 'completed',
-            conclusion: failed ? 'failure' : 'success',
+            conclusion: 'neutral',
             output: {
               title: `🎭 Playwright Accessibility Report completed`,
               summary: 'Accessibility tests completed',

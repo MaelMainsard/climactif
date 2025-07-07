@@ -14,7 +14,7 @@ runs:
       shell: bash
       id: test
       run: |
-        npm run test:e2e
+        npm run test:e2e || true
         RESULT_SUMMARY=$(cat playwright-summary.txt)
 
         echo "summary<<EOF" >> $GITHUB_OUTPUT

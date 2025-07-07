@@ -2,12 +2,12 @@ import { Component, OnInit } from '@angular/core';
 import { TabsComponent } from '../../components/tabs/tabs.component';
 
 @Component({
-  selector: 'app-feelings',
+  selector: 'app-meteo',
   standalone: true,
   imports: [TabsComponent],
-  templateUrl: './feelings.component.html',
+  templateUrl: './meteo.component.html',
 })
-export class FeelingsComponent implements OnInit {
+export class MeteoComponent implements OnInit {
   ngOnInit() {
     document.title = 'Météo';
   }

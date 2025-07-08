@@ -15,7 +15,7 @@
           Ce formulaire vous permet de décrire votre humeur, de choisir des émotions et une couleur pour l'exprimer.
         </p>
         <fieldset>
-          <label for="feelings" class="sr-only">Émotions</label>
+          <label for="feelings" class="pb-2 block">Émotions (obligatoire)</label>
           <div
             id="feelings"
             class="flex flex-wrap justify-center gap-2"
@@ -23,6 +23,7 @@
             aria-label="Mots-clés"
             [attr.aria-required]="true"
             [attr.aria-invalid]="moodForm.get('keywords')?.invalid && moodForm.get('keywords')?.touched"
+            aria-describedby="keywords-error"
           >
             <button
               #keywordBtn
@@ -74,10 +75,10 @@
           [(ngModel)]="value"
           rows="2"
           class="mood-textarea w-full p-3 placeholder:text-black/60 bg-white/50 border-0 rounded-lg text-black"
-          placeholder="Décrivez ce que vous ressentez... *"
+          placeholder="Décrivez ce que vous ressentez... (obligatoire)"
           aria-required="true"
           [attr.aria-invalid]="moodForm.get('description')?.invalid && moodForm.get('description')?.touched"
-          aria-describedby="moodform-desc description-error"
+          aria-describedby="description-error"
         >
         </textarea>
         <div

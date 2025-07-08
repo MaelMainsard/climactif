@@ -41,7 +41,7 @@ runs:
             output: {
               title: `🎭 Playwright Accessibility Report completed`,
               summary: 'Accessibility tests completed',
-              text: `## 🎭 Playwright Accessibility Test Report
+              text: `## 🎭 Playwright Accessibility test Report
 
           ${summary}
 

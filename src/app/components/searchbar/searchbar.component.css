@@ -6,7 +6,7 @@
 
 .search-wrapper {
   position: relative;
-  background: white;
+  background: var(--p-surface-card);
   border-radius: 25px;
   border: 3px solid #f2bd9e;
   padding: 12px 20px;
@@ -142,7 +142,6 @@
   color: #000;
 }
 
-
 /* Style pour le surlignage */
 :host ::ng-deep .highlight {
   background-color: #fff2cc;
@@ -154,11 +153,11 @@
   .search-container {
     max-width: 100%;
   }
-  
+
   .search-wrapper {
     padding: 10px 16px;
   }
-  
+
   .search-input {
     font-size: 16px; /* Évite le zoom sur iOS */
   }

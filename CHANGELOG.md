@@ -1,3 +1,42 @@
+# [1.2.0](https://github.com/MaelMainsard/climactif/compare/v1.1.0...v1.2.0) (2025-07-03)
+
+
+### Bug Fixes
+
+* **gotomain:** va au main de la page sur laquel on se trouve (pas toujours celle de départ) ([4dd5450](https://github.com/MaelMainsard/climactif/commit/4dd5450347c0996e17b3b8e18c8b42c5e258a192))
+* **meteo:** suppression ([0edb97d](https://github.com/MaelMainsard/climactif/commit/0edb97d1752019d906f48d0ecb91f30d241efbb3))
+
+
+### Features
+
+* **gotomain:** ajout du bouton pour aller au contenu principal ([d9bb2a1](https://github.com/MaelMainsard/climactif/commit/d9bb2a1469790c288b065e5468719361421518fe))
+* **pages:** renommer le path des pages (sentiments devient accueil) ([8aab113](https://github.com/MaelMainsard/climactif/commit/8aab11381be5ce922e83564c3a0b760b1796fe31))
+
+# [1.1.0](https://github.com/MaelMainsard/climactif/compare/v1.0.0...v1.1.0) (2025-07-03)
+
+
+### Bug Fixes
+
+* **feelings:** suppression des imports inutilisés ([dd910ea](https://github.com/MaelMainsard/climactif/commit/dd910ea0b1c15be61a9bbd87d93b9151a9d30dcf))
+* **form:** solved small color error on hover ([cac9a1c](https://github.com/MaelMainsard/climactif/commit/cac9a1c40cadaf20a8c0c10cb1d5466a2df6607b))
+* **navbar:** Ajout d'un darmode switch dans la nav bar ([f4b6c5d](https://github.com/MaelMainsard/climactif/commit/f4b6c5dd2847d1b34373eb09b096b390c60c00fd))
+* **tab:** Modification bg transparent ([39d290f](https://github.com/MaelMainsard/climactif/commit/39d290fead9588cb7199c3695b6370c7a12df2fd))
+
+
+### Features
+
+* ajout des panels par jour ([1d37a68](https://github.com/MaelMainsard/climactif/commit/1d37a68a13e4cfcbc990b4a4ecc565da82a23dc5))
+* **card:** ajout mode vertical ([18d11f9](https://github.com/MaelMainsard/climactif/commit/18d11f91f6205ba5aa44d01027ffe4a356d23632))
+* **card:** changement de margin et ajout de ul/li ([7a1e97f](https://github.com/MaelMainsard/climactif/commit/7a1e97f7d2685eb37bc00afed3d638fae5ccc831))
+* **darmode:** Ajout du darkmode ([e76d676](https://github.com/MaelMainsard/climactif/commit/e76d6769cce4c2778068d1da887fd795d43e7b42))
+* **form:** Added validation ([3c1f032](https://github.com/MaelMainsard/climactif/commit/3c1f03272fb2ed81b5775b2203bcd6b72e36cb20))
+* **form:** dynamically changing dialog theme ([f3c94b8](https://github.com/MaelMainsard/climactif/commit/f3c94b84e2629439a0b73023f4ad66f525ac3ac5))
+* **form:** improved accessibility ([f617e28](https://github.com/MaelMainsard/climactif/commit/f617e28f840e7dde47e759580769a267bfb93f6c))
+* **form:** minor tweaks ([69ae00b](https://github.com/MaelMainsard/climactif/commit/69ae00b093de710a1a0c1be8d111341d8906d04c))
+* **form:** minor tweaks ([da4fe52](https://github.com/MaelMainsard/climactif/commit/da4fe522295ca6ce3d7fad37622f884fa8192ba3))
+* **form:** tweaked colors ([c41c9d7](https://github.com/MaelMainsard/climactif/commit/c41c9d7d5a2021c3a00d5a53465a700fda049456))
+* **theme:** automatic primary-based theme generation ([3c6e826](https://github.com/MaelMainsard/climactif/commit/3c6e826ac35934fe5719cdfe66af175e25291fc3))
+
 # 1.0.0 (2025-07-01)
 
 

@@ -47,4 +47,4 @@ node_modules/
 /test-results/
 /blob-report/
 /playwright/.cache/
-.playwright-summary.txt
+playwright-summary.txt

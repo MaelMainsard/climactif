@@ -1,6 +1,6 @@
 # Climactif
 
-Site web pour sensibiliser et accompagner les utilisateurs dans leurs actions climat.
+Site web pour sensibiliser et accompagner les utilisateurs dans leurs actions climat..
 
 ## Get Started
 

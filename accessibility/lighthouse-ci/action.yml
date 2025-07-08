@@ -13,7 +13,9 @@ runs:
     - name: Audit URLs using Lighthouse
       uses: treosh/lighthouse-ci-action@v12
       with:
-        urls: 'http://localhost:4200/feelings'
+        urls: |
+          http://localhost:4200/meteo
+          http://localhost:4200/partage
         uploadArtifacts: true
         temporaryPublicStorage: true
       env:

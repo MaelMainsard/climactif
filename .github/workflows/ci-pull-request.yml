@@ -42,8 +42,15 @@ jobs:
         with:
           github-token: ${{ secrets.LHCI_GITHUB_APP_TOKEN }}
 
+
+      - name: Run Playright + Axe-Core Audit
+        uses: ./accessibility/playwright
+        with:
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+
       - name: Run Ecoindex Audit
         uses: ./accessibility/ecoindex-ci
         with:
             github-token: ${{ secrets.GITHUB_TOKEN }}
+
 

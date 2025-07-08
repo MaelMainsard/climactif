@@ -15,7 +15,7 @@
           Ce formulaire vous permet de décrire votre humeur, de choisir des émotions et une couleur pour l'exprimer.
         </p>
         <fieldset>
-          <label for="feelings" class="sr-only">Émotions</label>
+          <label for="feelings" class="pb-2 block text-black">Émotions (obligatoire)</label>
           <div
             id="feelings"
             class="flex flex-wrap justify-center gap-2"
@@ -23,8 +23,10 @@
             aria-label="Mots-clés"
             [attr.aria-required]="true"
             [attr.aria-invalid]="moodForm.get('keywords')?.invalid && moodForm.get('keywords')?.touched"
+            aria-describedby="keywords-error"
           >
             <button
+              #keywordBtn
               *ngFor="let keyword of keywords"
               type="button"
               (click)="toggleKeyword(keyword)"
@@ -50,6 +52,7 @@
       <div class="flex flex-col gap-2 mt-2">
         <label for="color" class="sr-only">Couleur</label>
         <p-slider
+          #colorSlider
           id="color"
           formControlName="color"
           styleClass="color-slider"
@@ -65,16 +68,17 @@
       <div class="flex flex-col gap-2 mt-2">
         <label for="description" class="sr-only">Ressenti</label>
         <textarea
+          #descTextarea
           pTextarea
           id="description"
           formControlName="description"
           [(ngModel)]="value"
           rows="2"
           class="mood-textarea w-full p-3 placeholder:text-black/60 bg-white/50 border-0 rounded-lg text-black"
-          placeholder="Décrivez ce que vous ressentez... *"
+          placeholder="Décrivez ce que vous ressentez... (obligatoire)"
           aria-required="true"
           [attr.aria-invalid]="moodForm.get('description')?.invalid && moodForm.get('description')?.touched"
-          aria-describedby="moodform-desc description-error"
+          aria-describedby="description-error"
         >
         </textarea>
         <div
@@ -89,7 +93,7 @@
 
     <div class="button-row flex items-center gap-4 mt-8">
       <p-button label="Annuler" (click)="onCancel()" [text]="true" class="w-full" aria-label="Annuler" />
-      <p-button label="Publier" (click)="onSave()" class="w-full" aria-label="Publier" />
+      <p-button label="Publier votre humeur" (click)="onSave()" class="w-full" aria-label="Publier votre humeur" />
     </div>
   </div>
 </div>

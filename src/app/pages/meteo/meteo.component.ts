@@ -1,11 +1,15 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { TabsComponent } from '../../components/tabs/tabs.component';
+import { SearchbarComponent } from '../../components/searchbar/searchbar.component';
 
 @Component({
   selector: 'app-meteo',
-  imports: [],
+  standalone: true,
+  imports: [TabsComponent, SearchbarComponent],
   templateUrl: './meteo.component.html',
-  styleUrl: './meteo.component.css'
 })
-export class MeteoComponent {
-
+export class MeteoComponent implements OnInit {
+  ngOnInit() {
+    document.title = 'Météo';
+  }
 }

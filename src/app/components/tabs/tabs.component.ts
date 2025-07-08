@@ -5,8 +5,7 @@ import { CardComponent } from "../card/card.component";
 @Component({
   selector: 'app-tabs',
   imports: [TabsModule, CardComponent],
-  templateUrl: './tabs.component.html',
-  styleUrl: './tabs.component.css'
+  templateUrl: './tabs.component.html'
 })
 export class TabsComponent {
 

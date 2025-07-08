@@ -5,6 +5,9 @@
     color-mix(in srgb, var(--p-primary-color), var(--p-surface-ground) 50%),
     color-mix(in srgb, var(--p-primary-color), var(--p-surface-ground) 75%)
   );
+  box-sizing: border-box;
+  max-height: 80vh;
+  overflow-y: auto;
 }
 
 :host ::ng-deep .color-slider.p-slider {
@@ -24,7 +27,7 @@
 }
 
 .mood-chip {
-  background: var(--p-surface-card);
+  background: var(--p-surface-ground);
   color: var(--p-surface-on);
   border: none;
 }

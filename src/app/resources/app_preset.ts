@@ -14,7 +14,7 @@ export function createColorScheme(primary: string) {
     .set('hsl.l', primaryIsDark ? 0.96 : 0.05)
     .hex();
   const card = chroma(primary)
-    .set('hsl.l', primaryIsDark ? 0.96 : 0.05)
+    .set('hsl.l', primaryIsDark ? 1 : 0.05)
     .hex();
   const onSurface = primaryIsDark ? '#000000' : '#ffffff';
 

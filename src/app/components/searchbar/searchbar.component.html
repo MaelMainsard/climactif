@@ -9,43 +9,44 @@
 
     <label for="searchInput" class="sr-only">Rechercher une émotion</label>
 
-    <input 
-  id="searchInput"
-  name="search"
-  type="text"
-  class="search-input"
-  placeholder="{{ placeholder }}"
-  [(ngModel)]="searchQuery"
-  (input)="onSearchInput($event)"
-  (keydown)="onKeyDown($event)"
-  (focus)="onFocus()"
-  autocomplete="off"
-  aria-describedby="searchDescription"
->
+    <input
+      id="searchInput"
+      name="search"
+      type="text"
+      class="search-input"
+      placeholder="{{ placeholder }}"
+      [(ngModel)]="searchQuery"
+      (input)="onSearchInput($event)"
+      (keydown)="onKeyDown($event)"
+      (focus)="onFocus()"
+      autocomplete="off"
+      aria-describedby="searchDescription"
+    />
 
- <div aria-live="polite" aria-atomic="true" class="sr-only" id="searchDescription">
-  {{ ariaMessage }}
-</div>
-
+    <div aria-live="polite" aria-atomic="true" class="sr-only" id="searchDescription">
+      {{ ariaMessage }}
+    </div>
   </div>
 
-  <div 
+  <div
     class="search-results"
-    [class.show]="showResults && searchQuery.trim().length >= minSearchLength && (filteredResults.length > 0 || searchQuery.trim().length > 0)"
+    [class.show]="
+      showResults &&
+      searchQuery.trim().length >= minSearchLength &&
+      (filteredResults.length > 0 || searchQuery.trim().length > 0)
+    "
     aria-live="polite"
     role="region"
     aria-label="Résultats de recherche"
   >
     @if (filteredResults.length === 0 && searchQuery.trim().length >= minSearchLength) {
-      <div class="no-results" role="alert">
-        Aucun résultat trouvé
-      </div>
+      <div class="no-results" role="alert">Aucun résultat trouvé</div>
     }
 
     @if (filteredResults.length > 0) {
       <ul class="results-list" role="list">
         @for (result of filteredResults; track result.id; let i = $index) {
-          <li 
+          <li
             class="search-result-item"
             [class.selected]="selectedIndex === i"
             (click)="selectResult(result)"

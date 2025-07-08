@@ -1,3 +1,10 @@
+## [1.3.1](https://github.com/MaelMainsard/climactif/compare/v1.3.0...v1.3.1) (2025-07-08)
+
+
+### Bug Fixes
+
+* **accessibility:** improved form accessibility ([fafe55d](https://github.com/MaelMainsard/climactif/commit/fafe55df75951f8318299e4a5f2254b981b3a444))
+
 # [1.3.0](https://github.com/MaelMainsard/climactif/compare/v1.2.0...v1.3.0) (2025-07-08)
 
 

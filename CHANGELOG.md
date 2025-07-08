@@ -1,3 +1,35 @@
+# [1.3.0](https://github.com/MaelMainsard/climactif/compare/v1.2.0...v1.3.0) (2025-07-08)
+
+
+### Bug Fixes
+
+* **form:** better publish label ([30f91c4](https://github.com/MaelMainsard/climactif/commit/30f91c40b17d70df7c9008c81d1fdcb85ac320a2))
+* **form:** focus has wrong color ([5032aa2](https://github.com/MaelMainsard/climactif/commit/5032aa22b83a9950b268083c35ac96e4a96ec70e))
+* **form:** invalid fields are not focused on submission ([97e774c](https://github.com/MaelMainsard/climactif/commit/97e774cbc69625489f399361bbb0298943e7badf))
+* **form:** no focus when dialog opens ([bf2d949](https://github.com/MaelMainsard/climactif/commit/bf2d949c63438fc0428dcf520ea4568a032ad1d7))
+* **form:** open dialog button is not focused after dialog is closed ([92e1716](https://github.com/MaelMainsard/climactif/commit/92e1716c938a01947edac9e2806ef3e62d0945de))
+* **form:** the background is interactable while the dialog is open ([cb521ed](https://github.com/MaelMainsard/climactif/commit/cb521edb1f13b42c326b20e17baaa0fe0477b4f3))
+* **main:** responsive ([6fcec94](https://github.com/MaelMainsard/climactif/commit/6fcec942144b09335f208b66ca64cf9523653fbf))
+* **playwright:** Correction de la ci playwright ([52621c1](https://github.com/MaelMainsard/climactif/commit/52621c146dc1b3932ad55242599df88dcbe0af68))
+* **playwright:** Correction de la ci playwright ([62d0753](https://github.com/MaelMainsard/climactif/commit/62d0753af20d6105460ade181d664701a765025a))
+* **playwright:** Correction de la ci playwright ([bd561b9](https://github.com/MaelMainsard/climactif/commit/bd561b9f3cd4b623b6aa64d46d72a6369c34b027))
+* **playwright:** Correction de la ci playwright ([cfde95a](https://github.com/MaelMainsard/climactif/commit/cfde95a38409035d108bc96b79fb6a8cc89af445))
+
+
+### Features
+
+* **cicd:** Ajout de playright dans la ci ([9995c09](https://github.com/MaelMainsard/climactif/commit/9995c090bd4e83d66c902bd0b9b19de0a522fd77))
+* **cleanup:** cleanup colors ([ffb5411](https://github.com/MaelMainsard/climactif/commit/ffb54112ed354cf787e00d36a56d744b73e22d70))
+* **cleanup:** removed home ([8641ca8](https://github.com/MaelMainsard/climactif/commit/8641ca8fa3911318f7199f6bb5227afdf4ed038b))
+* **cleanup:** removed unused pages ([f81963d](https://github.com/MaelMainsard/climactif/commit/f81963d3afc61f78dfa4af2ca3f97746df025f8a))
+* **focus:** implemented virtual title ([d264943](https://github.com/MaelMainsard/climactif/commit/d2649437db994f9b4f46e06406a5752df8c9ef2e))
+* **focus:** reworked refresh title ([6f11d41](https://github.com/MaelMainsard/climactif/commit/6f11d411cc7181eda151bbabfb5f6a1140fc9030))
+* intégration de la barre de recherche ([6419de4](https://github.com/MaelMainsard/climactif/commit/6419de4470989764db4b60ad9010a65eb2e63bc8))
+* **main_shortcut:** added main content shortcut ([43fbba5](https://github.com/MaelMainsard/climactif/commit/43fbba5ba30d998d1748b21881b00cf334bb4f71))
+* **navbar:** clicking on the logo goes to home ([5d18ab7](https://github.com/MaelMainsard/climactif/commit/5d18ab75d1400abb85eb081ce2c4bf9ef32d5c1f))
+* **responsivity:** added responsivity in main ([d923ad7](https://github.com/MaelMainsard/climactif/commit/d923ad7d0a66c50015fdbe143f550b52bfcfd7e5))
+* **responsivity:** added responsivity in mood form ([7bcc6b3](https://github.com/MaelMainsard/climactif/commit/7bcc6b3931d0a2af3f2aefb704fb8a5e92db6daa))
+
 # [1.2.0](https://github.com/MaelMainsard/climactif/compare/v1.1.0...v1.2.0) (2025-07-03)
 
 

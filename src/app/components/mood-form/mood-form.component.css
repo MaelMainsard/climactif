@@ -27,7 +27,7 @@
 }
 
 .mood-chip {
-  background: var(--p-surface-card);
+  background: var(--p-surface-ground);
   color: var(--p-surface-on);
   border: none;
 }

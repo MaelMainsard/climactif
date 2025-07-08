@@ -1,16 +1,15 @@
-import {Component, OnChanges, OnInit} from '@angular/core';
+import { Component } from '@angular/core';
 import { RouterModule } from '@angular/router';
 import { ButtonModule } from 'primeng/button';
 import { MenuItem } from 'primeng/api';
-import { Menubar } from 'primeng/menubar';
-import {ToggleSwitch} from 'primeng/toggleswitch';
-import {FormsModule} from '@angular/forms';
+import { ToggleSwitch } from 'primeng/toggleswitch';
+import { FormsModule } from '@angular/forms';
 
 @Component({
   selector: 'app-navbar',
   standalone: true,
-  imports: [ButtonModule, RouterModule, Menubar, ToggleSwitch, FormsModule],
-  templateUrl: './navbar.component.html'
+  imports: [ButtonModule, RouterModule, ToggleSwitch, FormsModule],
+  templateUrl: './navbar.component.html',
 })
 export class NavbarComponent {
   darkMode: boolean = false;
@@ -18,7 +17,7 @@ export class NavbarComponent {
   items: MenuItem[] = [
     {
       label: 'Accueil',
-      icon: 'pi pi-home',
+      icon: 'pi pi-partage',
       routerLink: '/partage',
     },
     {
@@ -28,9 +27,8 @@ export class NavbarComponent {
     },
   ];
 
-  toggleDarkMode()  {
+  toggleDarkMode() {
     const element = document.querySelector('html');
-    if (element != null)
-      element.classList.toggle('my-app-dark');
+    if (element != null) element.classList.toggle('my-app-dark');
   }
 }

@@ -25,6 +25,7 @@
             [attr.aria-invalid]="moodForm.get('keywords')?.invalid && moodForm.get('keywords')?.touched"
           >
             <button
+              #keywordBtn
               *ngFor="let keyword of keywords"
               type="button"
               (click)="toggleKeyword(keyword)"
@@ -50,6 +51,7 @@
       <div class="flex flex-col gap-2 mt-2">
         <label for="color" class="sr-only">Couleur</label>
         <p-slider
+          #colorSlider
           id="color"
           formControlName="color"
           styleClass="color-slider"
@@ -65,6 +67,7 @@
       <div class="flex flex-col gap-2 mt-2">
         <label for="description" class="sr-only">Ressenti</label>
         <textarea
+          #descTextarea
           pTextarea
           id="description"
           formControlName="description"
@@ -89,7 +92,7 @@
 
     <div class="button-row flex items-center gap-4 mt-8">
       <p-button label="Annuler" (click)="onCancel()" [text]="true" class="w-full" aria-label="Annuler" />
-      <p-button label="Publier" (click)="onSave()" class="w-full" aria-label="Publier" />
+      <p-button label="Publier votre humeur" (click)="onSave()" class="w-full" aria-label="Publier votre humeur" />
     </div>
   </div>
 </div>
